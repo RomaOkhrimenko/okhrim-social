@@ -1,0 +1,14 @@
+html,body {
+  font-size: 10px;
+}
+
+body {
+  color: $default-color;
+  font-family: 'Barlow', sans-serif;
+  background-color: $background-color;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
