@@ -1,0 +1,37 @@
+.navbar {
+  position: fixed;
+  width: var(--navbar-width);
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #FBFAFF;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+  z-index: 101;
+  overflow-y: auto;
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8rem;
+    a {
+      margin-bottom: 3rem;
+      padding: 1rem 0;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+
+      &.active,
+      &:hover {
+        background-color: rgba(68, 97, 242, 0.8);
+      }
+
+    }
+  }
+}

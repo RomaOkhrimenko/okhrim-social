@@ -21,12 +21,12 @@ const LoginForm: FC<IProps> = ({isLogin}) => {
 
     const navigate = useNavigate()
 
-    const {register, formState: {errors, isValid}, handleSubmit, reset} = useForm({mode: "onBlur"})
+    const {register, formState: {errors}, handleSubmit, reset} = useForm()
 
     const onSubmit = (data: any) => {
         alert(JSON.stringify(data))
         reset()
-        navigate('/settings')
+        navigate('/settings-account')
     }
 
     return (
@@ -55,7 +55,7 @@ const LoginForm: FC<IProps> = ({isLogin}) => {
             </div>
 
             {isLogin &&  <span className={styles.login_form__recover}>Recover Password ?</span>}
-            <Button type={'submit'} className={`${styles.login_form__button} ${isValid ? '' : styles.disabled}`}>{isLogin ? 'Sign In' : 'Sign Up'}</Button>
+            <Button type={'submit'} className={`${styles.login_form__button}`}>{isLogin ? 'Sign In' : 'Sign Up'}</Button>
             <div className={styles.login_form__choose}>
                 <div className={styles.login_form__choose_line} />
                 <span>Or continue with</span>

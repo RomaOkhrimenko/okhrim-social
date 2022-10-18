@@ -3,7 +3,7 @@ import React, {FC, SetStateAction} from 'react';
 interface IInput {
     value: string
     setValue: any
-    type?: 'email' | 'text' | 'password',
+    type?: 'email' | 'text' | 'password' | 'checkbox',
     placeholder?: string,
     register?: any,
     registerOptions?: any,

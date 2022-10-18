@@ -1,0 +1,125 @@
+.last_step_form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 440px;
+  padding: 0 2rem;
+
+  input[type='text'] {
+    padding: 1.4rem 1.6rem;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #7E7E7E;
+    background-color: #fff;
+    border: 1px solid #D0CFCF;
+    border-radius: 4px;
+
+    transition: border 0.3s, color 0.3s;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    position: relative;
+
+    .error_input {
+      border: 1px solid #BF0B0B !important;
+      color: #BF0B0B !important;
+
+      &::placeholder {
+        color: #BF0B0B;
+      }
+    }
+
+    span {
+      font-size: 1.2rem;
+      margin-top: 0.4rem;
+    }
+
+    &_error {
+      color: #BF0B0B;
+      position: absolute;
+      top: -2rem;
+    }
+  }
+
+  &__birthday {
+    cursor: pointer;
+  }
+
+  &__checkboxes {
+      position: relative;
+      text-align: left;
+      margin-bottom: 4.6rem;
+
+      @media (min-width: 1024px) {
+        margin-bottom: 4.5rem;
+      }
+      & > span {
+        font-size: 1.6rem;
+        line-height: 26px;
+        color: rgba(0, 0, 0, 0.87);
+      }
+
+      & > div {
+        margin-top: 0.9rem;
+
+        & > div {
+          margin-bottom: 0.7rem;
+        }
+      }
+
+      input {
+        -webkit-appearance: none;
+        appearance: none;
+        position: absolute;
+
+        &:checked + label:before {
+          border: 1px solid #4461F2;
+        }
+        &:checked + label:after {
+          transform: scale(1);
+        }
+      }
+
+      label {
+        font-size: 1.6rem;
+        line-height: 26px;
+        color: rgba(0, 0, 0, 0.87);
+        position: relative;
+        padding-left: 3.2rem;
+        user-select: none;
+        cursor: pointer;
+
+        &:before {
+          content: '';
+          width: 20px;
+          height: 20px;
+          border: 1px solid #D0CFCF;
+
+          position: absolute;
+          border-radius: 50%;
+          left: -1px;
+          top: 0;
+          z-index: 1;
+          transition: border 0.5s
+        }
+
+        &:after {
+          content: '';
+          width: 10px;
+          height: 10px;
+          background-color: #4461F2;
+          border-radius: 50%;
+          position: absolute;
+          left: 5px;
+          top: 6px;
+          z-index: 2;
+          transform: scale(0);
+          transition: transform 0.5s;
+        }
+      }
+  }
+}

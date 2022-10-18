@@ -1,0 +1,115 @@
+.header {
+  position: fixed;
+  top: 0;
+  height: var(--header-height);
+  background-color: #FBFAFF;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-right: 5rem;
+  z-index: 100;
+
+  &__content {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    &_notification {
+      position: relative;
+      cursor: pointer;
+      margin-right: 5rem;
+
+      svg {
+        color: #768396;
+        transition: color 0.5s;
+      }
+
+      &:hover {
+        svg {
+          color: #4461F2;
+        }
+
+        .header__content_notification_count {
+         transform: translateY(5px);
+        }
+      }
+
+      &_count {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background-color: #4461F2;
+        color: #fff;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        transition: transform 0.3s;
+      }
+    }
+
+    &_avatar {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &.active {
+        svg {
+          transform: rotate(180deg) scale(1.2);
+        }
+      }
+
+      &:hover {
+        .header__content_avatar_image {
+          box-shadow: 0 0 15px #4461F2;
+        }
+      }
+
+      &_image {
+        width: 50px;
+        height: 50px;
+        background-color: #4461F2;
+        border-radius: 50%;
+        margin-right: 1rem;
+        transition: box-shadow 0.5s;
+      }
+
+      svg {
+        transition: transform 0.5s;
+        transform: scale(1.2);
+      }
+    }
+
+    &_menu {
+      position: fixed;
+      right: 5rem;
+      top: var(--header-height);
+      display: flex;
+      flex-direction: column;
+      width: 150px;
+      background-color: #FBFAFF;
+      padding: 2rem 3rem;
+      opacity: 0;
+      border-radius: 0 0 20px 20px;
+      transition: opacity 0.3s;
+      pointer-events: none;
+
+      &.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      a {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #4461F2;
+        }
+      }
+    }
+  }
+}
