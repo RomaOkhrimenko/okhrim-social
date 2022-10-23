@@ -5,9 +5,13 @@ import styles from './Header.module.scss'
 import {ReactComponent as Notification } from "../../assets/images/svg/notification-ico.svg";
 import {ReactComponent as ArrowDown } from "../../assets/images/svg/arrow-down.svg";
 import {Link} from "react-router-dom";
+import {useAppDispatch} from "../../hooks/redux";
+import {logout} from "../../store/redux/actions/authAction";
 
 const Header = () => {
     const [isShowMenu, setIsShowMenu] = useState(true)
+
+    const dispatch = useAppDispatch()
 
     const handleShowMenu = (e: any) => {
         if(isShowMenu) {
@@ -39,7 +43,7 @@ const Header = () => {
                 <div className={`${styles.header__content_menu} header_menu ${isShowMenu ? styles.active : ''}`}>
                     <Link to={'/settings'}>Settings</Link>
                     <Link to={'/profile'}>Profile</Link>
-                    <Link to={'/login'}>Log out</Link>
+                    <span onClick={() => dispatch(logout())}>Log out</span>
                 </div>
             </div>
         </div>

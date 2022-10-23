@@ -1,9 +1,6 @@
 .settings_page {
   position: relative;
-  &__progressbar {
-    height: 5px;
-    background-color: #4461F2;
-    transition: width 0.5s;
-    position: fixed;
+  @media (max-width: 1440px) {
+    padding: 0 2rem;
   }
 }

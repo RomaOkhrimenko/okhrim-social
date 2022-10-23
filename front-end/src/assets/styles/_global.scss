@@ -18,3 +18,8 @@ body {
   margin: 0 auto;
 
 }
+
+.swiper-button-disabled {
+  opacity: 0 !important;
+  pointer-events: none;
+}

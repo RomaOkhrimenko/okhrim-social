@@ -101,7 +101,8 @@
         pointer-events: auto;
       }
 
-      a {
+      a,
+      span {
         font-size: 1.5rem;
         margin-bottom: 2rem;
         transition: color 0.3s;

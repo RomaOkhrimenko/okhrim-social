@@ -80,6 +80,13 @@ class AuthenticationService {
     async getAllUsers() {
         return UserModel.find();
     }
+
+    async createProfile(body) {
+        const user = await UserModel.findById(body.id)
+        user.profile = body.profile
+        await user.save()
+        return user
+    }
 }
 
 module.exports = new AuthenticationService()

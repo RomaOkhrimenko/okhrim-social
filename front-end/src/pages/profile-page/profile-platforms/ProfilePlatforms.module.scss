@@ -1,0 +1,36 @@
+.profile_platforms {
+  margin-bottom: 5rem;
+
+  @media (max-width: 1440px) {
+    padding: 0 2rem;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 3rem;
+  }
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__genre {
+    margin-right: 3rem;
+    font-size: 1.6rem;
+    line-height: 16px;
+    padding:  1rem 3rem;
+    border-radius: 15px;
+    background-color: #4461F2;
+    color: #fff;
+    margin-bottom: 1.3rem;
+
+    @media (max-width: 768px) {
+      margin-right: 2rem;
+    }
+  }
+}

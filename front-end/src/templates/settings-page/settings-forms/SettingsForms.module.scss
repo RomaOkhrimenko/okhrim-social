@@ -1,0 +1,27 @@
+.settings_forms {
+  z-index: 5;
+  position: relative;
+  bottom: 3rem;
+  margin-left: 6rem;
+  &__navigation {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: #6A7181;
+    margin-bottom: 5rem;
+
+    li {
+      margin-right: 3rem;
+      transition: color 0.5s, opacity 0.5s;
+      cursor: pointer;
+      font-weight: 500;
+      opacity: 0.6;
+      &.active {
+        color: #232360;
+        opacity: 1;
+      }
+    }
+  }
+}

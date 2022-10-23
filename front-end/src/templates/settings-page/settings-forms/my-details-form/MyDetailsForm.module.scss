@@ -1,0 +1,16 @@
+.my_details_Form {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+
+  input[type='text'] {
+    border: 1px solid #E5E5ED;
+    border-radius: 9px;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 18px;
+    color: #768396;
+    padding: 1.3rem 1.7rem;
+    margin-bottom: 3rem;
+  }
+}

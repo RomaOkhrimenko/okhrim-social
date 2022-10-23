@@ -8,6 +8,8 @@ import {ReactComponent as GoogleIco} from '../../../assets/images/svg/google-ico
 import Input from "../../../ui/Input";
 import Button from "../../../ui/Button";
 import {useNavigate} from "react-router";
+import {useAppDispatch} from "../../../hooks/redux";
+import {login, registration} from "../../../store/redux/actions/authAction";
 
 interface IProps {
     isLogin: boolean
@@ -19,14 +21,21 @@ const LoginForm: FC<IProps> = ({isLogin}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const dispatch = useAppDispatch()
+
     const navigate = useNavigate()
 
     const {register, formState: {errors}, handleSubmit, reset} = useForm()
 
     const onSubmit = (data: any) => {
-        alert(JSON.stringify(data))
+        console.log(data)
+
+        if(isLogin) {
+            dispatch(login(data.email, data.password))
+        } else {
+            dispatch(registration(data.email, data.password))
+        }
         reset()
-        navigate('/settings-account')
     }
 
     return (

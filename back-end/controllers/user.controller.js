@@ -76,6 +76,15 @@ class UserController {
             next(e)
         }
     }
+
+    async createProfile(req, res, next) {
+        try {
+            const user = await userService.createProfile(req.body)
+            return res.json(user)
+        } catch (e) {
+            next(e)
+        }
+    }
 }
 
 module.exports = new UserController()

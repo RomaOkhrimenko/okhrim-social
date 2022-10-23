@@ -9,7 +9,7 @@ import Rust from '../../../assets/images/jpg/games/rust.jpg'
 import Apex from '../../../assets/images/jpg/games/apex.jpg'
 
 import Button from "../../../ui/Button";
-import GameBlock from "../game-block/GameBlock";
+import GameBlock from "../../blocks/game-block/GameBlock";
 import Input from "../../../ui/Input";
 
 interface IProps {
