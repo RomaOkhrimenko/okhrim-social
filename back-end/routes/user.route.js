@@ -15,5 +15,6 @@ router.get('/activate/:link', userController.activate)
 router.get('/refresh', userController.refresh)
 router.get('/users', userController.getUsers)
 router.post('/create-profile', userController.createProfile)
+router.post('/request-friend', userController.requestFriend)
 
 module.exports = router

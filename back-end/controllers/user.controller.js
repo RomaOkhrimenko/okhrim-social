@@ -85,6 +85,16 @@ class UserController {
             next(e)
         }
     }
+
+    async requestFriend(req, res, next) {
+        try {
+            const result = await userService.requestFriend(req.body.userId, req.body.friendId)
+
+            return res.status(201).json(result)
+        } catch (e) {
+            next(e)
+        }
+    }
 }
 
 module.exports = new UserController()

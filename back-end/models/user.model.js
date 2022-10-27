@@ -9,30 +9,39 @@ const UserSchema = new Schema({
         username: {
             type: String,
         },
+        image: {
+            type: String
+        },
         description: {
             type: String
         },
         birthday: {
             type: String
         },
-        friends: [],
+        friends: {
+            incomeRequests:[{
+                type: Schema.Types.ObjectId,
+                ref: 'users'
+            }],
+            outcomeRequests:[{
+                type: Schema.Types.ObjectId,
+                ref: 'users'
+
+            }],
+            friends: [{
+                type: Schema.Types.ObjectId,
+                ref: 'users'
+            }]
+        },
         platforms: [
             {type: Schema.Types.ObjectId, ref: 'Platform'}
         ],
         games: [
-            {
-                image: {
-                    type: String,
-                },
-                name: {
-                    type: String
-                },
-                slug: {
-                    type: String
-                }
-            }
+            {type: Schema.Types.ObjectId, ref: 'Game'}
         ],
-        genres: [],
+        genres: [
+            {type: Schema.Types.ObjectId, ref: 'Genre'}
+        ],
         isComplete: {
             type: Boolean,
             default: false

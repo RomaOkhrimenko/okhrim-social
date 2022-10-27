@@ -11,6 +11,7 @@ import Strategy from '../../../assets/images/png/steps/step2/strategy.png'
 
 import PlatformBlock from "../platform-block/PlatformBlock";
 import Button from "../../../ui/Button";
+import {IGenre} from "../../../models/IGenre";
 
 interface Genres {
     id: number
@@ -19,38 +20,37 @@ interface Genres {
 }
 
 interface IProps {
-    handleStep: (arg0: number) => void
+    handleStep: (arg0: number) => void,
+    genres: IGenre[],
+    saveGenres: (arg0: string[]) => void,
+    chooseGenres: string[]
 }
 
-const genresData = [
-    {id: 1, image: Action, name: 'Action'},
-    {id: 2, image: Adventure, name: 'Adventure'},
-    {id: 3, image: Fight, name: 'Fight'},
-    {id: 4, image: RPG, name: 'RPG'},
-    {id: 5, image: Sports, name: 'Sports'},
-    {id: 6, image: Strategy, name: 'Strategy'},
-]
+const SecondStep: FC<IProps> = ({handleStep, genres, saveGenres, chooseGenres}) => {
+    const [choseGenres, setChoseGenres] = useState<string[] | []>(chooseGenres)
 
-const SecondStep: FC<IProps> = ({handleStep}) => {
-    const [genres, setGenres] = useState<number[] | []>([])
-
-    const isChosePlatform = (platformId: number) => {
-        const founded = genres.find((id) => id === platformId)
+    const isChosePlatform = (platformId: string) => {
+        const founded = choseGenres.find((id) => id === platformId)
 
         return !!founded;
     }
 
-    const handlePlatforms = (platformId: number) => {
-        const isExist = genres.find((id) => id === platformId)
+    const handlePlatforms = (platformId: string) => {
+        const isExist = choseGenres.find((id) => id === platformId)
 
         if (isExist) {
-            const newData = genres.filter((id) => id !== platformId)
+            const newData = choseGenres.filter((id) => id !== platformId)
 
-            setGenres(newData)
+            setChoseGenres(newData)
             return
         }
 
-        setGenres([...genres, platformId])
+        setChoseGenres([...choseGenres, platformId])
+    }
+
+    const onSubmit = () => {
+        saveGenres(choseGenres)
+        handleStep(3)
     }
 
     return (
@@ -59,14 +59,14 @@ const SecondStep: FC<IProps> = ({handleStep}) => {
             <span>Choose your favorite genres</span>
 
             <div className={styles.second_step__genres}>
-                {genresData.map((item) => {
-                    return <PlatformBlock key={item.id} onClick={handlePlatforms} id={item.id} isActive={isChosePlatform(item.id)} image={item.image} name={item.name} />
+                {genres.map((item) => {
+                    return <PlatformBlock key={item._id} onClick={handlePlatforms} id={`${item._id}`} isActive={isChosePlatform(`${item._id}`)} image={item.image} name={item.name} />
                 })}
             </div>
 
             <div className={styles.second_step__buttons}>
                 <Button onClick={() => handleStep(1)} className={`${styles.second_step__btn_prev}`}>Back</Button>
-                <Button onClick={() => handleStep(3)} className={`${styles.second_step__btn_next} ${!genres.length ? styles.disabled : ''}`}>Continue</Button>
+                <Button onClick={onSubmit} className={`${styles.second_step__btn_next} ${!choseGenres.length ? styles.disabled : ''}`}>Continue</Button>
             </div>
         </div>
     );

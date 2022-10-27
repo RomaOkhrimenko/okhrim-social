@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose')
 
-const PlatformSchema = new Schema({
+const GenreSchema = new Schema({
     image: {
         type: String,
         required: true
@@ -16,4 +16,4 @@ const PlatformSchema = new Schema({
     }
 })
 
-module.exports = model('Platform', PlatformSchema)
+module.exports = model('Genre', GenreSchema)

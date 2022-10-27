@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 
 import styles from './ProfileTop.module.scss'
 
@@ -6,7 +6,14 @@ import Banner from '../../../assets/images/png/settings-banner.png'
 import User from '../../../assets/images/png/settings-man.png'
 import Button from "../../../ui/Button";
 
-const ProfileTop = () => {
+interface IProfileTop {
+    image: string,
+    name: string,
+    description: string,
+
+}
+
+const ProfileTop: FC<IProfileTop> = ({image, description, name}) => {
     const [isMe, setIsMe] = useState(false)
 
     return (
@@ -15,11 +22,11 @@ const ProfileTop = () => {
 
             <div className={styles.profile_top__content}>
                 <div className={styles.profile_top__content_left}>
-                    <img src={User} alt="Okhrim social User"/>
+                    <img src={image ? image : User} alt={`Okhrim social user: ${name}`}/>
                     <div>
-                        <h2>Xo39NH</h2>
+                        <h2>{name}</h2>
                         {/*<span>19 years</span>*/}
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad doloremque et id inventore placeat quas tempora? Accusamus architecto consequatur dolore eius iusto mollitia officiis optio placeat quaerat voluptatem. A ab amet animi consectetur expedita ipsam laboriosam obcaecati provident reprehenderit vitae.</p>
+                        <p>{description}</p>
                     </div>
                 </div>
                 {isMe ? <div className={styles.profile_top__content_right}>

@@ -5,8 +5,8 @@ import styles from './GameBlock.module.scss'
 interface IProps {
     image: string,
     name: string,
-    id?: number,
-    onClick?: (arg0: number) => void,
+    id?: string,
+    onClick?: (arg0: string) => void,
     isActive?: boolean
 }
 

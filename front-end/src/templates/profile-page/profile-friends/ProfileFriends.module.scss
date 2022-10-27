@@ -19,6 +19,25 @@
     display: flex;
     width: 100%;
     margin-bottom: 2rem;
+
+    &_btn {
+      margin: 1rem auto;
+    }
+  }
+
+  &__btn {
+    padding: 1rem 3rem;
+    background-color: #4461F2;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.5s;
+
+    &:hover {
+      background-color: #394eca;
+    }
   }
   &__friend {
     width: 55px;

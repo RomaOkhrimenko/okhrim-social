@@ -28,14 +28,15 @@ const LoginForm: FC<IProps> = ({isLogin}) => {
     const {register, formState: {errors}, handleSubmit, reset} = useForm()
 
     const onSubmit = (data: any) => {
-        console.log(data)
+            if(isLogin) {
+                dispatch(login(data.email, data.password))
+                    .then(() => navigate('/profile'))
+            } else {
+                dispatch(registration(data.email, data.password))
+                    .then(() => navigate('/settings-account'))
+            }
+            reset()
 
-        if(isLogin) {
-            dispatch(login(data.email, data.password))
-        } else {
-            dispatch(registration(data.email, data.password))
-        }
-        reset()
     }
 
     return (

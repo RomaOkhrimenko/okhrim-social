@@ -15,9 +15,15 @@ app.use(cors({
 
 const userRoute = require('./routes/user.route')
 const platformRoute = require('./routes/platform.route')
+const genreRoute = require('./routes/genre.route')
+const gameRoute = require('./routes/game.route')
+const settingsAccountRoute = require('./routes/settings-account.route')
 
 app.use('/api', userRoute)
 app.use('/api', platformRoute)
+app.use('/api', genreRoute)
+app.use('/api', gameRoute)
+app.use('/api', settingsAccountRoute)
 
 app.use(errorMiddleware)
 

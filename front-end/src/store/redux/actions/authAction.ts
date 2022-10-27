@@ -54,3 +54,15 @@ export const checkAuth = () => async (dispatch: AppDispatch) => {
         dispatch(setLoading(false))
     }
 }
+
+
+export const createProfile = (body: any) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await AuthService.createProfile(body)
+        console.log(response)
+        // @ts-ignore
+        dispatch(setUser(response.data))
+    } catch (e:any) {
+        alert(e.response?.data?.message)
+    }
+}

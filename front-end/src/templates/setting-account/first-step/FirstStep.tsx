@@ -2,51 +2,42 @@ import React, {FC, useState} from 'react';
 
 import styles from './FirstStep.module.scss'
 
-import Xbox from '../../../assets/images/png/steps/xbox.png'
-import Ps from '../../../assets/images/png/steps/playstation.png'
-import PC from '../../../assets/images/png/steps/monitor.png'
-import Mobile from '../../../assets/images/png/steps/smartphone.png'
-
 import PlatformBlock from "../platform-block/PlatformBlock";
 import Button from "../../../ui/Button";
-
-interface Platform {
-    id: number
-    image: string
-    name: string
-}
+import {IPlatform} from "../../../models/IPlatform";
 
 interface IProps {
-    handleStep: (arg0: number) => void
+    handleStep: (arg0: number) => void,
+    savePlatforms: (arg0: string[]) => void
+    platforms: IPlatform[],
+    choosePlatforms: string[]
 }
 
-const platformsData = [
-    {id: 1, image: Xbox, name: 'Xbox'},
-    {id: 2, image: Ps, name: 'Playstation'},
-    {id: 3, image: PC, name: 'PC'},
-    {id: 4, image: Mobile, name: 'Mobile'},
-]
+const FirstStep: FC<IProps> = ({handleStep, savePlatforms, platforms, choosePlatforms}) => {
+    const [chosePlatforms, setChosePlatforms] = useState<string[]>(choosePlatforms)
 
-const FirstStep: FC<IProps> = ({handleStep}) => {
-    const [platforms, setPlatforms] = useState<number[] | []>([])
-
-    const isChosePlatform = (platformId: number) => {
-        const founded = platforms.find((id) => id === platformId)
+    const isChosePlatform = (platformId: string) => {
+        const founded = chosePlatforms.find((id) => id === platformId)
 
         return !!founded;
     }
 
-    const handlePlatforms = (platformId: number) => {
-        const isExist = platforms.find((id) => id === platformId)
+    const handlePlatforms = (platformId: string) => {
+        const isExist = chosePlatforms.find((id) => id === platformId)
 
         if (isExist) {
-            const newData = platforms.filter((id) => id !== platformId)
+            const newData = chosePlatforms.filter((id) => id !== platformId)
 
-            setPlatforms(newData)
+            setChosePlatforms(newData)
             return
         }
 
-        setPlatforms([...platforms, platformId])
+        setChosePlatforms([...chosePlatforms, platformId])
+    }
+
+    const onSubmit = () => {
+        savePlatforms(chosePlatforms)
+        handleStep(2)
     }
 
     return (
@@ -55,13 +46,13 @@ const FirstStep: FC<IProps> = ({handleStep}) => {
             <span>Choose your platforms</span>
 
             <div className={styles.first_step__platforms}>
-                {platformsData.map((item) => {
-                    return <PlatformBlock key={item.id} onClick={handlePlatforms} id={item.id} isActive={isChosePlatform(item.id)} image={item.image} name={item.name} />
+                {platforms.map((item) => {
+                    return <PlatformBlock key={item._id} onClick={handlePlatforms} id={item._id} isActive={isChosePlatform(item._id)} image={item.image} name={item.name} />
                 })}
             </div>
 
             <div>
-                <Button onClick={() => handleStep(2)} className={`${styles.first_step__btn} ${!platforms.length ? styles.disabled : ''}`}>Continue</Button>
+                <Button onClick={onSubmit} className={`${styles.first_step__btn} ${!chosePlatforms.length ? styles.disabled : ''}`}>Continue</Button>
             </div>
         </div>
     );

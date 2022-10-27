@@ -5,7 +5,8 @@
   max-width: 440px;
   padding: 0 2rem;
 
-  input[type='text'] {
+  input[type='text'],
+  textarea {
     padding: 1.4rem 1.6rem;
     font-weight: 400;
     font-size: 16px;
@@ -18,20 +19,18 @@
     transition: border 0.3s, color 0.3s;
   }
 
+  textarea {
+    height: 100%;
+    width: 100%;
+    resize: none;
+    line-height: 1.9rem;
+  }
+
   &__col {
     display: flex;
     flex-direction: column;
     margin-bottom: 3rem;
     position: relative;
-
-    .error_input {
-      border: 1px solid #BF0B0B !important;
-      color: #BF0B0B !important;
-
-      &::placeholder {
-        color: #BF0B0B;
-      }
-    }
 
     span {
       font-size: 1.2rem;
@@ -42,6 +41,10 @@
       color: #BF0B0B;
       position: absolute;
       top: -2rem;
+    }
+
+    &_desc {
+      height: 200px;
     }
   }
 

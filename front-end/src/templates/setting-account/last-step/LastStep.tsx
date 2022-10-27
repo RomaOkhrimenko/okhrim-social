@@ -7,14 +7,14 @@ import Button from "../../../ui/Button";
 import LastStepForm from "./form/LastStepForm";
 
 interface IProps {
-    handleStep: (arg0: number) => void
+    handleStep: (arg0: number) => void,
+    handleData: (arg0: {username: string, birthday: string, gender: string, description: string}) => void,
 }
 
-const LastStep: FC<IProps> = ({handleStep}) => {
+const LastStep: FC<IProps> = ({handleStep, handleData}) => {
 
     const onClick = () => {
         const btn = document.querySelector('.last_Step_form_submit_btn')
-
         //@ts-ignore
         btn?.click()
     }
@@ -24,10 +24,7 @@ const LastStep: FC<IProps> = ({handleStep}) => {
             <h2>Last Step</h2>
             <span>Give information about yourself</span>
 
-            <LastStepForm />
-
-
-
+            <LastStepForm setData={handleData} />
 
             <div className={styles.last_step__buttons}>
                 <Button onClick={() => handleStep(3)} className={`${styles.last_step__btn_prev}`}>Back</Button>

@@ -19,7 +19,11 @@ const Layout: FC<IProps> = ({children}) => {
         if(!user.profile.isComplete) {
             navigate('/settings-account')
         }
-    }, [])
+    }, [user])
+
+    if(!user.profile!.isComplete) {
+        return <div></div>
+    }
 
     return (
         <div>

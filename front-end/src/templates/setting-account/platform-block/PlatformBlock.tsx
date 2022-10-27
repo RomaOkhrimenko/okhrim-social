@@ -6,7 +6,7 @@ interface IProps {
     image: string,
     name: string,
     isActive: boolean,
-    id: number,
+    id: string,
     onClick: any
 }
 

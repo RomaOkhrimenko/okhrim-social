@@ -1,4 +1,4 @@
-import $api from "../http";
+import $api, {instance} from "../http";
 import {AxiosResponse} from 'axios'
 import {AuthResponse} from "../models/response/AuthResponse";
 import {response} from "express";
@@ -14,5 +14,9 @@ export default class AuthService {
 
     static async logout(): Promise<void> {
         return $api.post('/logout')
+    }
+
+    static async createProfile(body: any) {
+        return instance.post('/create-profile', body)
     }
 }

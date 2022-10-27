@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import Input from "../../../../ui/Input";
 
 //@ts-ignore
@@ -20,27 +20,29 @@ const handleDateToDDMMYYYY = (date: Date) => {
 
     return dd + '/' + mm + '/' + yyyy;
 }
-
-const LastStepForm = () => {
+const LastStepForm: FC<{setData: any}> = ({setData}) => {
     const [username, setUsername] = useState('')
+    const [description, setDescription] = useState('')
     const [date, setDate] = useState<Date>(new Date())
     const [birthday, setBirthday] = useState('Birthday')
-    const [gender, setGender] = useState('gender-1')
+    const [gender, setGender] = useState('')
     const [modalActive, setModalActive] = useState(false)
 
     const {register, formState: {errors, isValid}, handleSubmit, reset} = useForm()
-    const navigate = useNavigate()
 
-    const onSubmit = (date: any) => {
-        const body = {
-            username: date.username,
-            gender: gender.split('-')[1],
-            birthday
+    const onSubmit = (data: any) => {
+
+        if(data.username) {
+            const body = {
+                username: data.username,
+                gender: gender,
+                description,
+                birthday
+            }
+
+            setData(body)
         }
 
-        alert(JSON.stringify(body))
-
-        navigate('/profile')
     }
 
 
@@ -64,6 +66,11 @@ const LastStepForm = () => {
                 {errors?.username?.message && <span className={styles.last_step_form__col_error}>{`${errors?.username?.message || 'Error'}`}</span>}
             </div>
 
+            <div className={`${styles.last_step_form__col} ${styles.last_step_form__col_desc}`}>
+                <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder={'Type your description...'} />
+                <span>This is description will see other users</span>
+            </div>
+
             <div className={styles.last_step_form__col}>
                 <input type="text" readOnly={true} value={birthday} className={styles.last_step_form__birthday} onClick={() => setModalActive(true)} />
                 <span>Click to choose your birthday</span>
@@ -73,24 +80,24 @@ const LastStepForm = () => {
                 <span>Select your Gender</span>
                     <div>
                         <div className={styles.last_step_form__checkbox}>
-                            <input type="checkbox" id={'gender-1'} checked={gender === 'gender-1'} onChange={() => handleGender('gender-1')} />
-                            <label htmlFor="gender-1">Male</label>
+                            <input type="checkbox" id={'male'} checked={gender === 'male'} onChange={() => handleGender('male')} />
+                            <label htmlFor="male">Male</label>
                         </div>
 
                         <div className={styles.last_step_form__checkbox}>
-                            <input type="checkbox" id={'gender-2'} checked={gender === 'gender-2'} onChange={() => handleGender('gender-2')} />
-                            <label htmlFor="gender-2">Female</label>
+                            <input type="checkbox" id={'female'} checked={gender === 'female'} onChange={() => handleGender('female')} />
+                            <label htmlFor="female">Female</label>
                         </div>
 
                         <div className={styles.last_step_form__checkbox}>
-                            <input type="checkbox" id={'gender-3'} checked={gender === 'gender-3'} onChange={() => handleGender('gender-3')} />
-                            <label htmlFor="gender-3">Other</label>
+                            <input type="checkbox" id={'other'} checked={gender === 'other'} onChange={() => handleGender('other')} />
+                            <label htmlFor="other">Other</label>
                         </div>
                         
                     </div>
             </div>
 
-            <input type="submit" hidden={true} className={'last_Step_form_submit_btn'}/>
+            <input type="submit" hidden={true} onClick={onSubmit} className={'last_Step_form_submit_btn'}/>
         </form>
     );
 };

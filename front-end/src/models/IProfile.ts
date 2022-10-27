@@ -1,13 +1,16 @@
 import {IUser} from "./IUser";
 import {IGame} from "./IGame";
+import {IPlatform} from "./IPlatform";
+import {IGenre} from "./IGenre";
 
 export interface IProfile {
     username: string
     description: string
     birthday: string
     friends: IUser[]
-    platforms: string[]
+    platforms: IPlatform[]
     games: IGame[]
-    genres: string[]
+    genres: IGenre[]
     isComplete: boolean
+    image: string
 }
