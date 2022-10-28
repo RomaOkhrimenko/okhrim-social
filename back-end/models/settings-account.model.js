@@ -8,10 +8,6 @@ const SettingsAccountSchema = new Schema({
     genres: {
         type: Array,
         required: true
-    },
-    games: {
-        type: Array,
-        required: true,
     }
 })
 

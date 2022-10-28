@@ -9,7 +9,10 @@ const GameSchema = new Schema({
     },
     slug: {
         type: String
-    }
+    },
+    genres: [
+        {type: Schema.Types.ObjectId, ref: "Genre"}
+    ]
 })
 
 module.exports = model('Game', GameSchema)

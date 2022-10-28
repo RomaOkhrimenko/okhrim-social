@@ -6,9 +6,8 @@ const SettingsAccountModel = require('../models/settings-account.model')
 class GameService {
     async createSettingsAccountPage() {
         const platforms = await PlatformModel.find()
-        const games = await GameModel.find()
         const genres = await GenreModel.find()
-        return SettingsAccountModel.create({platforms, games, genres});
+        return SettingsAccountModel.create({platforms, genres});
     }
 
     async getSettingsAccount() {

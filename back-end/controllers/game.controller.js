@@ -11,9 +11,9 @@ class GameController {
         }
     }
 
-    async getGame(req, res, next) {
+    async getGames(req, res, next) {
         try {
-            const genres = await GameService.getGames()
+            const genres = await GameService.getGames(req.query)
 
             return res.json(genres)
         } catch (e) {

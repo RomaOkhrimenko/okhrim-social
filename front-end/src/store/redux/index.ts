@@ -5,7 +5,7 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import {userReducer} from "./slices/userSlice";
-import {settingsAccountApi} from "./api/settingsAccountApi";
+import {settingsAccountApi, gamesApi} from "./api";
 
 const persistConfig = {
     key: 'root',
@@ -15,7 +15,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     user: userReducer,
-    [settingsAccountApi.reducerPath]: settingsAccountApi.reducer
+    [settingsAccountApi.reducerPath]: settingsAccountApi.reducer,
+    [gamesApi.reducerPath]: gamesApi.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -28,7 +29,7 @@ const setupStore = () => {
                 serializableCheck: {
                     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
                 },
-            }).concat(settingsAccountApi.middleware),
+            }).concat(settingsAccountApi.middleware, gamesApi.middleware),
     })
 }
 

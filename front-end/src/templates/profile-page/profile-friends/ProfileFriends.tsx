@@ -8,9 +8,10 @@ import Swiper, {Navigation} from "swiper";
 import {IUser} from "../../../models/IUser";
 import User from '../../../assets/images/png/settings-man.png'
 import Button from "../../../ui/Button";
+import {IFriends} from "../../../models/IFriends";
 
 interface IProps {
-    friends: IUser[]
+    friends: IFriends
 }
 
 const ProfileFriends: FC<IProps> = ({friends}) => {
@@ -29,24 +30,24 @@ const ProfileFriends: FC<IProps> = ({friends}) => {
 
     return (
         <div className={styles.profile_friends}>
-            <h3>{friends.length} Friends</h3>
+            <h3>{friends.friends.length} Friends</h3>
             <div className={'profile-friends-swiper'}>
                 <div className={`${styles.profile_friends__container} swiper-wrapper`}>
 
-                    {friends.map((friend) => {
+                    {friends.friends.map((friend) => {
                         return (
                             <img key={friend.id} src={friend.profile?.image ? friend.profile.image : User} alt={friend.profile?.username} className={`${styles.profile_friends__friend} swiper-slide`} />
                         )
                     })}
 
-                    {!friends.length && (
+                    {!friends.friends.length && (
                         <div className={styles.profile_friends__container_btn}>
                             <Button className={styles.profile_friends__btn}>Find Friends</Button>
                         </div>
                     )}
                 </div>
 
-                {!!friends.length && (
+                {!!friends.friends.length && (
                     <div className={styles.profile_friends__navigation}>
                         <div className={`${styles.profile_friends__navigation_prev} profile_friends__navigation_prev`}>
                             <ArrowLeft />

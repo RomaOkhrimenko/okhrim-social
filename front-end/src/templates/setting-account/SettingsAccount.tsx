@@ -80,7 +80,7 @@ const SettingsAccount = () => {
             <div className={`container`}>
                 {step === 1 && <FirstStep handleStep={handleStep} platforms={data[0].platforms} savePlatforms={setPlatforms} choosePlatforms={platforms} />}
                 {step === 2 && <SecondStep handleStep={handleStep} genres={data[0].genres} saveGenres={setGenres} chooseGenres={genres} />}
-                {step === 3 && <ThirdStep handleStep={handleStep} games={data[0].games} saveGames={setGames} chooseGames={games} />}
+                {step === 3 && <ThirdStep genres={genres} handleStep={handleStep} saveGames={setGames} chooseGames={games} />}
                 {step === 4 && <LastStep handleStep={handleStep} handleData={handleLastStepData} />}
             </div>
         </div>
