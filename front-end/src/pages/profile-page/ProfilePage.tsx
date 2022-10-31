@@ -19,7 +19,7 @@ const ProfilePage = () => {
         <div className={styles.profile_page}>
             <ProfileTop image={user.profile?.image!} name={user.profile?.username!} description={user.profile?.description!} />
             <div className={styles.profile_page__container}>
-                <ProfileFriends friends={user.profile?.friends!} />
+                <ProfileFriends friends={user.profile?.friends.friends!} />
                 <ProfilePlatforms platforms={user.profile?.platforms!} />
                 <ProfileGames games={user.profile?.games!} />
                 <ProfileGenres genres={user.profile?.genres!} />

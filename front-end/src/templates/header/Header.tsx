@@ -9,7 +9,7 @@ import {useAppDispatch} from "../../hooks/redux";
 import {logout} from "../../store/redux/actions/authAction";
 
 const Header = () => {
-    const [isShowMenu, setIsShowMenu] = useState(true)
+    const [isShowMenu, setIsShowMenu] = useState(false)
 
     const dispatch = useAppDispatch()
 

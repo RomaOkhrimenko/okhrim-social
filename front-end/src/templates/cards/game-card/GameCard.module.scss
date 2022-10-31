@@ -1,13 +1,19 @@
 .game_card {
-  width: 280px;
-  height: 300px;
+  width: 250px;
+  height: 330px;
   position: relative;
   cursor: pointer;
   margin: 2rem;
+  box-shadow: 0 0 15px #000;
+  overflow: hidden;
 
   transition: box-shadow 0.3s;
   &:hover {
     box-shadow: 0 0 5px #4461F2;
+
+    .game_card__name {
+      transform: translateY(0);
+    }
   }
 
   img {
@@ -34,5 +40,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateY(110%);
+    transition: transform 0.3s;
   }
 }

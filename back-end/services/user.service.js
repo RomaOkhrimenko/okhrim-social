@@ -4,6 +4,7 @@ const uuid = require('uuid')
 const mailService = require('./mail.service')
 const tokenService = require('./token.service')
 const UserDto = require('../dtos/user.dto')
+const UserFriendsDto = require('../dtos/user-friends.dto')
 const ApiError = require('../exception/api.error')
 
 class AuthenticationService {
@@ -87,7 +88,7 @@ class AuthenticationService {
         return UserModel.find()
             .populate({path: 'profile', populate: {path: 'games', model: 'Game'}})
             .populate({path: 'profile', populate: {path: 'genres', model: 'Genre'}})
-            .populate({path: 'profile', populate: {path: 'platforms', model: 'Platform'}});
+            .populate({path: 'profile', populate: {path: 'platforms', model: 'Platform'}})
     }
 
     async createProfile(body) {
@@ -103,20 +104,52 @@ class AuthenticationService {
     }
 
     async requestFriend(userId, friendId) {
-        const userIsEntry = await UserModel.findOne({_id: userId, "profile.friends.incomeRequests": friendId})
+        console.log(userId, friendId)
+        const user = await UserModel.findById(userId)
+        const friend = await UserModel.findById(friendId)
 
-        if(userIsEntry) {
+        const userEntryOutComeRequest = await UserModel.findOne({_id: userId, "profile.friends.outcomeRequests.id": friendId})
+        const userEntryInComeRequest = await UserModel.findOne({_id: userId, "profile.friends.incomeRequests.id": friendId})
+
+        if(userEntryOutComeRequest || userEntryInComeRequest) {
             throw ApiError.BadRequest('You have this user in your incomeRequests')
         }
 
-        const user = await UserModel.update({_id: userId}, {$push: {'profile.friends.incomeRequests': friendId}})
-        const friend = await UserModel.update({_id: friendId}, {$push: {'profile.friends.outcomeRequests': userId}})
+        const friendUpdate = await UserModel.update({_id: friendId},
+            {$push: {'profile.friends.incomeRequests': {id: user._id, username: user.profile.username, image: user.profile.image}}})
 
-        if(!user || !friend) {
+        const userUpdate = await UserModel.update({_id: userId},
+            {$push: {'profile.friends.outcomeRequests': {id: friend._id, username: friend.profile.username, image: friend.profile.image}}})
+
+        if(!userUpdate || !friendUpdate) {
             throw ApiError.BadRequest('User not found')
         }
 
-        return user
+        return userUpdate
+    }
+
+    async getFriends(id) {
+        const user = await UserModel.findById(id)
+            .populate({path: 'profile', populate: {path: 'friends.incomeRequests', model: 'User'}})
+            .populate({path: 'profile', populate: {path: 'friends.friends', model: 'User'}})
+
+        if(!user) {
+            throw ApiError.BadRequest(`User not founded`)
+        }
+
+        return new UserFriendsDto(user)
+    }
+
+    async acceptFriendRequest(userId, friendId) {
+        const user = await UserModel.findOneAndUpdate(userId, {$unset: {'profile.outcomeRequests.id': friendId}})
+    }
+
+    async deleteFriendRequest(userId, friendId) {
+        console.log(userId, friendId)
+        const userUpdate = await UserModel.updateOne({_id: userId}, {$pull: {'profile.friends.incomeRequests': {id: friendId}}})
+        const friendUpdate = await UserModel.updateOne({_id: friendId}, {$pull: {'profile.friends.outcomeRequests': {id: userId}}});
+
+        return userUpdate;
     }
 }
 

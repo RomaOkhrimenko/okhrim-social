@@ -1,0 +1,23 @@
+.my_message {
+  display: flex;
+  margin-bottom: 3rem;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 2rem;
+    }
+  span {
+    padding: 1rem 2rem 2rem;
+    border-radius: 0 20px 20px 20px;
+    background-color: #4461F2;
+    max-width: 70%;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: 2rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+  }
+}

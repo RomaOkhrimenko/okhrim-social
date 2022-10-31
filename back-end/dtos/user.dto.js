@@ -1,4 +1,4 @@
-module.exports = class userDto {
+module.exports = class userFriendsDto {
     email;
     id;
     isActivated;

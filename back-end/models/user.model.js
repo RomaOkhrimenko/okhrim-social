@@ -20,17 +20,30 @@ const UserSchema = new Schema({
         },
         friends: {
             incomeRequests:[{
-                type: Schema.Types.ObjectId,
-                ref: 'users'
+                username: {
+                    type: String
+                },
+                image: {
+                    type: String
+                },
+                id: {
+                    type: String
+                }
             }],
             outcomeRequests:[{
-                type: Schema.Types.ObjectId,
-                ref: 'users'
-
+                username: {
+                    type: String
+                },
+                image: {
+                    type: String
+                },
+                id: {
+                    type: String
+                }
             }],
             friends: [{
                 type: Schema.Types.ObjectId,
-                ref: 'users'
+                ref: 'User'
             }]
         },
         platforms: [

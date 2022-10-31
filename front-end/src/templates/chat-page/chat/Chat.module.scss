@@ -1,0 +1,39 @@
+.chat {
+  //padding: 1rem 2rem 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &__container {
+    padding: 5rem 3rem;
+    overflow-y: auto;
+    max-height: 73vh;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  &__message {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 10;
+    filter: drop-shadow(0px 15px 30px rgba(16, 27, 79, 0.15));
+
+    input {
+      width: 100%;
+      padding: 1.5rem 1rem 1.5rem 2rem;
+    }
+
+    svg {
+      flex-shrink: 0;
+      margin-right: 2rem;
+      cursor: pointer;
+    }
+  }
+}

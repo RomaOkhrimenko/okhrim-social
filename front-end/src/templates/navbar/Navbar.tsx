@@ -4,7 +4,7 @@ import styles from './Navbar.module.scss'
 import {NavLink} from "react-router-dom";
 
 import Chat from '../../assets/images/png/navbar/chat.png'
-import Settings from '../../assets/images/png/navbar/settings.png'
+import Friends from '../../assets/images/png/navbar/friends.png'
 import Profile from '../../assets/images/png/navbar/user.png'
 import Gamepad from '../../assets/images/png/navbar/gamepad.png'
 
@@ -20,11 +20,11 @@ const Navbar = () => {
                 <NavLink to={'/messages'} className={({isActive}) => isActive ? styles.active : ''}>
                     <img src={Chat} alt="Chat"/>
                 </NavLink>
+                <NavLink to={'/friends'} className={({isActive}) => isActive ? styles.active : ''}>
+                    <img src={Friends} alt="Friends"/>
+                </NavLink>
                 <NavLink to={'/games'} className={({isActive}) => isActive ? styles.active : ''}>
                     <img src={Gamepad} alt="Gamepad"/>
-                </NavLink>
-                <NavLink to={'/settings'} className={({isActive}) => isActive ? styles.active : ''}>
-                    <img src={Settings} alt="Settings"/>
                 </NavLink>
             </div>
         </div>

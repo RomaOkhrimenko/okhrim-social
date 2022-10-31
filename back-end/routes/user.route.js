@@ -16,5 +16,7 @@ router.get('/refresh', userController.refresh)
 router.get('/users', userController.getUsers)
 router.post('/create-profile', userController.createProfile)
 router.post('/request-friend', userController.requestFriend)
+router.post('/accept-friend-request', userController.acceptFriendRequest)
+router.post('/delete-friend-request', userController.deleteFriendRequest)
 
 module.exports = router

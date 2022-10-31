@@ -1,0 +1,24 @@
+.friend_message {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 3rem;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-left: 2rem;
+    }
+  span {
+    padding: 1rem 1rem 2rem 4rem;
+    border-radius: 20px 0 20px 20px;
+    background-color: #788998;
+    max-width: 70%;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-left: 2rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+  }
+}

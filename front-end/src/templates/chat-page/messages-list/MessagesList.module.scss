@@ -1,0 +1,16 @@
+.messages_list {
+  &__input {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 0 0 0 1rem;
+    margin-bottom: 3rem;
+    filter: drop-shadow(0px 15px 30px rgba(16, 27, 79, 0.15));
+    border-radius: 10px;
+
+    input {
+      width: 100%;
+      padding: 1rem 0.5rem;
+    }
+  }
+}

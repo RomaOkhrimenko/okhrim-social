@@ -1,0 +1,23 @@
+.friends_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+
+  span {
+    font-size: 2rem;
+    margin: 0 3rem;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.4);
+    transition: color 0.3s;
+    font-weight: 600;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.8);
+    }
+    &.active {
+      color: #4461F2;
+    }
+  }
+}

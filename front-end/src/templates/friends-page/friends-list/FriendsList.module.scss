@@ -1,0 +1,17 @@
+.friends_list {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+
+  @media (max-width: 1280px) {
+    padding: 0 2rem;
+  }
+
+  @media (max-width: 1024px) {
+    max-width: 700px;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+  }
+}

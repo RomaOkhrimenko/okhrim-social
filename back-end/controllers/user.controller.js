@@ -95,6 +95,36 @@ class UserController {
             next(e)
         }
     }
+
+    async getFriends(req, res, next) {
+        try {
+            const result = await userService.getFriends(req.params.id)
+
+            return res.status(201).json(result)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async acceptFriendRequest(req, res, next) {
+        try {
+            const result = await userService.acceptFriendRequest(req.params.id)
+
+            return res.status(201).json(result)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async deleteFriendRequest(req, res, next) {
+        try {
+            const result = await userService.deleteFriendRequest(req.body.userId, req.body.friendId)
+
+            return res.status(201).json(result)
+        } catch (e) {
+            next(e)
+        }
+    }
 }
 
 module.exports = new UserController()
