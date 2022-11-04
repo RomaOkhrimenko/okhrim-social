@@ -43,7 +43,6 @@ export const checkAuth = () => async (dispatch: AppDispatch) => {
     dispatch(setLoading(true))
     try {
         const response = await axios.get<AuthResponse>('http://localhost:4000/api/refresh', {withCredentials: true})
-        console.log(response)
         localStorage.setItem('token', response.data.accessToken)
         dispatch(setAuth(true))
         dispatch(setUser(response.data.user))
@@ -54,7 +53,6 @@ export const checkAuth = () => async (dispatch: AppDispatch) => {
         dispatch(setLoading(false))
     }
 }
-
 
 export const createProfile = (body: any) => async (dispatch: AppDispatch) => {
     try {

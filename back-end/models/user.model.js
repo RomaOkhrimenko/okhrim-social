@@ -5,6 +5,10 @@ const UserSchema = new Schema({
     password: {type: String, required: true},
     isActivated: {type: Boolean, default: false},
     activationLink: {type: String},
+    prevUsers: {
+        type: Array,
+        default: []
+    },
     profile: {
         username: {
             type: String,
@@ -42,8 +46,15 @@ const UserSchema = new Schema({
                 }
             }],
             friends: [{
-                type: Schema.Types.ObjectId,
-                ref: 'User'
+                username: {
+                    type: String
+                },
+                image: {
+                    type: String
+                },
+                id: {
+                    type: String
+                }
             }]
         },
         platforms: [
@@ -58,6 +69,9 @@ const UserSchema = new Schema({
         isComplete: {
             type: Boolean,
             default: false
+        },
+        gender: {
+            type: String,
         }
     }
 })

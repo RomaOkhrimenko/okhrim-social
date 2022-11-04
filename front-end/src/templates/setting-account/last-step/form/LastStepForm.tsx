@@ -25,7 +25,7 @@ const LastStepForm: FC<{setData: any}> = ({setData}) => {
     const [description, setDescription] = useState('')
     const [date, setDate] = useState<Date>(new Date())
     const [birthday, setBirthday] = useState('Birthday')
-    const [gender, setGender] = useState('')
+    const [gender, setGender] = useState('male')
     const [modalActive, setModalActive] = useState(false)
 
     const {register, formState: {errors, isValid}, handleSubmit, reset} = useForm()

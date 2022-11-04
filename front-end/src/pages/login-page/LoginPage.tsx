@@ -1,13 +1,22 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 
 import styles from './loginPage.module.scss'
 
 import image from '../../assets/images/png/login-woman.png'
 import LoginForm from "../../templates/login-page/login-form/LoginForm";
 import Button from "../../ui/Button";
+import {useAppSelector} from "../../hooks/redux";
+import {useNavigate} from "react-router";
 
 const LoginPage: FC = () => {
     const [isLogin, setIsLogin] = useState(true)
+    const isAuth = useAppSelector(state => state.user.isAuth)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if(isAuth) {
+            navigate('/profile')
+        }
+    }, [isAuth])
 
     return (
         <div className={styles.login_page}>

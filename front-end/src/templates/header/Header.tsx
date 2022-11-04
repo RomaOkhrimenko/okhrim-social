@@ -5,11 +5,12 @@ import styles from './Header.module.scss'
 import {ReactComponent as Notification } from "../../assets/images/svg/notification-ico.svg";
 import {ReactComponent as ArrowDown } from "../../assets/images/svg/arrow-down.svg";
 import {Link} from "react-router-dom";
-import {useAppDispatch} from "../../hooks/redux";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {logout} from "../../store/redux/actions/authAction";
 
 const Header = () => {
     const [isShowMenu, setIsShowMenu] = useState(false)
+    const userId = useAppSelector(state => state.user.user._id)
 
     const dispatch = useAppDispatch()
 
@@ -42,7 +43,7 @@ const Header = () => {
 
                 <div className={`${styles.header__content_menu} header_menu ${isShowMenu ? styles.active : ''}`}>
                     <Link to={'/settings'}>Settings</Link>
-                    <Link to={'/profile'}>Profile</Link>
+                    <Link to={`/profile/${userId}`}>Profile</Link>
                     <span onClick={() => dispatch(logout())}>Log out</span>
                 </div>
             </div>

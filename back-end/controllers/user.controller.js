@@ -77,6 +77,25 @@ class UserController {
         }
     }
 
+    async getUser(req, res, next) {
+        try {
+            const user = await userService.getUser(req.params.id)
+
+            return res.json(user)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async getFoundedUser(req, res, next) {
+        try {
+            const user = await userService.getFoundedUser(req.body.userId, req.query)
+            return res.json(user)
+        } catch (e) {
+            next(e)
+        }
+    }
+
     async createProfile(req, res, next) {
         try {
             const user = await userService.createProfile(req.body)
@@ -96,19 +115,9 @@ class UserController {
         }
     }
 
-    async getFriends(req, res, next) {
-        try {
-            const result = await userService.getFriends(req.params.id)
-
-            return res.status(201).json(result)
-        } catch (e) {
-            next(e)
-        }
-    }
-
     async acceptFriendRequest(req, res, next) {
         try {
-            const result = await userService.acceptFriendRequest(req.params.id)
+            const result = await userService.acceptFriendRequest(req.body.userId, req.body.friendId)
 
             return res.status(201).json(result)
         } catch (e) {
@@ -119,6 +128,16 @@ class UserController {
     async deleteFriendRequest(req, res, next) {
         try {
             const result = await userService.deleteFriendRequest(req.body.userId, req.body.friendId)
+
+            return res.status(201).json(result)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async deleteFriend(req, res, next) {
+        try {
+            const result = await userService.deleteFriend(req.body.userId, req.body.friendId)
 
             return res.status(201).json(result)
         } catch (e) {

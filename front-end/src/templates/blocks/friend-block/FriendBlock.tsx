@@ -4,6 +4,7 @@ import styles from './FriendBlock.module.scss'
 
 import {ReactComponent as OptionsIco} from "../../../assets/images/svg/options.svg";
 import ImagePhoto from '../../../assets/images/png/settings-man.png'
+import {useNavigate} from "react-router";
 
 interface IProps {
     isFriend: boolean,
@@ -14,10 +15,11 @@ interface IProps {
 
 const FriendBlock: FC<IProps> = ({isFriend, username, image, id}) => {
     const [isMenuActive, setIsMenuActive] = useState(false)
+    const navigate = useNavigate()
 
     return (
         <div className={styles.friend_block}>
-            <img src={image ? image : ImagePhoto} alt="image"/>
+            <img onClick={() => navigate(`/profile/${id}`)} src={image ? image : ImagePhoto} alt="image"/>
 
             <div className={styles.friend_block__info}>
                 <span>{username}</span>

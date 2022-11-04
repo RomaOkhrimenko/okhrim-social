@@ -39,7 +39,7 @@ const ProfileFriends: FC<IProps> = ({friends}) => {
 
                     {friends.map((friend) => {
                         return (
-                            <img key={friend.id} src={friend?.image ? friend.image : User} alt={friend?.username} className={`${styles.profile_friends__friend} swiper-slide`} />
+                            <img key={friend.id} onClick={() => navigate(`/profile/${friend.id}`)} src={friend?.image ? friend.image : User} alt={friend?.username} className={`${styles.profile_friends__friend} swiper-slide`} />
                         )
                     })}
 

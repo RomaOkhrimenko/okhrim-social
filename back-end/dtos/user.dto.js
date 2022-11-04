@@ -6,7 +6,7 @@ module.exports = class userFriendsDto {
 
     constructor(model) {
         this.email = model.email;
-        this.id = model._id;
+        this._id = model._id;
         this.isActivated = model.isActivated
         this.profile = model.profile.platforms.length ? model.profile : []
     }

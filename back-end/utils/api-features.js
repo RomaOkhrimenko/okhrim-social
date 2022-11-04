@@ -1,12 +1,13 @@
 class ApiFeatures {
-    constructor(query, queryStr) {
+    constructor(query, queryStr, searchInput) {
         this.query = query
         this.queryStr = queryStr
+        this.searchInput = searchInput ? searchInput : "name"
     }
 
     search() {
         const keyword = this.queryStr.keyword ? {
-            name: {
+            [this.searchInput]: {
                 $regex: this.queryStr.keyword,
                 $options: "i"
             },
@@ -24,8 +25,6 @@ class ApiFeatures {
         let queryStr = JSON.stringify(queryCopy)
         queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (key) => `$${key}`)
         this.query = this.query.find(JSON.parse(queryStr))
-
-        console.log(this)
 
         return this
     }

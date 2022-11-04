@@ -14,9 +14,12 @@ router.post('/logout', userController.logout)
 router.get('/activate/:link', userController.activate)
 router.get('/refresh', userController.refresh)
 router.get('/users', userController.getUsers)
+router.get('/user/:id', userController.getUser)
+router.get('/find-user', userController.getFoundedUser)
 router.post('/create-profile', userController.createProfile)
 router.post('/request-friend', userController.requestFriend)
 router.post('/accept-friend-request', userController.acceptFriendRequest)
 router.post('/delete-friend-request', userController.deleteFriendRequest)
+router.post('/delete-friend', userController.deleteFriend)
 
 module.exports = router

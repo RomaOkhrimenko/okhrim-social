@@ -20,6 +20,16 @@ class GameController {
             next(e)
         }
     }
+
+    async getSingleGame(req, res, next) {
+        try {
+            const game = await GameService.getSingleGame(req.params.id)
+
+            return res.json(game)
+        } catch (e) {
+            next(e)
+        }
+    }
 }
 
 module.exports = new GameController()

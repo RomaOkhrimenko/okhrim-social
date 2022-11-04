@@ -50,7 +50,7 @@ const SettingsAccount = () => {
         }
 
         try {
-            dispatch(createProfile({id: user.id, profile}))
+            dispatch(createProfile({id: user._id, profile}))
         } catch {
 
         }
@@ -59,7 +59,7 @@ const SettingsAccount = () => {
     useEffect(() => {
         //@ts-ignore
         if(user.profile.isComplete) {
-            navigate('/profile')
+            navigate(`/profile/${user._id}`)
         }
     }, [user?.profile?.isComplete])
 

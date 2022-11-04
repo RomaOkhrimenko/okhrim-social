@@ -1,0 +1,126 @@
+.filter_user_form {
+  width: 400px;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 554px) {
+    width: 320px;
+  }
+
+  &__header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #4461F2;
+    margin-bottom: 2rem;
+    span {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__game {
+    padding: 0 1rem;
+    span:first-child {
+      font-size: 1.6rem;
+    }
+    span:last-child {
+      background-color: #4461F2;
+      display: inline-flex;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      margin-top: 1rem;
+    }
+  }
+
+  &__checkboxes {
+    position: relative;
+    text-align: left;
+    margin-bottom: 4.6rem;
+    padding: 0 1rem;
+
+    @media (min-width: 1024px) {
+      margin-bottom: 4.5rem;
+    }
+    & > span {
+      font-size: 1.6rem;
+      line-height: 26px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    & > div {
+      margin-top: 0.9rem;
+
+      & > div {
+        margin-bottom: 0.7rem;
+      }
+    }
+
+    input {
+      -webkit-appearance: none;
+      appearance: none;
+      position: absolute;
+
+      &:checked + label:before {
+        border: 1px solid #4461F2;
+      }
+      &:checked + label:after {
+        transform: scale(1);
+      }
+    }
+
+    label {
+      font-size: 1.6rem;
+      line-height: 26px;
+      color: rgba(0, 0, 0, 0.87);
+      position: relative;
+      padding-left: 3.2rem;
+      user-select: none;
+      cursor: pointer;
+
+      &:before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border: 1px solid #D0CFCF;
+
+        position: absolute;
+        border-radius: 50%;
+        left: -1px;
+        top: 0;
+        z-index: 1;
+        transition: border 0.5s
+      }
+
+      &:after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background-color: #4461F2;
+        border-radius: 50%;
+        position: absolute;
+        left: 5px;
+        top: 6px;
+        z-index: 2;
+        transform: scale(0);
+        transition: transform 0.5s;
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 2rem 0;
+    background-color: #4461F2;
+    color: #fff;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 5px #4461F2;
+    }
+  }
+}
