@@ -3,6 +3,11 @@ import React from 'react';
 import styles from './Navbar.module.scss'
 import {NavLink} from "react-router-dom";
 
+import {AiFillWechat} from "react-icons/ai";
+import {AiOutlineUser} from "react-icons/ai";
+import {FaUserFriends} from "react-icons/fa";
+import {IoGameControllerOutline} from "react-icons/io5";
+
 import Chat from '../../assets/images/png/navbar/chat.png'
 import Friends from '../../assets/images/png/navbar/friends.png'
 import Profile from '../../assets/images/png/navbar/user.png'
@@ -17,16 +22,16 @@ const Navbar = () => {
 
             <div className={styles.navbar__navigation}>
                 <NavLink to={`/profile/${userId}`} className={({isActive}) => isActive ? styles.active : ''}>
-                    <img src={Profile} alt="Profile"/>
+                    <AiOutlineUser />
                 </NavLink>
                 <NavLink to={'/messages'} className={({isActive}) => isActive ? styles.active : ''}>
-                    <img src={Chat} alt="Chat"/>
+                    <AiFillWechat />
                 </NavLink>
                 <NavLink to={'/friends'} className={({isActive}) => isActive ? styles.active : ''}>
-                    <img src={Friends} alt="Friends"/>
+                    <FaUserFriends />
                 </NavLink>
                 <NavLink to={'/games'} className={({isActive}) => isActive ? styles.active : ''}>
-                    <img src={Gamepad} alt="Gamepad"/>
+                    <IoGameControllerOutline />
                 </NavLink>
             </div>
         </div>

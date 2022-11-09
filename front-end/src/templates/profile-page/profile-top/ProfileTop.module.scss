@@ -36,7 +36,7 @@
 
       img {
         border-radius: 50%;
-        border: 8px solid #fff;
+        border: 8px solid var(--color-dark-purple);
         position: relative;
         bottom: 6.8rem;
         margin-right: 3rem;
@@ -54,7 +54,7 @@
         font-weight: 700;
         font-size: 3rem;
         line-height: 39px;
-        color: #232360;
+        color: var(--color-accent);
         @media (max-width: 994px) {
           text-align: center;
           margin-bottom: 1rem;
@@ -93,16 +93,17 @@
         font-weight: 500;
         font-size: 1.4rem;
         line-height: 18px;
-        color: #000000;
+        color: #fff;
         padding: 1.1rem 1.6rem;
         border: 1px solid #D9DADE;
         border-radius: 8px;
         margin-right: 1rem;
         cursor: pointer;
-        transition: background-color 0.5s;
+        transition: background-color 0.5s, border 0.3s;
 
         &:hover {
-          background-color: #d3d2d2;
+          background-color: var(--color-dark-purple);
+          border: 1px solid var(--color-accent);
         }
       }
 

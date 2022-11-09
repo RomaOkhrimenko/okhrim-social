@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dba08ae9-1172-4671-90e8-be40d841b5b8" name="Changes" comment="fix: friends request, chat page, friends page">
-      <change afterPath="$PROJECT_DIR$/back-end/controllers/message.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end/models/message.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end/routes/message.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end/services/message.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/store/context/context.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/store/redux/slices/gameSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/find-user-block/FindUserBlock.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/find-user-block/FindUserBlock.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/message-input/MessageInput.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/message-input/MessageInput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/utils/functions/findUsers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/utils/notification/alerts.ts" afterDir="false" />
+    <list default="true" id="dba08ae9-1172-4671-90e8-be40d841b5b8" name="Changes" comment="fix: routes &#10;add: real time chat app">
+      <change afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/welcome/Welcome.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/welcome/Welcome.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/controllers/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/routes/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/user.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/services/user.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/utils/api-features.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/utils/api-features.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/http/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/http/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/pages/chat-page/ChatPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/chat-page/Chat.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/actions/authAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/actions/authAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/actions/userAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/actions/userAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/blocks/friend-block/FriendBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/friend-block/FriendBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Chat.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/friend-message/FriendMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/friend-message/FriendMessage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/my-message/MyMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/my-message/MyMessage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/MessagesList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/Contacts.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/MessagesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/Contacts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/message-list-block/MessageListBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/contact-block/ContactsBlock.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/message-list-block/MessageListBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/contact-block/ContactsBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/games-page/games-container/GamesContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/games-page/games-container/GamesContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/assets/styles/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/assets/styles/_global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/assets/styles/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/assets/styles/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/pages/chat-page/Chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/chat-page/Chat.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/pages/chat-page/ChatPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/chat-page/ChatPage.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/pages/login-page/loginPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/login-page/loginPage.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/pages/profile-page/ProfilePage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/profile-page/ProfilePage.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/blocks/friend-block/FriendBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/friend-block/FriendBlock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/blocks/game-block/GameBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/game-block/GameBlock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/cards/game-card/GameCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/cards/game-card/GameCard.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/chat-header/ChatHeader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/messages-header/MessagesHeader.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/chat-header/ChatHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/messages-header/MessagesHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/friend-message/FriendMessage.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/friend-message/FriendMessage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/message-input/MessageInput.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/message-input/MessageInput.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/message-input/MessageInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/message-input/MessageInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/my-message/MyMessage.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/my-message/MyMessage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/Contacts.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/contacts/Contacts.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/Contacts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/contacts/Contacts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/friends-page/friends-header/FriendsHeader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/friends-page/friends-header/FriendsHeader.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/header/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/header/Header.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/layout/Layout.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/layout/Layout.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/templates/layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/layout/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/modals/filter-user-form/FilterUserForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/modals/filter-user-form/FilterUserForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/utils/functions/friends.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/utils/functions/friends.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/login-page/login-form/loginFrom.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/login-page/login-form/loginFrom.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/modals/filter-user-form/FilterUserForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/modals/filter-user-form/FilterUserForm.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/navbar/Navbar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/navbar/Navbar.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/profile-page/profile-top/ProfileTop.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/profile-page/profile-top/ProfileTop.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/setting-account/first-step/FirstStep.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/setting-account/first-step/FirstStep.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/setting-account/last-step/LastStep.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/setting-account/last-step/LastStep.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/setting-account/last-step/form/LastStepForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/setting-account/last-step/form/LastStepForm.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/setting-account/platform-block/PlatformBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/setting-account/platform-block/PlatformBlock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/setting-account/second-step/SecondStep.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/setting-account/second-step/SecondStep.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/setting-account/third-step/ThirdStep.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/setting-account/third-step/ThirdStep.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +132,8 @@
       <workItem from="1667891239448" duration="3436000" />
       <workItem from="1667921939181" duration="11430000" />
       <workItem from="1667973715865" duration="5978000" />
-      <workItem from="1667990011473" duration="612000" />
+      <workItem from="1667990011473" duration="5912000" />
+      <workItem from="1668016592071" duration="3953000" />
     </task>
     <task id="LOCAL-00001" summary="fix: front-end, add: platforms route">
       <created>1666553147899</created>
@@ -155,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667244277265</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix: routes &#10;add: real time chat app">
+      <created>1667995572890</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667995572890</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +184,7 @@
     <MESSAGE value="fix: front-end, add: platforms route" />
     <MESSAGE value="add filter games" />
     <MESSAGE value="fix: friends request, chat page, friends page" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: friends request, chat page, friends page" />
+    <MESSAGE value="fix: routes &#10;add: real time chat app" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: routes &#10;add: real time chat app" />
   </component>
 </project>

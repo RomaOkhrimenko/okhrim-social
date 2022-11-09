@@ -1,24 +1,56 @@
-.chat {
-  //padding: 1rem 2rem 1rem 4rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  &__container {
-    padding: 5rem 3rem;
-    overflow-y: auto;
-    height: 73vh;
-
-    &::-webkit-scrollbar {
-      width: 0;
-    }
+.messages {
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+  gap: 0.1rem;
+  overflow: hidden;
+  @media screen and (min-width: 720px) and (max-width: 1080px) {
+    grid-template-rows: 15% 70% 15%;
   }
 
-  &__empty {
-    height: 70%;
+  &__list {
+    padding: 1rem 2rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 0.2rem;
+      &-thumb {
+        background-color: #ffffff39;
+        width: 0.1rem;
+        border-radius: 1rem;
+      }
+    }
 
-    font-size: 1.8rem;
+    &_message {
+      display: flex;
+      align-items: center;
+
+      &_content {
+          max-width: 40%;
+          overflow-wrap: break-word;
+          padding: 1.7rem;
+          font-size: 1.4rem;
+          border-radius: 1.5rem;
+          color: #d1d1d1;
+          @media screen and (min-width: 720px) and (max-width: 1080px) {
+            max-width: 70%;
+          }
+        }
+
+      &.sended {
+        justify-content: flex-end;
+        .messages__list_message_content {
+          background-color: #4f04ff21;
+        }
+      }
+
+      &.recieved {
+        justify-content: flex-start;
+        .messages__list_message_content {
+          background-color: #9900ff20;
+        }
+      }
+    }
   }
 }

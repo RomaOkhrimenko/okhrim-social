@@ -18,12 +18,15 @@
 
 
   &.active {
-    transform: translateY(-10px);
     box-shadow: 0 0 15px #4461F2 !important;
+
+    .game_block__name {
+      background-color: var(--color-accent);
+    }
   }
 
   &:hover {
-    box-shadow: 0 0 15px #151515;
+    box-shadow: 0 0 20px #151515;
   }
 
   img {
@@ -49,5 +52,6 @@
     color: #fff;
     z-index: 10;
     padding: 0.5rem 0;
+    transition: background-color 0.3s;
   }
 }

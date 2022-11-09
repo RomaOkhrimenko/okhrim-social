@@ -4,13 +4,10 @@
   position: relative;
   cursor: pointer;
   margin: 2rem;
-  box-shadow: 0 0 15px #000;
   overflow: hidden;
 
   transition: box-shadow 0.3s;
   &:hover {
-    box-shadow: 0 0 5px #4461F2;
-
     .game_card__name {
       transform: translateY(0);
     }
@@ -32,8 +29,8 @@
     font-size: 1.8rem;
     line-height: 21px;
     color: #FFFFFF;
-    background: rgba(172, 172, 172, 0.32);
-    backdrop-filter: blur(7.5px);
+    background: var(--color-accent);
+    backdrop-filter: blur(1.5px);
     text-align: center;
     height: 60px;
     padding: 0 1rem;

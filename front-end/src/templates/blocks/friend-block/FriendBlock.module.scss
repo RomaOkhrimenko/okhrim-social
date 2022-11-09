@@ -3,13 +3,15 @@
   position: relative;
   overflow: hidden;
   display: inline-flex;
-  padding: 0 1rem;
+  padding: 0 1rem 0 0;
   user-select: none;
+  border: 1px solid #4461F2;
+  border-radius: 20px;
   img {
-    border-radius: 50%;
+    border-radius: 20px;
     width: 100px;
     height: 100px;
-    margin-right: 1rem;
+    margin-right: 2rem;
     cursor: pointer;
   }
 
@@ -25,20 +27,20 @@
     }
 
     span:first-child {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #4461F2;
       font-weight: 600;
       margin-bottom: 1rem;
     }
 
     span:last-child {
-      font-size: 1.6rem;
-      color: rgba(0, 0, 0, 0.6);
+      font-size: 1.4rem;
+      color: #fff;
       cursor: pointer;
       transition: color 0.3s;
 
       &:hover {
-        color: rgba(0, 0, 0, 1);
+        color: var(--color-accent);
       }
     }
 

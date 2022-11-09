@@ -3,7 +3,7 @@ html,body {
 }
 
 body {
-  color: $default-color;
+  color: #fff;
   font-family: 'Barlow', sans-serif;
   background-color: $background-color;
 }
@@ -11,6 +11,7 @@ body {
 .container {
   max-width: 1440px;
   margin: 0 auto;
+  padding-top: 2rem;
 }
 
 .container-lg {

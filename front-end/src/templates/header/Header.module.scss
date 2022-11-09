@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   height: var(--header-height);
-  background-color: #FBFAFF;
+  background-color: var(--color-black-bg);
   width: 100%;
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@
       display: flex;
       flex-direction: column;
       width: 150px;
-      background-color: #FBFAFF;
+      background-color: var(--color-dark-purple);
       padding: 2rem 3rem;
       opacity: 0;
       border-radius: 0 0 20px 20px;
@@ -106,9 +106,10 @@
         font-size: 1.5rem;
         margin-bottom: 2rem;
         transition: color 0.3s;
+        color: #fff;
 
         &:hover {
-          color: #4461F2;
+          color: var(--color-accent);
         }
       }
     }

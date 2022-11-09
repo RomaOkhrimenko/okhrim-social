@@ -46,7 +46,7 @@ function App() {
                             <Layout><FriendsPage /></Layout>
                         } />
                         <Route path={'/messages'} element={
-                            <Layout><Chat /></Layout>
+                            <Layout isContainer={false}><Chat /></Layout>
                         } />
                         <Route path={'/profile/:id'} element={
                             <Layout><ProfilePage /></Layout>

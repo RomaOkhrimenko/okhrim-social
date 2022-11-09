@@ -1,9 +1,7 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
 
 import styles from './Messages.module.scss'
-import ChatHeader from "./chat-header/ChatHeader";
-import MyMessage from "./my-message/MyMessage";
-import FriendMessage from "./friend-message/FriendMessage";
+import MessagesHeader from "./messages-header/MessagesHeader";
 import {IUser} from "../../../models/IUser";
 import {instance} from "../../../http";
 //@ts-ignore
@@ -16,10 +14,11 @@ interface IProps {
         image: string,
         id: string} | null
     user: IUser
-    socket: any
+    socket: any,
+    resetCurrentChat: () => void
 }
 
-const Messages: FC<IProps> = ({currentChat, user, socket}) => {
+const Messages: FC<IProps> = ({currentChat, user, socket, resetCurrentChat}) => {
     const [messages, setMessages] = useState<any>([])
     const [arrivalMessage, setArrivalMessage] = useState<any>(null)
     const scrollRef = useRef() as React.MutableRefObject<HTMLInputElement>
@@ -71,15 +70,24 @@ const Messages: FC<IProps> = ({currentChat, user, socket}) => {
     }, [])
 
     return (
-        <div className={styles.chat}>
-            <ChatHeader />
-            <div ref={scrollRef} key={uuidv4()} className={styles.chat__container}>
-                {!messages.length && <div className={styles.chat__empty}>
-                    <span>Don't have messages yet</span>
-                </div>}
+        <div className={styles.messages}>
+            <MessagesHeader username={currentChat?.username!} resetCurrentChat={resetCurrentChat} />
 
-                {messages.length && messages.map((message: any, index: number) => {
-                    return !message.fromSelf ? <MyMessage message={message} key={index} /> : <FriendMessage message={message} key={index} />
+            <div className={`${styles.messages__list}`}>
+                {messages.map((message : any) => {
+                    return (
+                        <div ref={scrollRef} key={uuidv4()}>
+                            <div
+                                className={`${styles.messages__list_message} ${
+                                    message.fromSelf ? styles.sended : styles.recieved
+                                }`}
+                            >
+                                <div className={styles.messages__list_message_content}>
+                                    <p>{message.message}</p>
+                                </div>
+                            </div>
+                        </div>
+                    );
                 })}
             </div>
 

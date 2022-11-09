@@ -8,9 +8,10 @@ import {useNavigate} from "react-router";
 
 interface IProps {
     children: ReactNode
+    isContainer?: boolean
 }
 
-const Layout: FC<IProps> = ({children}) => {
+const Layout: FC<IProps> = ({children, isContainer = true}) => {
     const user = useAppSelector(state => state.user.user)
     const navigate = useNavigate()
 
@@ -29,7 +30,7 @@ const Layout: FC<IProps> = ({children}) => {
         <div>
             <Navbar />
             <Header />
-            <div className={`${styles.main_content} container`}>
+            <div className={`${styles.main_content} ${isContainer ? 'container' : ''}`}>
                 {children}
             </div>
         </div>

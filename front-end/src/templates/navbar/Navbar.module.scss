@@ -4,7 +4,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  background-color: #FBFAFF;
+  background-color: vaR(--color-black-bg);
   padding: 2rem 1.5rem;
   text-align: center;
   margin: 0 auto;
@@ -15,6 +15,8 @@
     font-size: 1.6rem;
     font-weight: 600;
     cursor: pointer;
+    color: #fff;
+    padding-top: 0.5rem;
   }
 
   &__navigation {
@@ -30,6 +32,16 @@
       &.active,
       &:hover {
         background-color: rgba(68, 97, 242, 0.8);
+
+        svg {
+          color: #fff;
+        }
+      }
+
+      svg {
+        font-size: 3rem;
+        color: var(--color-accent);
+        transition: color 0.5s;
       }
 
     }

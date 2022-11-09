@@ -1,7 +1,7 @@
 .filter_user_form {
   width: 400px;
   display: flex;
-  background-color: #fff;
+  background-color: var(--color-dark-purple);
   flex-direction: column;
   justify-content: space-between;
 
@@ -48,6 +48,7 @@
       font-size: 1.6rem;
       line-height: 26px;
       color: rgba(0, 0, 0, 0.87);
+      color: #fff;
     }
 
     & > div {
@@ -79,6 +80,8 @@
       padding-left: 3.2rem;
       user-select: none;
       cursor: pointer;
+      color: #fff;
+
 
       &:before {
         content: '';

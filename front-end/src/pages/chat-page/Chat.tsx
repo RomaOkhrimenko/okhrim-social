@@ -2,17 +2,22 @@ import React, {useEffect, useState, useRef} from 'react';
 
 import styles from './ChatPage.module.scss'
 import Messages from "../../templates/chat-page/chat/Messages";
-import Contacts from "../../templates/chat-page/messages-list/Contacts";
+import Contacts from "../../templates/chat-page/contacts/Contacts";
 import {IFriends} from "../../models/IFriends";
 import {useAppSelector} from "../../hooks/redux";
 import {instance} from "../../http";
 import {io} from 'socket.io-client'
+import Welcome from "../../templates/chat-page/welcome/Welcome";
 
 const Chat = () => {
     const socket = useRef(null)
     const user = useAppSelector(state => state.user.user)
     const [currentChat, setCurrentChat] = useState<{username: string, image: string, id: string } | null >(null)
     const [contacts, setContacts] = useState<IFriends['friends']>([])
+
+    const resetCurrentChat = () => {
+        setCurrentChat(null)
+    }
 
     useEffect(() => {
         if(user) {
@@ -35,19 +40,20 @@ const Chat = () => {
     return (
         <div className={styles.chat_page}>
 
-            <div className={styles.chat_page__message}>
+            <div className={styles.chat_page__container}>
+
                 {
                     currentChat
                         ?
-                        <Messages currentChat={currentChat} user={user} socket={socket} />
+                        <Messages currentChat={currentChat} user={user} socket={socket} resetCurrentChat={resetCurrentChat} />
                         :
-                        <h2>Nothing</h2>
+                        <Welcome username={user.profile?.username!} />
                 }
+
+                <Contacts contacts={contacts} setCurrentChat={setCurrentChat} username={user.profile?.username!} />
+
             </div>
 
-            <div className={styles.chat_page__messages_list}>
-                <Contacts contacts={contacts} setCurrentChat={setCurrentChat} />
-            </div>
         </div>
     );
 };
