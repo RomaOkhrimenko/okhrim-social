@@ -4,6 +4,7 @@ import {setAuth, setLoading, setUser} from "../slices/userSlice";
 import {IUser} from "../../../models/IUser";
 import axios from "axios";
 import {AuthResponse} from "../../../models/response/AuthResponse";
+import {notify} from "../../../utils/notification/alerts";
 
 export const login = (email: string, password: string) => async (dispatch: AppDispatch) => {
     try {
@@ -13,7 +14,7 @@ export const login = (email: string, password: string) => async (dispatch: AppDi
         dispatch(setAuth(true))
         dispatch(setUser(response.data.user))
     } catch (e: any) {
-        alert(e.response?.data?.message)
+        notify('error', `${e.response?.data?.message}`)
     }
 }
 
@@ -24,7 +25,7 @@ export const registration = (email: string, password: string) => async (dispatch
         dispatch(setAuth(true))
         dispatch(setUser(response.data.user))
     } catch (e: any) {
-        alert(e.response?.data?.message)
+        notify('error', `${e.response?.data?.message}`)
     }
 }
 
@@ -35,7 +36,7 @@ export const logout = () => async (dispatch: AppDispatch) => {
         dispatch(setAuth(false))
         dispatch(setUser({} as IUser))
     } catch (e: any) {
-        alert(e.response?.data?.message)
+        notify('error', `${e.response?.data?.message}`)
     }
 }
 
@@ -47,8 +48,8 @@ export const checkAuth = () => async (dispatch: AppDispatch) => {
         dispatch(setAuth(true))
         dispatch(setUser(response.data.user))
     } catch (e: any) {
-        alert(e.response?.data?.message)
-        console.log(e)
+        notify('error', `${e.response.data.message}`)
+        localStorage.removeItem('token')
     } finally {
         dispatch(setLoading(false))
     }

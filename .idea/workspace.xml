@@ -2,40 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dba08ae9-1172-4671-90e8-be40d841b5b8" name="Changes" comment="fix: friends request, chat page, friends page">
-      <change afterPath="$PROJECT_DIR$/front-end/src/store/redux/actions/userAction.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/store/redux/api/userApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/templates/modals/filter-user-form/FilterUserForm.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/templates/modals/filter-user-form/FilterUserForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/ui/AddFriendBtn.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/utils/functions/friends.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/controllers/game.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/controllers/game.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/controllers/message.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/models/message.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/routes/message.route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/services/message.service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/store/context/context.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/store/redux/slices/gameSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/find-user-block/FindUserBlock.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/find-user-block/FindUserBlock.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/message-input/MessageInput.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/message-input/MessageInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/utils/functions/findUsers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/utils/notification/alerts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/controllers/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/dtos/user-friends.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/dtos/user-friends.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/dtos/user.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/dtos/user.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/models/user.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/routes/game.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/game.route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/routes/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/user.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/services/game.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/services/game.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/services/user.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/utils/api-features.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/utils/api-features.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/assets/styles/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/assets/styles/_global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/models/IUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/models/IUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/pages/login-page/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/login-page/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/pages/profile-page/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/profile-page/ProfilePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/http/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/http/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/pages/chat-page/ChatPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/chat-page/Chat.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/actions/authAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/actions/authAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/actions/userAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/actions/userAction.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/templates/blocks/friend-block/FriendBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/friend-block/FriendBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/cards/game-card/GameCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/cards/game-card/GameCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Chat.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/friend-message/FriendMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/friend-message/FriendMessage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/my-message/MyMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/my-message/MyMessage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/MessagesList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/Contacts.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/MessagesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/Contacts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/message-list-block/MessageListBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/contact-block/ContactsBlock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/messages-list/message-list-block/MessageListBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/contact-block/ContactsBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/templates/games-page/games-container/GamesContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/games-page/games-container/GamesContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/login-page/login-form/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/login-page/login-form/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/navbar/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/profile-page/profile-friends/ProfileFriends.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/profile-page/profile-friends/ProfileFriends.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/profile-page/profile-top/ProfileTop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/profile-page/profile-top/ProfileTop.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/setting-account/SettingsAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/setting-account/SettingsAccount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/setting-account/last-step/form/LastStepForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/setting-account/last-step/form/LastStepForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/utils/protected-routes/ProtectedRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/utils/protected-routes/ProtectedRoutes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/layout/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/modals/filter-user-form/FilterUserForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/modals/filter-user-form/FilterUserForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/utils/functions/friends.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/utils/functions/friends.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +81,7 @@
       <recent name="C:\Users\Рома\Desktop\okrim-social\back-end\controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\templates\blocks" />
       <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\assets\images\svg" />
       <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\assets\images\png" />
       <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\templates\profile-page" />
@@ -116,7 +125,14 @@
       <workItem from="1667457415695" duration="5812000" />
       <workItem from="1667466666342" duration="1965000" />
       <workItem from="1667485828053" duration="3799000" />
-      <workItem from="1667543864463" duration="21933000" />
+      <workItem from="1667543864463" duration="22773000" />
+      <workItem from="1667752860570" duration="3627000" />
+      <workItem from="1667807509757" duration="4851000" />
+      <workItem from="1667852873140" duration="1305000" />
+      <workItem from="1667891239448" duration="3436000" />
+      <workItem from="1667921939181" duration="11430000" />
+      <workItem from="1667973715865" duration="5978000" />
+      <workItem from="1667990011473" duration="612000" />
     </task>
     <task id="LOCAL-00001" summary="fix: front-end, add: platforms route">
       <created>1666553147899</created>

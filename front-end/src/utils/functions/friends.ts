@@ -1,5 +1,5 @@
 import {useAppDispatch} from "../../hooks/redux";
-import {acceptFriendRequest, addFriend, deleteFriendRequest} from "../../store/redux/actions/userAction";
+import {acceptFriendRequest, addFriend, deleteFriend, deleteFriendRequest} from "../../store/redux/actions/userAction";
 import {AppDispatch} from "../../store/redux";
 
 export const onAddFriend = (userId: string, friendId: string, dispatch: AppDispatch) => {
@@ -8,6 +8,10 @@ export const onAddFriend = (userId: string, friendId: string, dispatch: AppDispa
 
 export const onDeleteFriendRequest = (userId: string, friendId: string, dispatch: AppDispatch) => {
     dispatch(deleteFriendRequest(userId, friendId))
+}
+
+export const onDeleteFriend = (userId: string, friendId: string, dispatch: AppDispatch) => {
+    dispatch(deleteFriend(userId, friendId))
 }
 
 export const onAcceptFriendRequest = (userId: string, friendId: string, dispatch: AppDispatch) => {

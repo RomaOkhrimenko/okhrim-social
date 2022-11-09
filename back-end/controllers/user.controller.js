@@ -89,6 +89,7 @@ class UserController {
 
     async getFoundedUser(req, res, next) {
         try {
+            console.log(req.query)
             const user = await userService.getFoundedUser(req.body.userId, req.query)
             return res.json(user)
         } catch (e) {
@@ -100,6 +101,16 @@ class UserController {
         try {
             const user = await userService.createProfile(req.body)
             return res.json(user)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async getAllFriends(req, res, next) {
+        try {
+            const result = await userService.getAllFriends(req.params.id)
+
+            return res.status(201).json(result)
         } catch (e) {
             next(e)
         }
@@ -140,6 +151,16 @@ class UserController {
             const result = await userService.deleteFriend(req.body.userId, req.body.friendId)
 
             return res.status(201).json(result)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async resetPrevUsers(req, res, next) {
+        try {
+            const data = await userService.resetPrevUsers(req.body.userId)
+
+            return res.status(201).json(data)
         } catch (e) {
             next(e)
         }

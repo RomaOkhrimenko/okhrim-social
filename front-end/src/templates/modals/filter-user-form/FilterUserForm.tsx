@@ -1,30 +1,34 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useContext, useState} from 'react';
 
 import styles from './FilterUserForm.module.scss'
 import Button from "../../../ui/Button";
-import {useGetFilteredUserQuery} from "../../../store/redux/api";
-import {instance} from "../../../http";
 import {useNavigate} from "react-router";
+import {findUsers} from "../../../utils/functions/findUsers";
+import {Context} from "../../../store/context/context";
+import {useAppDispatch} from "../../../hooks/redux";
+import {setFilterData} from "../../../store/redux/slices/gameSlice";
 
 interface IProps {
     gameName: string,
-    gameId: string
+    gameId: string,
+    userId: string
 }
 
-const FilterUserForm: FC<IProps> = ({gameName, gameId}) => {
+const FilterUserForm: FC<IProps> = ({gameName, gameId, userId}) => {
+    const dispatch = useAppDispatch()
+    // @ts-ignore
+    const {setIsFindUsers} = useContext(Context)
     const [gender, setGender] = useState('male')
     const navigate = useNavigate()
-
-    const onSubmit = async () => {
-
-        const response = await instance.get(`/find-user?profile.gender=${gender}&profile.games=${gameId}`)
-            .then(({data}) => data)
-
-        if(response.length) {
-            navigate(`/profile/${response[0]._id}`)
+    const onFindUser = () => {
+        const body = {
+            gameId,
+            userId,
+            gender
         }
-
-        console.log(response)
+        setIsFindUsers(true)
+        dispatch(setFilterData(body))
+        findUsers(gender, gameId, userId, navigate)
     }
 
     return (
@@ -68,7 +72,7 @@ const FilterUserForm: FC<IProps> = ({gameName, gameId}) => {
             </div>
 
 
-            <Button onClick={onSubmit} className={styles.filter_user_form__button_btn}>Search</Button>
+            <Button onClick={onFindUser} className={styles.filter_user_form__button_btn}>Search</Button>
         </div>
     );
 };

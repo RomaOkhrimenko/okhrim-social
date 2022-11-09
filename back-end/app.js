@@ -18,12 +18,14 @@ const platformRoute = require('./routes/platform.route')
 const genreRoute = require('./routes/genre.route')
 const gameRoute = require('./routes/game.route')
 const settingsAccountRoute = require('./routes/settings-account.route')
+const messageRoute = require('./routes/message.route')
 
 app.use('/api', userRoute)
 app.use('/api', platformRoute)
 app.use('/api', genreRoute)
 app.use('/api', gameRoute)
 app.use('/api', settingsAccountRoute)
+app.use('/api', messageRoute)
 
 app.use(errorMiddleware)
 

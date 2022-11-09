@@ -100,11 +100,15 @@ class AuthenticationService {
 
     async getFoundedUser (userId, query) {
         const user = await UserModel.findById(userId)
-        const apiFeatures = new ApiFeatures(UserModel.find(), query).filter()
+        const apiFeatures = new ApiFeatures(UserModel.find({_id: {$ne: userId}}), query).filter()
         const users = await apiFeatures.query
-        const usersCopy = JSON.parse(JSON.stringify(users))
+        const filteredUsers = JSON.parse(JSON.stringify(users))
 
-        const filteredUsers = usersCopy.filter((item) => item._id !== userId)
+
+        if(!filteredUsers.length) {
+            return []
+        }
+
 
         if(user.prevUsers.length) {
             let array = []
@@ -130,6 +134,14 @@ class AuthenticationService {
         return filteredUsers[0]
     }
 
+    async resetPrevUsers (userId) {
+        const user = await UserModel.findById(userId)
+        user.prevUsers = []
+        await user.save()
+
+        return 'Users successfully reset'
+    }
+
     async createProfile(body) {
         const user = await UserModel.findById(body.id)
         user.profile = body.profile
@@ -140,6 +152,12 @@ class AuthenticationService {
             .populate({path: 'profile', populate: {path: 'games', model: 'Game'}})
             .populate({path: 'profile', populate: {path: 'genres', model: 'Genre'}})
             .populate({path: 'profile', populate: {path: 'platforms', model: 'Platform'}});
+    }
+
+    async getAllFriends(userId) {
+        const user = await UserModel.findById(userId).select('profile.friends.friends')
+
+        return user
     }
 
     async requestFriend(userId, friendId) {

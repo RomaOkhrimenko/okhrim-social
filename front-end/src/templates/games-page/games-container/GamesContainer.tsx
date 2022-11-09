@@ -5,12 +5,14 @@ import {IGame} from "../../../models/IGame";
 import GameCard from "../../cards/game-card/GameCard";
 import ModalLayout from "../../modals/modal-layout/ModalLayout";
 import FilterUserForm from "../../modals/filter-user-form/FilterUserForm";
+import {useAppSelector} from "../../../hooks/redux";
 
 interface IProps {
     games: IGame[]
 }
 
 const GamesContainer: FC<IProps> = ({games}) => {
+    const userId = useAppSelector(state => state.user.user._id)
     const [gameId, setGameId] = useState('')
     const [gameName, setGameName] = useState('')
 
@@ -34,7 +36,7 @@ const GamesContainer: FC<IProps> = ({games}) => {
             })}
 
             <ModalLayout active={showModal} setActive={setShowModal}>
-                <FilterUserForm gameName={gameName} gameId={gameId} />
+                <FilterUserForm gameName={gameName} gameId={gameId} userId={userId}/>
             </ModalLayout>
         </div>
     );

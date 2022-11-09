@@ -29,7 +29,6 @@ const Layout: FC<IProps> = ({children}) => {
         <div>
             <Navbar />
             <Header />
-
             <div className={`${styles.main_content} container`}>
                 {children}
             </div>

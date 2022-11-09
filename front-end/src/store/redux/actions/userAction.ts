@@ -1,6 +1,7 @@
 import {AppDispatch} from "../index";
 import {instance} from "../../../http";
 import {setUser} from "../slices/userSlice";
+import {notify} from "../../../utils/notification/alerts";
 
 export const addFriend = (userId: string, friendId: string) => async (dispatch: AppDispatch) => {
     try {
@@ -10,7 +11,7 @@ export const addFriend = (userId: string, friendId: string) => async (dispatch: 
 
         dispatch(setUser(user))
     } catch (e: any) {
-        alert(e?.data?.message)
+        notify('error', `${e.response?.data?.message}`)
     }
 }
 
@@ -22,7 +23,19 @@ export const deleteFriendRequest = (userId: string, friendId: string) => async (
 
         dispatch(setUser(user))
     } catch (e: any) {
-        alert(e?.data?.message)
+        notify('error', `${e.response?.data?.message}`)
+    }
+}
+
+export const deleteFriend = (userId: string, friendId: string) => async (dispatch: AppDispatch) => {
+    try {
+        await instance.post('/delete-friend', {userId, friendId})
+        const user = await instance.get(`/user/${userId}`)
+            .then(({data}) => data)
+
+        dispatch(setUser(user))
+    } catch (e: any) {
+        notify('error', `${e.response?.data?.message}`)
     }
 }
 
@@ -33,7 +46,22 @@ export const acceptFriendRequest = (userId: string, friendId: string) => async (
             .then(({data}) => data)
 
         dispatch(setUser(user))
-    } catch (e) {
-        console.log(e)
+    } catch (e: any) {
+        notify('error', `${e.response?.data?.message}`)
+    }
+}
+
+export const resetPrevUser = (userId: string) => async (dispatch: AppDispatch) => {
+    try {
+        await instance.post('/reset-prev-users', {userId})
+
+        const user = await instance.get(`/user/${userId}`)
+            .then(({data}) => data)
+
+        notify('success', 'Reset prev users success')
+
+        dispatch(setUser(user))
+    } catch (e: any) {
+        notify('error', `${e.response?.data?.message}`)
     }
 }

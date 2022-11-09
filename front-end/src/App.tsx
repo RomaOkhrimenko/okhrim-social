@@ -1,20 +1,22 @@
-import React, {useEffect} from 'react';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import LoginPage from "./pages/login-page/LoginPage";
+import React, {useEffect, useState} from 'react';
+import {Route, Routes} from "react-router-dom";
 import Layout from "./templates/layout/Layout";
 import HomePage from "./pages/home-page/HomePage";
 import SettingsAccount from "./templates/setting-account/SettingsAccount";
-import SettingsPage from "./pages/settings-page/SettingsPage";
-import ChatPage from "./pages/chat-page/ChatPage";
+import Chat from "./pages/chat-page/Chat";
 import ProfilePage from "./pages/profile-page/ProfilePage";
 import GamesPage from "./pages/games-page/GamesPage";
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
 import {checkAuth} from "./store/redux/actions/authAction";
-import {useNavigate} from "react-router";
 import ProtectedRoutes from "./utils/protected-routes/ProtectedRoutes";
 import FriendsPage from "./pages/friends-page/FriendsPage";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import FindUserBlock from "./templates/blocks/find-user-block/FindUserBlock";
+import {Context} from "./store/context/context";
 
 function App() {
+    const [isFindUsers, setIsFindUsers] = useState(false)
     const data = useAppSelector(state => state.user)
     const dispatch = useAppDispatch()
 
@@ -29,6 +31,10 @@ function App() {
     }
 
   return (
+      <Context.Provider value={{
+          isFindUsers,
+          setIsFindUsers
+      }}>
         <div className="App">
               <Routes>
                   <Route element={<ProtectedRoutes />}>
@@ -40,7 +46,7 @@ function App() {
                             <Layout><FriendsPage /></Layout>
                         } />
                         <Route path={'/messages'} element={
-                            <Layout><ChatPage /></Layout>
+                            <Layout><Chat /></Layout>
                         } />
                         <Route path={'/profile/:id'} element={
                             <Layout><ProfilePage /></Layout>
@@ -51,7 +57,19 @@ function App() {
                 </Route>
               </Routes>
 
+            <ToastContainer
+                position={'top-center'}
+                autoClose={3000}
+                hideProgressBar={false}
+                closeOnClick
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+
+            <FindUserBlock />
         </div>
+      </Context.Provider>
   );
 }
 

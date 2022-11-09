@@ -11,7 +11,8 @@ export const instance = axios.create({
 })
 
 $api.interceptors.request.use((config) => {
-    config.headers!.Authorization = `Bearer ${localStorage.getItem('token')}`
+    // @ts-ignore
+    config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
     return config
 })
 
@@ -19,7 +20,7 @@ $api.interceptors.response.use((config) => {
     return config
 }, async (error) => {
     const originalRequest = error.config
-    if(error.response.status == 401) {
+    if(error.response.status == 401 && error.config && !error._isRetry) {
         try {
             const response = await axios.get<AuthResponse>('http://localhost:4000/api/refresh', {withCredentials: true})
             localStorage.setItem('token', response.data.accessToken)
@@ -27,8 +28,8 @@ $api.interceptors.response.use((config) => {
         } catch (e) {
             console.log('Not Authorization')
         }
-
     }
+    throw error
 })
 
 export default $api

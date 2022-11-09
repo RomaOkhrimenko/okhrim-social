@@ -6,6 +6,7 @@ import {
 import storage from 'redux-persist/lib/storage'
 import {userReducer} from "./slices/userSlice";
 import {settingsAccountApi, gamesApi, userApi} from "./api";
+import {gameReducer} from "./slices/gameSlice";
 
 const persistConfig = {
     key: 'root',
@@ -15,6 +16,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     user: userReducer,
+    game: gameReducer,
     [settingsAccountApi.reducerPath]: settingsAccountApi.reducer,
     [gamesApi.reducerPath]: gamesApi.reducer,
     [userApi.reducerPath]: userApi.reducer
