@@ -27,10 +27,10 @@ const FindUserBlock = () => {
         <div className={`${styles.find_user_block__container} ${isFindUsers ? styles.active : ''}`}>
             <div className={styles.find_user_block}>
                 <div>
-                    <Button onClick={() => setIsFindUsers(false)} className={styles.find_user_block__button}>Stop find users</Button>
+                    <Button onClick={() => setIsFindUsers(false)} className={styles.find_user_block__button}>Stop</Button>
                 </div>
                 <div>
-                    <Button onClick={onResetPrevUsers} className={styles.find_user_block__button}>Reset prev users</Button>
+                    <Button onClick={onResetPrevUsers} className={styles.find_user_block__button}>Reset</Button>
                 </div>
                 <div>
                     <Button onClick={onNextUser} className={styles.find_user_block__button}>Next</Button>

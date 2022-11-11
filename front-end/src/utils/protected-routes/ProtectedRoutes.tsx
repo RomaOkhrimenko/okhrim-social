@@ -6,10 +6,6 @@ import LoginPage from "../../pages/login-page/LoginPage";
 
 const ProtectedRoutes = () => {
     const isAuth = useAppSelector((state) => state.user.isAuth)
-
-    useEffect(() => {
-        console.log(isAuth, 'isAuth')
-    }, [isAuth])
     return isAuth ? <Outlet /> : <LoginPage />
 };
 

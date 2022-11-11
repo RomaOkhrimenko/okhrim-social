@@ -2,6 +2,10 @@
   overflow: hidden;
   margin-bottom: 2rem;
 
+  @media (max-width: 1440px) {
+    padding: 0 2rem;
+  }
+
   h3 {
     font-size: 1.8rem;
     margin-bottom: 2rem;

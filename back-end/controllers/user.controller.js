@@ -89,7 +89,6 @@ class UserController {
 
     async getFoundedUser(req, res, next) {
         try {
-            console.log(req.query)
             const user = await userService.getFoundedUser(req.body.userId, req.query)
             return res.json(user)
         } catch (e) {

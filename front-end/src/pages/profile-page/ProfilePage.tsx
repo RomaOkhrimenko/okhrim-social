@@ -9,6 +9,7 @@ import ProfilePlatforms from "../../templates/profile-page/profile-platforms/Pro
 import {useAppSelector} from "../../hooks/redux";
 import {useParams} from "react-router";
 import {useGetAnotherUserQuery} from "../../store/redux/api";
+import FindUserBlock from "../../templates/blocks/find-user-block/FindUserBlock";
 
 const ProfilePage = () => {
     const [isMe, setIsMe] = useState(false)
@@ -76,6 +77,8 @@ const ProfilePage = () => {
                     <ProfileGames games={friend.profile?.games!} />
                     <ProfileGenres genres={friend.profile?.genres!} />
                 </div>
+
+                <FindUserBlock />
             </div>
         );
     }

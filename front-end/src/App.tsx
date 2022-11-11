@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useRoutes} from "react-router-dom";
 import Layout from "./templates/layout/Layout";
 import HomePage from "./pages/home-page/HomePage";
 import SettingsAccount from "./templates/setting-account/SettingsAccount";
@@ -65,9 +65,9 @@ function App() {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
+                theme={'dark'}
             />
 
-            <FindUserBlock />
         </div>
       </Context.Provider>
   );

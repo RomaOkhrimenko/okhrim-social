@@ -20,6 +20,7 @@ const MessageInput: FC<IProps> = ({handleSendMessage}) => {
 
     const handleEmojiClick = (event: any, emojiObject: any) => {
         let message = text;
+        console.log(emojiObject)
         message += emojiObject.emoji;
         setText(message);
     };

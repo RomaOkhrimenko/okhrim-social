@@ -1,33 +1,64 @@
 .profile_genres {
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
+  overflow: hidden;
 
   @media (max-width: 1440px) {
     padding: 0 2rem;
   }
 
+  @media (max-width: 768px) {
+    margin-bottom: 3rem;
+  }
   h3 {
     font-size: 1.8rem;
     margin-bottom: 2rem;
   }
 
   &__container {
+    width: 100%;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    margin-bottom: 2rem;
   }
 
   &__genre {
     margin-right: 3rem;
-    margin-bottom: 2rem;
     font-size: 1.6rem;
     line-height: 16px;
     padding:  1rem 3rem;
     border-radius: 15px;
     background-color: #4461F2;
     color: #fff;
+    margin-bottom: 1.3rem;
 
     @media (max-width: 768px) {
-      margin-bottom: 2rem;
+      margin-right: 2rem;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 2rem;
+
+    &_prev,
+    &_next {
+      transition: opacity 0.5s;
+    }
+
+    svg {
+      transform: scale(1.2);
+      margin-right: 2rem;
+      cursor: pointer;
+      transition: color 0.3s;
+      &:hover {
+        color: #4461F2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin-right: 1rem;
     }
   }
 }

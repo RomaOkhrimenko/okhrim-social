@@ -4,7 +4,7 @@ import styles from './GamesContainer.module.scss'
 import {IGame} from "../../../models/IGame";
 import GameCard from "../../cards/game-card/GameCard";
 import ModalLayout from "../../modals/modal-layout/ModalLayout";
-import FilterUserForm from "../../modals/filter-user-form/FilterUserForm";
+import FilterUserForm from "../../forms/filter-user-form/FilterUserForm";
 import {useAppSelector} from "../../../hooks/redux";
 
 interface IProps {
@@ -22,8 +22,6 @@ const GamesContainer: FC<IProps> = ({games}) => {
         setGameId(gameId)
         setGameName(gameName)
         setShowModal(true)
-
-        console.log(gameId, gameName)
     }
 
     return (
