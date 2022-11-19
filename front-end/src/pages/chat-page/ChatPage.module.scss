@@ -8,11 +8,21 @@
   align-items: center;
   background-color: #131324;
 
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+
+  }
+
   &__container{
     height: 100%;
     width: 100%;
     background-color: #00000076;
     display: grid;
-    grid-template-columns: 75% 25%;
+    grid-template-columns: 100% 0%;
+
+    @media (max-width: 768px) {
+      top: 0;
+    }
   }
 }

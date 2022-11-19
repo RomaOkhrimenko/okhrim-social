@@ -1,19 +1,18 @@
 import {IUser} from "./IUser";
 
+export interface IFriendBlock {
+    profile: {
+        image?: {
+            url: string,
+            public_id: string
+        }
+        username: string
+    }
+    _id: string
+}
+
 export interface IFriends {
-    incomeRequests: {
-        username: string,
-        image: string,
-        id: string
-    }[]
-    outcomeRequests: {
-        username: string,
-        image: string,
-        id: string
-    }[]
-    friends: {
-        username: string,
-        image: string,
-        id: string
-    }[]
+    incomeRequests: IFriendBlock[]
+    outcomeRequests: IFriendBlock[]
+    friends: IFriendBlock[]
 }

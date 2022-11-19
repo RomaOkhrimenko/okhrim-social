@@ -53,7 +53,7 @@ const SecondStep: FC<IProps> = ({handleStep, saveGames, chooseGames, genres}) =>
             <Input value={keyword} setValue={setKeyword} name={'search'} placeholder={'Type to search game...'} className={styles.third_step__input} />
             <div className={styles.third_step__games}>
                 {games && games.map((item) => {
-                    return <GameBlock key={item._id} onClick={handlePlatforms} id={`${item._id}`} isActive={isChosePlatform(`${item._id}`)} image={item.image} name={item.name} />
+                    return <GameBlock key={item._id} onClick={handlePlatforms} data={`${item._id}`} isActive={isChosePlatform(`${item._id}`)} image={item.image} name={item.name} />
                 })}
             </div>
 

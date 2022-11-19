@@ -33,7 +33,7 @@ const GamesContainer: FC<IProps> = ({games}) => {
                 )
             })}
 
-            <ModalLayout active={showModal} setActive={setShowModal}>
+            <ModalLayout active={showModal} setActive={setShowModal} isDisableScroll={false}>
                 <FilterUserForm gameName={gameName} gameId={gameId} userId={userId}/>
             </ModalLayout>
         </div>

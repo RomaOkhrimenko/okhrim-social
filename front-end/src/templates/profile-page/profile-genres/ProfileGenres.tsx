@@ -1,17 +1,36 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 
 import styles from './ProfileGenres.module.scss'
 
 import Swiper, {Navigation} from "swiper";
+import {AiOutlineEdit} from 'react-icons/ai'
 import {ReactComponent as ArrowLeft} from "../../../assets/images/svg/arrow-left.svg";
 import {ReactComponent as ArrowRight} from "../../../assets/images/svg/arrow-right.svg";
 import {IPlatform} from "../../../models/IPlatform";
+import ModalLayout from "../../modals/modal-layout/ModalLayout";
+import EditPlatforms from "../../modals/edit-platforms/EditPlatforms";
+import {useGetGenresQuery} from "../../../store/redux/api/genresApi";
+import {IGenre} from "../../../models/IGenre";
+import EditGenres from "../../modals/edit-genres/EditGenres";
 
 interface IProps {
-    genres: IPlatform[]
+    genres: IGenre[],
+    isEdit?: boolean,
+    setGenres?: (arg0: IGenre[]) => void
 }
 
-const ProfileGenres: FC<IProps> = ({genres}) => {
+const ProfileGenres: FC<IProps> = ({genres, isEdit, setGenres}) => {
+    const [isEditGenres, setIsEditGenres] = useState(false)
+    const [chosenGenres, setChosenGenres] = useState<IGenre[]>([])
+
+    // @ts-ignore
+    const {data} = useGetGenresQuery<IGenre[]>()
+
+    const saveGenres = (data: IGenre[]) => {
+        if (setGenres) {
+            setGenres(data)
+        }
+    }
 
     useEffect(() => {
         Swiper.use([Navigation])
@@ -23,11 +42,22 @@ const ProfileGenres: FC<IProps> = ({genres}) => {
                 nextEl: `.profile_genres__navigation_next`,
             }
         })
-    }, [])
+
+        setChosenGenres([])
+        genres.map((platform) => {
+            setChosenGenres(prev => [...prev, platform])
+        })
+    }, [genres])
 
     return (
         <div className={styles.profile_genres}>
-            <h3>{genres.length} Genres</h3>
+            <div className={styles.profile_genres__title}>
+                <h3>{genres.length} Genres</h3>
+
+                {isEdit && <AiOutlineEdit onClick={() => setIsEditGenres(true)} />}
+            </div>
+
+            {isEdit && <ModalLayout outsideClick={false} active={isEditGenres} setActive={setIsEditGenres}><EditGenres saveGenres={saveGenres} genres={data} chooseGenres={chosenGenres} handleEditStatus={setIsEditGenres} /></ModalLayout>}
 
             <div className={'profile-genres-swiper'}>
                 <div className={`${styles.profile_genres__container} swiper-wrapper`}>

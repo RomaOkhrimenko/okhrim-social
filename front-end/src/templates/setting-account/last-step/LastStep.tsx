@@ -8,7 +8,7 @@ import LastStepForm from "./form/LastStepForm";
 
 interface IProps {
     handleStep: (arg0: number) => void,
-    handleData: (arg0: {username: string, birthday: string, gender: string, description: string}) => void,
+    handleData: (arg0: {username: string, birthday: string, gender: string, description: string, image: string}) => void,
 }
 
 const LastStep: FC<IProps> = ({handleStep, handleData}) => {

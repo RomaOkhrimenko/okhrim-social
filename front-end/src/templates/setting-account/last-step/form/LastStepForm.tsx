@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useRef, useState} from 'react';
 import Input from "../../../../ui/Input";
 
 //@ts-ignore
@@ -8,7 +8,9 @@ import 'react-calendar/dist/Calendar.css';
 import styles from './LastStepForm.module.scss'
 import ModalLayout from "../../../modals/modal-layout/ModalLayout";
 import {useForm} from "react-hook-form";
-import {useNavigate} from "react-router";
+import {AiOutlineCamera} from 'react-icons/ai'
+import InputUpload from "../../../../ui/InputUpload";
+import Button from "../../../../ui/Button";
 
 const handleDateToDDMMYYYY = (date: Date) => {
     const yyyy = date.getFullYear();
@@ -25,18 +27,23 @@ const LastStepForm: FC<{setData: any}> = ({setData}) => {
     const [description, setDescription] = useState('')
     const [date, setDate] = useState<Date>(new Date())
     const [birthday, setBirthday] = useState('Birthday')
+    const [image, setImage] = useState('')
     const [gender, setGender] = useState('male')
     const [modalActive, setModalActive] = useState(false)
+
+    const inputUploadRef = useRef()
+
+
 
     const {register, formState: {errors, isValid}, handleSubmit, reset} = useForm()
 
     const onSubmit = (data: any) => {
-
         if(data.username) {
             const body = {
                 username: data.username,
                 gender: gender,
                 description,
+                image,
                 birthday
             }
 
@@ -45,15 +52,18 @@ const LastStepForm: FC<{setData: any}> = ({setData}) => {
 
     }
 
-
     const handleDate = (date: Date) => {
         setDate(date)
         setBirthday(handleDateToDDMMYYYY(date))
     }
 
-
     const handleGender = (id: string) => {
         setGender(id)
+    }
+
+    const onUploadImage = () => {
+        // @ts-ignore
+        inputUploadRef.current.click()
     }
 
     return (
@@ -74,6 +84,12 @@ const LastStepForm: FC<{setData: any}> = ({setData}) => {
             <div className={styles.last_step_form__col}>
                 <input type="text" readOnly={true} value={birthday} className={styles.last_step_form__birthday} onClick={() => setModalActive(true)} />
                 <span>Click to choose your birthday</span>
+            </div>
+
+            <div className={styles.last_step_form__col}>
+                <Button onClick={onUploadImage} className={styles.last_step_form__file_button}>Upload Profile Picture <AiOutlineCamera /></Button>
+                <InputUpload value={image} setImage={setImage}
+                             name={'image'} className={styles.last_step_form__file_input} isShowPreview={true} hidden={true} ref={inputUploadRef}  />
             </div>
 
             <div className={styles.last_step_form__checkboxes}>

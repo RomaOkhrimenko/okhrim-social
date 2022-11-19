@@ -3,6 +3,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 3rem;
+
+  @media (max-width:768px) {
+    padding: 0 1rem;
+  }
   &__details {
     display: flex;
     align-items: center;
@@ -12,6 +16,8 @@
       img {
         border-radius: 50%;
         height: 5rem;
+        width: 5rem;
+        object-fit: cover;
       }
     }
     &_username {

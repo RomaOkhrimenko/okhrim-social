@@ -13,5 +13,5 @@ export interface IProfile {
     games: IGame[]
     genres: IGenre[]
     isComplete: boolean
-    image: string
+    image: { url: string, public_id: string }
 }

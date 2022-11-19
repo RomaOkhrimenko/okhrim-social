@@ -22,6 +22,10 @@ const Layout: FC<IProps> = ({children, isContainer = true}) => {
         }
     }, [user])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [window.location.href])
+
     if(!user.profile!.isComplete) {
         return <div></div>
     }

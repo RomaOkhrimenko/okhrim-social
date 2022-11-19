@@ -1,25 +1,32 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useContext, useState} from 'react';
 
 import styles from './FriendBlock.module.scss'
 
 import {ReactComponent as OptionsIco} from "../../../assets/images/svg/options.svg";
-import ImagePhoto from '../../../assets/images/png/settings-man.png'
+import ImagePhoto from '../../../assets/images/png/User.png'
 import {useNavigate} from "react-router";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {onAcceptFriendRequest, onDeleteFriend, onDeleteFriendRequest} from "../../../utils/functions/friends";
+import {Context} from "../../../store/context/context";
 
 interface IProps {
     isFriend: boolean,
     username: string,
-    image: string,
+    image: string | undefined,
     id: string
 }
 
 const FriendBlock: FC<IProps> = ({isFriend, username, image, id}) => {
+    const {setCurrentChatDefault} = useContext(Context)
     const userId = useAppSelector(state => state.user.user._id)
     const dispatch = useAppDispatch()
     const [isMenuActive, setIsMenuActive] = useState(false)
     const navigate = useNavigate()
+
+    const onSendMessage = () => {
+        setCurrentChatDefault({id, username, _id: id, image})
+        navigate('/messages')
+    }
 
     return (
         <div className={styles.friend_block}>
@@ -27,7 +34,7 @@ const FriendBlock: FC<IProps> = ({isFriend, username, image, id}) => {
 
             <div className={styles.friend_block__info}>
                 <span>{username}</span>
-                {isFriend && <span>Send message</span>}
+                {isFriend && <span onClick={onSendMessage}>Send message</span>}
 
                 {!isFriend && (
                     <div>

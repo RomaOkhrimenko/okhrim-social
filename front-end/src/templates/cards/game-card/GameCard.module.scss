@@ -5,8 +5,12 @@
   cursor: pointer;
   margin: 2rem;
   overflow: hidden;
-
   transition: box-shadow 0.3s;
+
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 250px;
+  }
   &:hover {
     .game_card__name {
       transform: translateY(0);
@@ -39,5 +43,9 @@
     align-items: center;
     transform: translateY(110%);
     transition: transform 0.3s;
+
+    @media (max-width: 768px) {
+      transform: translateY(0);
+    }
   }
 }

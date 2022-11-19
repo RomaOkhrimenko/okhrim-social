@@ -2,13 +2,6 @@ import React, {FC, useState} from 'react';
 
 import styles from './SecondStep.module.scss'
 
-import Action from '../../../assets/images/png/steps/step2/action.png'
-import Adventure from '../../../assets/images/png/steps/step2/adventure.png'
-import Fight from '../../../assets/images/png/steps/step2/fight.png'
-import RPG from '../../../assets/images/png/steps/step2/rpg-game.png'
-import Sports from '../../../assets/images/png/steps/step2/sports.png'
-import Strategy from '../../../assets/images/png/steps/step2/strategy.png'
-
 import PlatformBlock from "../platform-block/PlatformBlock";
 import Button from "../../../ui/Button";
 import {IGenre} from "../../../models/IGenre";
@@ -60,7 +53,7 @@ const SecondStep: FC<IProps> = ({handleStep, genres, saveGenres, chooseGenres}) 
 
             <div className={styles.second_step__genres}>
                 {genres.map((item) => {
-                    return <PlatformBlock key={item._id} onClick={handlePlatforms} id={`${item._id}`} isActive={isChosePlatform(`${item._id}`)} image={item.image} name={item.name} />
+                    return <PlatformBlock key={item._id} onClick={handlePlatforms} data={`${item._id}`} isActive={isChosePlatform(`${item._id}`)} image={item.image} name={item.name} />
                 })}
             </div>
 

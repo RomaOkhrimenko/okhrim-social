@@ -7,12 +7,10 @@ import {instance} from "../../../http";
 //@ts-ignore
 import {v4 as uuidv4} from 'uuid'
 import MessageInput from "./message-input/MessageInput";
+import {ICurrentChat} from "../../../models/ICurrentChat";
 
 interface IProps {
-    currentChat: {
-        username: string,
-        image: string,
-        id: string} | null
+    currentChat: ICurrentChat | null
     user: IUser
     socket: any,
     resetCurrentChat: () => void
@@ -66,11 +64,11 @@ const Messages: FC<IProps> = ({currentChat, user, socket, resetCurrentChat}) => 
             }).then(({data}) => setMessages(data))
         }
         getMessage()
-    }, [])
+    }, [currentChat])
 
     return (
-        <div className={styles.messages}>
-            <MessagesHeader username={currentChat?.username!} resetCurrentChat={resetCurrentChat} />
+        <div className={`${styles.messages}`}>
+            <MessagesHeader username={currentChat?.username!} image={currentChat?.image} resetCurrentChat={resetCurrentChat} />
 
             <div className={`${styles.messages__list}`}>
                 {messages.map((message : any) => {

@@ -1,7 +1,6 @@
 import $api, {instance} from "../http";
 import {AxiosResponse} from 'axios'
 import {AuthResponse} from "../models/response/AuthResponse";
-import {response} from "express";
 
 export default class AuthService {
     static async login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
@@ -17,6 +16,6 @@ export default class AuthService {
     }
 
     static async createProfile(body: any) {
-        return instance.post('/create-profile', body)
+        return instance.post('/create-profile', body, {headers: { 'Content-Type': 'application/json' }})
     }
 }

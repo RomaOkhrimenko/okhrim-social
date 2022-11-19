@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useRef, useContext} from 'react';
 
 import styles from './ChatPage.module.scss'
 import Messages from "../../templates/chat-page/chat/Messages";
@@ -8,11 +8,14 @@ import {useAppSelector} from "../../hooks/redux";
 import {instance} from "../../http";
 import {io} from 'socket.io-client'
 import Welcome from "../../templates/chat-page/welcome/Welcome";
+import {Context} from "../../store/context/context";
+import {ICurrentChat} from "../../models/ICurrentChat";
 
 const Chat = () => {
     const socket = useRef(null)
     const user = useAppSelector(state => state.user.user)
-    const [currentChat, setCurrentChat] = useState<{username: string, image: string, id: string } | null >(null)
+    const {currentChatDefault} = useContext(Context)
+    const [currentChat, setCurrentChat] = useState<ICurrentChat | null >(null)
     const [contacts, setContacts] = useState<IFriends['friends']>([])
 
     const resetCurrentChat = () => {
@@ -29,19 +32,26 @@ const Chat = () => {
     }, [user])
 
     useEffect(() => {
+        if(currentChatDefault.id) {
+            setCurrentChat(currentChatDefault)
+        }
+    }, [currentChatDefault])
+
+    useEffect(() => {
         const getFriends = async () => {
             if(user) {
                 await instance.get(`/friends/${user._id}`)
-                    .then(({data}) => setContacts(data.profile.friends.friends))
+                    .then(({data}) => setContacts(data))
             }
         }
         getFriends()
     }, [currentChat])
+
+
     return (
         <div className={styles.chat_page}>
 
             <div className={styles.chat_page__container}>
-
                 {
                     currentChat
                         ?

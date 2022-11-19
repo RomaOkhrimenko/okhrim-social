@@ -1,19 +1,31 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 
 import styles from './ProfileGames.module.scss'
 import GameBlock from "../../blocks/game-block/GameBlock";
 
-import RocketLeague from '../../../assets/images/jpg/games/rocket-league.jpg'
+import {AiOutlinePlusCircle} from 'react-icons/ai'
 import Swiper, {Navigation} from "swiper";
 import {ReactComponent as ArrowLeft} from "../../../assets/images/svg/arrow-left.svg";
 import {ReactComponent as ArrowRight} from "../../../assets/images/svg/arrow-right.svg";
 import {IGame} from "../../../models/IGame";
+import ModalLayout from "../../modals/modal-layout/ModalLayout";
+import AddGames from "../../modals/add-games/AddGames";
 
 interface IProps {
     games: IGame[]
+    isEdit?: boolean
+    setGames?: (arg0: IGame[]) => void
 }
 
-const ProfileGames: FC<IProps> = ({games}) => {
+const ProfileGames: FC<IProps> = ({games, isEdit, setGames}) => {
+    const [isAddGames, setIsAddGames] = useState(false)
+    const [chosenGames, setChosenGames] = useState<IGame[]>([])
+
+    const saveGames = (data: IGame[]) => {
+        if (setGames) {
+            setGames(data)
+        }
+    }
 
     useEffect(() => {
         Swiper.use([Navigation])
@@ -25,12 +37,25 @@ const ProfileGames: FC<IProps> = ({games}) => {
                 nextEl: `.profile_games__navigation_next`,
             }
         })
-    }, [])
+
+        setChosenGames([])
+        games.map((game) => {
+            setChosenGames(prev => [...prev, game])
+        })
+    }, [games])
+
+
 
     return (
         <div className={styles.profile_games}>
-            <h3>{games.length} Games</h3>
 
+            <div className={styles.profile_games__title}>
+                <h3>{games.length} Games</h3>
+
+                {isEdit && <AiOutlinePlusCircle onClick={() => setIsAddGames(true)} />}
+            </div>
+
+            {isEdit && <ModalLayout outsideClick={false} active={isAddGames} setActive={setIsAddGames}><AddGames handleEditStatus={setIsAddGames} saveGames={saveGames} chooseGames={chosenGames} /></ModalLayout>}
             <div className={'profile-games-swiper'}>
                 <div className={`${styles.profile_games__container} swiper-wrapper`}>
                     {games.map((game) => {

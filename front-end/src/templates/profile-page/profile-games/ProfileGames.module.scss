@@ -6,12 +6,33 @@
     padding: 0 2rem;
   }
 
-  h3 {
-    font-size: 1.8rem;
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
     margin-bottom: 2rem;
 
-    @media (max-width: 1440px) {
-      margin-left: 2rem;
+    h3 {
+      font-size: 1.8rem;
+      margin-right: 1.5rem;
+
+      @media (max-width: 768px) {
+        padding-left: 1.5rem;
+      }
+    }
+
+    svg {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #fff;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--color-accent);
+      }
     }
   }
 
@@ -41,6 +62,10 @@
     justify-content: flex-end;
     margin-right: 2rem;
 
+    @media (max-width: 768px) {
+      margin-right: 0;
+    }
+
     &_prev,
     &_next {
       transition: opacity 0.5s;
@@ -51,6 +76,7 @@
       margin-right: 2rem;
       cursor: pointer;
       transition: color 0.3s;
+
       &:hover {
         color: #4461F2;
       }

@@ -1,0 +1,124 @@
+.edit_genres {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 3rem;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  @media (max-width: 994px) {
+    padding-bottom: 5rem;
+    height: 100vh;
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    @media (max-width: 994px) {
+      font-size: 4rem;
+    }
+  }
+
+  & > span {
+    font-size: 2rem;
+    margin-bottom: 5rem;
+
+    @media (max-width: 994px) {
+      font-size: 1.7rem;
+    }
+  }
+
+  &__platforms {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    max-width: 800px;
+    grid-gap: 1rem 2rem;
+    width: 100%;
+
+    padding: 0 2rem;
+    margin-bottom: 10rem;
+
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+      background-color: var(--color-black-bg);
+      &-thumb {
+        background-color: var(--color-accent);
+        width: 0.1rem;
+        border-radius: 1rem;
+      }
+    }
+
+    @media (max-width: 994px) {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 6rem;
+      & > div {
+        margin: 0 1.5rem 2rem;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 554px) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__btn_prev {
+    font-size: 1.7rem;
+    padding: 1.5rem 5rem;
+    background: #4461F2;
+    box-shadow: 0 12px 21px 4px rgba(68, 97, 242, 0.15);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    margin: 2rem;
+
+    transition: background 0.5s, opacity 0.5s;
+
+    @media (min-width: 1024px) {
+      &:hover {
+        background: #334dc6;
+      }
+    }
+
+    @media (max-width: 994px) {
+      padding: 1.5rem 10rem;
+    }
+  }
+
+  &__btn_next {
+    font-size: 1.7rem;
+    padding: 1.5rem 20rem;
+    background: #4461F2;
+    box-shadow: 0 12px 21px 4px rgba(68, 97, 242, 0.15);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+
+    transition: background 0.5s, opacity 0.5s;
+
+    @media (min-width: 1024px) {
+      &:hover {
+        background: #334dc6;
+      }
+    }
+
+    @media (max-width: 994px) {
+      padding: 1.5rem 10rem;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}

@@ -30,6 +30,34 @@
     line-height: 1.9rem;
   }
 
+  &__file_button {
+    width: 100%;
+    background-color: var(--color-accent);
+    color: #fff;
+    height: 60px;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    svg {
+      font-size: 2rem;
+      margin-left: 1rem;
+
+      transition: font-size 0.3s;
+    }
+
+    &:hover {
+      background-color: var(--color-purple-hover);
+
+      svg {
+        font-size: 3rem;
+      }
+    }
+  }
+
   &__col {
     display: flex;
     flex-direction: column;

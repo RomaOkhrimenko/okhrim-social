@@ -7,6 +7,8 @@ import storage from 'redux-persist/lib/storage'
 import {userReducer} from "./slices/userSlice";
 import {settingsAccountApi, gamesApi, userApi} from "./api";
 import {gameReducer} from "./slices/gameSlice";
+import {genresApi} from "./api/genresApi";
+import {platformsApi} from "./api/platfromsApi";
 
 const persistConfig = {
     key: 'root',
@@ -17,6 +19,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
     user: userReducer,
     game: gameReducer,
+    [genresApi.reducerPath]: genresApi.reducer,
+    [platformsApi.reducerPath]: platformsApi.reducer,
     [settingsAccountApi.reducerPath]: settingsAccountApi.reducer,
     [gamesApi.reducerPath]: gamesApi.reducer,
     [userApi.reducerPath]: userApi.reducer
@@ -32,7 +36,8 @@ const setupStore = () => {
                 serializableCheck: {
                     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
                 },
-            }).concat(settingsAccountApi.middleware, gamesApi.middleware, userApi.middleware),
+            }).concat(settingsAccountApi.middleware, gamesApi.middleware,
+                userApi.middleware, genresApi.middleware, platformsApi.middleware),
     })
 }
 

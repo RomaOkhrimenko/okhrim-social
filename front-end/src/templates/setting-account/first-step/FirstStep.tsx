@@ -7,7 +7,7 @@ import Button from "../../../ui/Button";
 import {IPlatform} from "../../../models/IPlatform";
 
 interface IProps {
-    handleStep: (arg0: number) => void,
+    handleStep?: (arg0: number) => void,
     savePlatforms: (arg0: string[]) => void
     platforms: IPlatform[],
     choosePlatforms: string[]
@@ -37,7 +37,10 @@ const FirstStep: FC<IProps> = ({handleStep, savePlatforms, platforms, choosePlat
 
     const onSubmit = () => {
         savePlatforms(chosePlatforms)
-        handleStep(2)
+
+        if(handleStep) {
+            handleStep(2)
+        }
     }
 
     return (
@@ -47,7 +50,7 @@ const FirstStep: FC<IProps> = ({handleStep, savePlatforms, platforms, choosePlat
 
             <div className={styles.first_step__platforms}>
                 {platforms.map((item) => {
-                    return <PlatformBlock key={item._id} onClick={handlePlatforms} id={item._id} isActive={isChosePlatform(item._id)} image={item.image} name={item.name} />
+                    return <PlatformBlock key={item._id} onClick={handlePlatforms} data={item._id} isActive={isChosePlatform(item._id)} image={item.image} name={item.name} />
                 })}
             </div>
 

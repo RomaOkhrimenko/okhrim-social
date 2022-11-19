@@ -4,12 +4,21 @@
   left: 0;
   top: 0;
   height: 100%;
-  background-color: vaR(--color-black-bg);
+  background-color: var(--color-black-bg);
   padding: 2rem 1.5rem;
   text-align: center;
   margin: 0 auto;
   z-index: 101;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    left: 0;
+    right: 0;
+    top: auto;
+  }
 
   &__title {
     font-size: 1.6rem;
@@ -17,17 +26,33 @@
     cursor: pointer;
     color: #fff;
     padding-top: 0.5rem;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__navigation {
     display: flex;
     flex-direction: column;
     margin-top: 8rem;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-top: 0;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
     a {
       margin-bottom: 3rem;
       padding: 1rem 0;
       border-radius: 10px;
       transition: background-color 0.3s;
+
+      @media (max-width: 768px) {
+        margin-bottom: 0;
+        padding: 1rem;
+      }
 
       &.active,
       &:hover {

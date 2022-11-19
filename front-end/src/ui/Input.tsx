@@ -9,13 +9,14 @@ interface IInput {
     registerOptions?: any,
     name: string,
     className?: string
+    isReadOnly?: boolean
 }
 
-const Input: FC<IInput> = ({type, placeholder, className, register, name, registerOptions , setValue, value}) => {
+const Input: FC<IInput> = ({type, placeholder, className, isReadOnly = false, register, name, registerOptions , setValue, value}) => {
     return (
         <>
-            {!register && <input type={type} className={className} placeholder={placeholder} onChange={(e) => setValue(e.target.value)} value={value} />}
-            {register && <input type={type} className={className} {...register(name, registerOptions)} placeholder={placeholder} onChange={(e) => setValue(e.target.value)} value={value} />}
+            {!register && <input type={type} readOnly={isReadOnly} className={className} placeholder={placeholder} onChange={(e) => setValue(e.target.value)} value={value} />}
+            {register && <input type={type} readOnly={isReadOnly} className={className} {...register(name, registerOptions)} placeholder={placeholder} onChange={(e) => setValue(e.target.value)} value={value} />}
         </>
 );
 };

@@ -1,0 +1,1 @@
+export interface ICurrentChat {id: string, username: string, _id: string, image: string | undefined}

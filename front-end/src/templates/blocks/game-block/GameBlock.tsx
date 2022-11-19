@@ -1,28 +1,32 @@
 import React, {FC} from 'react';
 
 import styles from './GameBlock.module.scss'
+import {AiOutlineClose} from 'react-icons/ai'
+import {IGame} from "../../../models/IGame";
 
 interface IProps {
     image: string,
     name: string,
-    id?: string,
-    onClick?: (arg0: string) => void,
+    data?: string | IGame,
+    onClick?: any,
     isActive?: boolean
+    isEdit?: boolean
 }
 
-const GameBlock:FC<IProps> = ({image, name, id, onClick, isActive}) => {
+const GameBlock:FC<IProps> = ({image, name, data, onClick, isEdit, isActive}) => {
     return (
         <>
         {
             onClick ?
                 //@ts-ignore
-                <div onClick={() => onClick(id)} className={`${styles.game_block} ${isActive ? styles.active : ''}`}>
+                <div onClick={() => onClick(data)} className={`${styles.game_block} ${styles.click} ${isActive ? styles.active : ''}`}>
                     <img src={image} alt={name} />
                     <div className={styles.game_block__name}>{name}</div>
                 </div>
                 : <div className={`${styles.game_block}`}>
                     <img src={image} alt={name} />
                     <div className={styles.game_block__name}>{name}</div>
+                    {isEdit && <AiOutlineClose />}
                 </div>
         }
         </>

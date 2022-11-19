@@ -1,4 +1,9 @@
 .main_content {
   margin-top: var(--header-height) !important;
   padding-left: var(--navbar-width);
+
+  @media (max-width: 768px) {
+    padding-left: 0;
+    padding-bottom: 9.2rem;
+  }
 }

@@ -4,13 +4,14 @@ import styles from './Header.module.scss'
 
 import {ReactComponent as Notification } from "../../assets/images/svg/notification-ico.svg";
 import {ReactComponent as ArrowDown } from "../../assets/images/svg/arrow-down.svg";
-import {Link} from "react-router-dom";
+import DefaultUserImage from '../../assets/images/png/User.png'
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {logout} from "../../store/redux/actions/authAction";
 
 const Header = () => {
     const [isShowMenu, setIsShowMenu] = useState(false)
-    const userId = useAppSelector(state => state.user.user._id)
+    const [image, setImage] = useState<string | undefined>('')
+    const user = useAppSelector(state => state.user.user)
 
     const dispatch = useAppDispatch()
 
@@ -27,8 +28,15 @@ const Header = () => {
         document.addEventListener('click', handleShowMenu)
     }, [])
 
+    useEffect(() => {
+        if(user.profile?.image?.url) {
+            setImage(user.profile?.image?.url)
+        }
+    }, [user])
+
     return (
         <div className={styles.header}>
+            <span className={styles.header__brand}>Okhrim Social</span>
             <div className={styles.header__content}>
 
                 <div className={styles.header__content_notification}>
@@ -37,13 +45,11 @@ const Header = () => {
                 </div>
 
                 <div onClick={() => setIsShowMenu(prev => !prev)} className={`${styles.header__content_avatar} header_avatar ${isShowMenu ? styles.active : ''}`}>
-                    <div className={styles.header__content_avatar_image} />
+                    <img className={styles.header__content_avatar_image} src={image ? image : DefaultUserImage} alt=""/>
                     <ArrowDown />
                 </div>
 
                 <div className={`${styles.header__content_menu} header_menu ${isShowMenu ? styles.active : ''}`}>
-                    <Link to={'/settings'}>Settings</Link>
-                    <Link to={`/profile/${userId}`}>Profile</Link>
                     <span onClick={() => dispatch(logout())}>Log out</span>
                 </div>
             </div>

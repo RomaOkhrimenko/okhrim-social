@@ -5,8 +5,7 @@ import {ReactComponent as ArrowLeft} from "../../../assets/images/svg/arrow-left
 
 import styles from './ProfileFriends.module.scss'
 import Swiper, {Navigation} from "swiper";
-import {IUser} from "../../../models/IUser";
-import User from '../../../assets/images/png/settings-man.png'
+import User from '../../../assets/images/png/User.png'
 import Button from "../../../ui/Button";
 import {IFriends} from "../../../models/IFriends";
 import {useNavigate} from "react-router";
@@ -39,7 +38,7 @@ const ProfileFriends: FC<IProps> = ({friends}) => {
 
                     {friends.map((friend) => {
                         return (
-                            <img key={friend.id} onClick={() => navigate(`/profile/${friend.id}`)} src={friend?.image ? friend.image : User} alt={friend?.username} className={`${styles.profile_friends__friend} swiper-slide`} />
+                            <img key={friend._id} onClick={() => navigate(`/profile/${friend._id}`)} src={friend?.profile.image?.url ? friend?.profile.image?.url : User} alt={friend?.profile.username} className={`${styles.profile_friends__friend} swiper-slide`} />
                         )
                     })}
 

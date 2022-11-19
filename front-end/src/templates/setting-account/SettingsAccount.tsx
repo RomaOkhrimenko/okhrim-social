@@ -19,6 +19,7 @@ const SettingsAccount = () => {
     const [birthday, setBirthday] = useState('')
     const [gender, setGender] = useState('')
     const [description, setDescription] = useState('')
+    const [image, setImage] = useState('')
     const [step, setStep] = useState(1)
 
     // @ts-ignore
@@ -31,11 +32,12 @@ const SettingsAccount = () => {
         setStep(step)
     }
 
-    const handleLastStepData = (data: {username: string, birthday: string, gender: string, description: string}) => {
+    const handleLastStepData = (data: {username: string, birthday: string, gender: string, description: string, image: string}) => {
         setUsername(data.username)
         setBirthday(data.birthday)
         setGender(data.gender)
         setDescription(data.description)
+        setImage(data.image)
     }
 
     const onSubmit = () => {
@@ -49,11 +51,7 @@ const SettingsAccount = () => {
             description
         }
 
-        try {
-            dispatch(createProfile({id: user._id, profile}))
-        } catch {
-
-        }
+        dispatch(createProfile({id: user._id, profile, image}))
     }
 
     useEffect(() => {

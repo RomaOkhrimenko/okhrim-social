@@ -9,7 +9,6 @@ import {notify} from "../../../utils/notification/alerts";
 export const login = (email: string, password: string) => async (dispatch: AppDispatch) => {
     try {
         const response = await AuthService.login(email, password);
-
         localStorage.setItem('token', response.data.accessToken)
         dispatch(setAuth(true))
         dispatch(setUser(response.data.user))
@@ -31,7 +30,7 @@ export const registration = (email: string, password: string) => async (dispatch
 
 export const logout = () => async (dispatch: AppDispatch) => {
     try {
-        const response = await AuthService.logout();
+        await AuthService.logout();
         localStorage.removeItem('token')
         dispatch(setAuth(false))
         dispatch(setUser({} as IUser))

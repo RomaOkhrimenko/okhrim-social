@@ -18,7 +18,7 @@ const FriendsList: FC<IProps> = ({isFriend, friends}) => {
                 <>
                     {friends?.friends.map(item => {
                         return (
-                            <FriendBlock key={item.id} image={item.image} id={item.id} username={item.username}  isFriend={true} />
+                            <FriendBlock key={item._id} image={item.profile.image?.url} id={item._id} username={item.profile.username}  isFriend={true} />
                         )
                     })}
                 </>
@@ -28,7 +28,7 @@ const FriendsList: FC<IProps> = ({isFriend, friends}) => {
                 <>
                     {friends?.incomeRequests.map(item => {
                         return (
-                            <FriendBlock isFriend={false} key={item.id} image={item.image} id={item.id} username={item.username} />
+                            <FriendBlock isFriend={false} key={item._id} image={item.profile.image?.url} id={item._id} username={item.profile.username} />
                         )
                     })}
                 </>

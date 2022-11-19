@@ -8,10 +8,33 @@
 
   @media (max-width: 768px) {
     margin-bottom: 3rem;
+    padding: 0;
   }
-  h3 {
-    font-size: 1.8rem;
+
+  &__title {
+    display: flex;
+    align-items: center;
     margin-bottom: 2rem;
+
+    h3 {
+      font-size: 1.8rem;
+      margin-right: 1.5rem;
+
+      @media (max-width: 768px) {
+        padding-left: 1.5rem;
+      }
+    }
+
+    svg {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #fff;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--color-accent);
+      }
+    }
   }
 
   &__container {

@@ -87,6 +87,16 @@ class UserController {
         }
     }
 
+    async updateUser(req, res, next) {
+        try {
+            const data = await userService.updateUser(req.params.id, req.body)
+
+            return res.status(201).json(data)
+        } catch (e) {
+            next(e)
+        }
+    }
+
     async getFoundedUser(req, res, next) {
         try {
             const user = await userService.getFoundedUser(req.body.userId, req.query)

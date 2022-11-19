@@ -14,7 +14,12 @@ const UserSchema = new Schema({
             type: String,
         },
         image: {
-            type: String
+            public_id: {
+                type: String,
+            },
+            url: {
+                type: String
+            }
         },
         description: {
             type: String
@@ -23,39 +28,9 @@ const UserSchema = new Schema({
             type: String
         },
         friends: {
-            incomeRequests:[{
-                username: {
-                    type: String
-                },
-                image: {
-                    type: String
-                },
-                id: {
-                    type: String
-                }
-            }],
-            outcomeRequests:[{
-                username: {
-                    type: String
-                },
-                image: {
-                    type: String
-                },
-                id: {
-                    type: String
-                }
-            }],
-            friends: [{
-                username: {
-                    type: String
-                },
-                image: {
-                    type: String
-                },
-                id: {
-                    type: String
-                }
-            }]
+            incomeRequests: [{type: Schema.Types.ObjectId, ref: 'User'}],
+            outcomeRequests: [{type: Schema.Types.ObjectId, ref: 'User'}],
+            friends: [{type: Schema.Types.ObjectId, ref: 'User'}]
         },
         platforms: [
             {type: Schema.Types.ObjectId, ref: 'Platform'}

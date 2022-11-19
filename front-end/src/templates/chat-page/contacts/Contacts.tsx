@@ -2,7 +2,8 @@ import React, {FC, useState} from 'react';
 
 import styles from './Contacts.module.scss'
 
-import AVATAR from '../../../assets/images/png/settings-man.png'
+import {AiOutlineMenu} from 'react-icons/ai'
+import DefaultPhotoUser from '../../../assets/images/png/User.png'
 import {IFriends} from "../../../models/IFriends";
 
 interface IContacts {
@@ -15,24 +16,24 @@ interface IContacts {
 
 const Contacts: FC<IContacts> = ({contacts, setCurrentChat, username}) => {
     const [currentSelected, setCurrentSelected] = useState<number | null>(null)
-    const [search, setSearch] = useState('')
+    const [isActive, setIsActive] = useState(false)
 
     const changeCurrentChat = (index: number, contact: any) => {
         setCurrentSelected(index);
         setCurrentChat(contact);
     }
     return (
-        <div className={styles.contacts}>
+        <div className={`${styles.contacts} ${isActive ? '' : styles.hidden}`}>
 
             <div className={styles.contacts__brand}>
-                <h3>Okhrim Social</h3>
+                <AiOutlineMenu onClick={() => setIsActive(prev => !prev)} />
             </div>
 
-            <div className={styles.contacts__list}>
-                {contacts.map((contact, index) => {
+            <div className={`${styles.contacts__list} ${isActive ? '' : styles.hidden}`}>
+                {contacts.length ? contacts.map((contact, index) => {
                     return (
                         <div
-                            key={contact.id}
+                            key={contact._id}
                             className={`${styles.contact_block} ${
                                 index === currentSelected ? styles.selected : ""
                             }`}
@@ -40,39 +41,17 @@ const Contacts: FC<IContacts> = ({contacts, setCurrentChat, username}) => {
                         >
                             <div className={styles.contact_block__avatar}>
                                 <img
-                                    src={AVATAR}
-                                    alt=""
+                                    src={contact.profile.image?.url ? contact.profile.image.url : DefaultPhotoUser}
+                                    alt={contact.profile.username}
                                 />
                             </div>
                             <div className={styles.contact_block__username}>
-                                <h3>{contact.username}</h3>
+                                <h3>{contact.profile.username}</h3>
                             </div>
                         </div>
                     );
-                })}
+                }) : <h2>You dont have friends</h2>}
             </div>
-
-            <div className={styles.contacts__current_user}>
-                <div className={styles.contacts__current_user_avatar}>
-                    <img
-                        src={AVATAR}
-                        alt="avatar"
-                    />
-                </div>
-                <div className={styles.contacts__current_user_username}>
-                    <h2>{username}</h2>
-                </div>
-            </div>
-
-           {/*<div className={styles.messages_list__input}>*/}
-           {/*     <SearchIco />*/}
-           {/*    <Input value={search} setValue={setSearch} name={'search'} placeholder={'search messages'} />*/}
-           {/*</div>*/}
-            {/*{*/}
-            {/*    contacts.map((contact) => {*/}
-            {/*        return <ContactsBlock key={contact.id} contact={contact} onClick={() => setCurrentChat(contact)} />*/}
-            {/*    })*/}
-            {/*}*/}
         </div>
     );
 };

@@ -2,6 +2,7 @@ import {AppDispatch} from "../index";
 import {instance} from "../../../http";
 import {setUser} from "../slices/userSlice";
 import {notify} from "../../../utils/notification/alerts";
+import {IUser} from "../../../models/IUser";
 
 export const addFriend = (userId: string, friendId: string) => async (dispatch: AppDispatch) => {
     try {
@@ -63,5 +64,19 @@ export const resetPrevUser = (userId: string) => async (dispatch: AppDispatch) =
         dispatch(setUser(user))
     } catch (e: any) {
         notify('error', `${e.response?.data?.message}`)
+    }
+}
+
+export const updateUser = (userId: string, data: IUser) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await instance.put(`/user/${userId}`, data)
+            .then(({data}) => data)
+
+
+        dispatch(setUser(response))
+        notify('success', 'Profile successfully edited')
+
+    } catch (e: any) {
+        notify('error', e.response?.data?.message)
     }
 }
