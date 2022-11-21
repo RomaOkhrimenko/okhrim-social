@@ -3,8 +3,8 @@ const tokenModel = require('../models/token.model')
 
 class TokenService {
     generateTokens(payload) {
-        const accessToken = jwt.sign(payload, process.env.JWT_ACCESS_SECRET, {expiresIn: '30m'})
-        const refreshToken = jwt.sign(payload, process.env.JWT_Refresh_SECRET, {expiresIn: '30d'})
+        const accessToken = jwt.sign(payload, 'cluster0.ilgte6d.mongodb.net', {expiresIn: '30m'})
+        const refreshToken = jwt.sign(payload, 'cluster0.ilgte6d.321312/2', {expiresIn: '30d'})
         return {
             accessToken,
             refreshToken
