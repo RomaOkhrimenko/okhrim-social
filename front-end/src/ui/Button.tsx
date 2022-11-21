@@ -5,11 +5,12 @@ interface IButton {
     children: ReactNode
     onClick?: () => void
     className: string
+    isDisable?: boolean
 }
 
-const Button: FC<IButton> = ({type = 'button', children, onClick, className}) => {
+const Button: FC<IButton> = ({type = 'button', children, onClick, className, isDisable}) => {
     return (
-        <button type={type} onClick={onClick} className={className}>{children}</button>
+        <button type={type} disabled={isDisable} onClick={onClick} className={className}>{children}</button>
     );
 };
 

@@ -16,7 +16,7 @@ const FindUserBlock = () => {
     const {isFindUsers, setIsFindUsers} = useContext(Context)
 
     const onNextUser = () => {
-        findUsers(filteredData.gender, filteredData.gameId, filteredData.userId, navigate)
+        findUsers(filteredData.gender, filteredData.gameId, filteredData.userId, navigate, dispatch)
     }
 
     const onResetPrevUsers = () => {

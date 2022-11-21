@@ -9,6 +9,13 @@ const UserSchema = new Schema({
         type: Array,
         default: []
     },
+    newMessages: {
+        type: Object,
+        default: {}
+    },
+    status: {
+        type: String
+    },
     profile: {
         username: {
             type: String,

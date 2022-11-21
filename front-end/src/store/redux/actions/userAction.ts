@@ -1,8 +1,9 @@
 import {AppDispatch} from "../index";
 import {instance} from "../../../http";
 import {setUser} from "../slices/userSlice";
-import {notify} from "../../../utils/notification/alerts";
+import {notify, notifyUpdate} from "../../../utils/notification/alerts";
 import {IUser} from "../../../models/IUser";
+import {toast} from "react-toastify";
 
 export const addFriend = (userId: string, friendId: string) => async (dispatch: AppDispatch) => {
     try {
@@ -53,30 +54,30 @@ export const acceptFriendRequest = (userId: string, friendId: string) => async (
 }
 
 export const resetPrevUser = (userId: string) => async (dispatch: AppDispatch) => {
+    const loading = toast.loading("Loading...")
     try {
         await instance.post('/reset-prev-users', {userId})
 
         const user = await instance.get(`/user/${userId}`)
             .then(({data}) => data)
 
-        notify('success', 'Reset prev users success')
+        notifyUpdate(loading, 'Prev users successfully reset', 'success')
 
         dispatch(setUser(user))
     } catch (e: any) {
-        notify('error', `${e.response?.data?.message}`)
+        notifyUpdate(loading, e.response?.data?.message, 'error')
     }
 }
 
 export const updateUser = (userId: string, data: IUser) => async (dispatch: AppDispatch) => {
+    const loading = toast.loading("Please wait user is updating")
     try {
         const response = await instance.put(`/user/${userId}`, data)
             .then(({data}) => data)
-
+        notifyUpdate(loading, 'User successfully updated', 'success')
 
         dispatch(setUser(response))
-        notify('success', 'Profile successfully edited')
-
     } catch (e: any) {
-        notify('error', e.response?.data?.message)
+        notifyUpdate(loading, e?.response?.data?.message, 'error')
     }
 }

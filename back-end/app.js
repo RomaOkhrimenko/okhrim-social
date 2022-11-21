@@ -29,11 +29,11 @@ app.use('/api', gameRoute)
 app.use('/api', settingsAccountRoute)
 app.use('/api', messageRoute)
 
-// app.use(express.static(path.join(__dirname, "../front-end/build")))
-//
-// app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "../front-end/build/index.html"))
-// })
+app.use(express.static(path.join(__dirname, "../front-end/build")))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../front-end/build/index.html"))
+})
 
 app.use(errorMiddleware)
 

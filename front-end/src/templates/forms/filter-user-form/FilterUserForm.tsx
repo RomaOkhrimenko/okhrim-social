@@ -27,7 +27,7 @@ const FilterUserForm: FC<IProps> = ({gameName, gameId, userId}) => {
         }
         setIsFindUsers(true)
         dispatch(setFilterData(body))
-        findUsers(gender, gameId, userId, navigate)
+        findUsers(gender, gameId, userId, navigate, dispatch)
     }
 
     return (

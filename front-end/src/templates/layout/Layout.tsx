@@ -1,10 +1,11 @@
-import React, {FC, ReactNode, useEffect} from 'react';
+import React, {FC, ReactNode, useEffect, Suspense} from 'react';
 
 import styles from './Layout.module.scss'
 import Navbar from "../navbar/Navbar";
 import Header from "../header/Header";
 import {useAppSelector} from "../../hooks/redux";
 import {useNavigate} from "react-router";
+import Loader from "../loader/Loader";
 
 interface IProps {
     children: ReactNode
@@ -34,9 +35,12 @@ const Layout: FC<IProps> = ({children, isContainer = true}) => {
         <div>
             <Navbar />
             <Header />
-            <div className={`${styles.main_content} ${isContainer ? 'container' : ''}`}>
-                {children}
-            </div>
+            <Suspense fallback={<Loader />}>
+                <div className={`${styles.main_content} ${isContainer ? 'container' : ''}`}>
+                        {children}
+                </div>
+            </Suspense>
+
         </div>
     );
 };
