@@ -13,7 +13,7 @@ class TokenService {
 
     validateAccessToken(token) {
         try {
-            return jwt.verify(token, process.env.JWT_ACCESS_SECRET)
+            return jwt.verify(token, 'cluster0.ilgte6d.mongodb.net')
         } catch (e) {
             return null
         }
@@ -21,7 +21,7 @@ class TokenService {
 
     validateRefreshToken(token) {
         try {
-            return jwt.verify(token, process.env.JWT_REFRESH_SECRET)
+            return jwt.verify(token, 'cluster0.ilgte6d.321312/2')
         } catch (e) {
             return null
         }
