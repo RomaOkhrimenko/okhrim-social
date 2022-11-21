@@ -25,7 +25,7 @@ const Chat = () => {
     useEffect(() => {
         if(user) {
             // @ts-ignore
-            socket.current = io('http://localhost:4000')
+            socket.current = io(process.env.API_URL)
             // @ts-ignore
             socket.current.emit('add-user', user._id)
         }

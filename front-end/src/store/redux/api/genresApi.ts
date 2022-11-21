@@ -3,7 +3,7 @@ import {IGenre} from "../../../models/IGenre";
 
 export const genresApi = createApi({
     reducerPath: 'genres',
-    baseQuery: fetchBaseQuery({baseUrl: `http://localhost:4000/api/`}),
+    baseQuery: fetchBaseQuery({baseUrl: `${process.env.API_URL}/api/`}),
     endpoints: (build) => ({
         getGenres: build.query<IGenre[], {}>({
             query: () => `genres`

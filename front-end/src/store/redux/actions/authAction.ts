@@ -52,7 +52,7 @@ export const logout = () => async (dispatch: AppDispatch) => {
 export const checkAuth = () => async (dispatch: AppDispatch) => {
     dispatch(setLoading(true))
     try {
-        const response = await axios.get<AuthResponse>('http://localhost:4000/api/refresh', {withCredentials: true})
+        const response = await axios.get<AuthResponse>(`${process.env.API_URL}/api/refresh`, {withCredentials: true})
         localStorage.setItem('token', response.data.accessToken)
         dispatch(setAuth(true))
         dispatch(setUser(response.data.user))
