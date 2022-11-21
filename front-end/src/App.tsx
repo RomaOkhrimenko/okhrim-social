@@ -25,6 +25,7 @@ function App() {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
+        console.log(process.env)
         if (localStorage.getItem('token')) {
             dispatch(checkAuth())
         }

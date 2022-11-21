@@ -25,7 +25,7 @@ const Chat = () => {
     useEffect(() => {
         if(user) {
             // @ts-ignore
-            socket.current = io(process.env.API_URL)
+            socket.current = io('https://okhrim-social.onrender.com/')
             // @ts-ignore
             socket.current.emit('add-user', user._id)
         }
