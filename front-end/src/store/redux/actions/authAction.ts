@@ -68,8 +68,12 @@ export const createProfile = (body: any) => async (dispatch: AppDispatch) => {
     const loading = toast.loading("Loading...")
     try {
         const response = await AuthService.createProfile(body)
+<<<<<<< HEAD
 
         notifyUpdate(loading, 'Profile successfully created', 'success')
+=======
+        console.log(response)
+>>>>>>> parent of 4e7e8e8 (Fix: auth, chat, token , change profile genre and platforms to slider)
         // @ts-ignore
         dispatch(setUser(response.data))
     } catch (e:any) {

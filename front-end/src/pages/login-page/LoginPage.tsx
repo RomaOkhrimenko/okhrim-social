@@ -3,7 +3,7 @@ import React, {FC, useEffect, useState} from 'react';
 import styles from './loginPage.module.scss'
 
 import image from '../../assets/images/png/login-woman.png'
-import LoginForm from "../../templates/forms/login-form/LoginForm";
+import LoginForm from "../../templates/login-page/login-form/LoginForm";
 import Button from "../../ui/Button";
 import {useAppSelector} from "../../hooks/redux";
 import {useNavigate} from "react-router";

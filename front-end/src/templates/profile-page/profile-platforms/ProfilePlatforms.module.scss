@@ -1,6 +1,5 @@
 .profile_platforms {
   margin-bottom: 5rem;
-  overflow: hidden;
 
   @media (max-width: 1440px) {
     padding: 0 2rem;
@@ -38,12 +37,12 @@
   }
 
   &__container {
-    width: 100%;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
   }
 
-  &__platform {
+  &__genre {
     margin-right: 3rem;
     font-size: 1.6rem;
     line-height: 16px;
@@ -55,32 +54,6 @@
 
     @media (max-width: 768px) {
       margin-right: 2rem;
-    }
-  }
-
-  &__navigation {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 2rem;
-
-    &_prev,
-    &_next {
-      transition: opacity 0.5s;
-    }
-
-    svg {
-      transform: scale(1.2);
-      margin-right: 2rem;
-      cursor: pointer;
-      transition: color 0.3s;
-      &:hover {
-        color: #4461F2;
-      }
-    }
-
-    @media (max-width: 768px) {
-      margin-right: 1rem;
     }
   }
 }

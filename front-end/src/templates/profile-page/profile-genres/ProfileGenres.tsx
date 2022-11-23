@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {FC, useEffect, useState} from 'react';
 
 import styles from './ProfileGenres.module.scss'
@@ -49,6 +50,18 @@ const ProfileGenres: FC<IProps> = ({genres, isEdit, setGenres}) => {
         })
     }, [genres])
 
+=======
+import React, {FC} from 'react';
+
+import styles from './ProfileGenres.module.scss'
+import {IGenre} from "../../../models/IGenre";
+
+interface IProps {
+    genres: IGenre[]
+}
+
+const ProfileGenres: FC<IProps> = ({genres}) => {
+>>>>>>> parent of 4e7e8e8 (Fix: auth, chat, token , change profile genre and platforms to slider)
     return (
         <div className={styles.profile_genres}>
             <div className={styles.profile_genres__title}>
@@ -59,26 +72,14 @@ const ProfileGenres: FC<IProps> = ({genres, isEdit, setGenres}) => {
 
             {isEdit && <ModalLayout outsideClick={false} active={isEditGenres} setActive={setIsEditGenres}><EditGenres saveGenres={saveGenres} genres={data} chooseGenres={chosenGenres} handleEditStatus={setIsEditGenres} /></ModalLayout>}
 
-            <div className={'profile-genres-swiper'}>
-                <div className={`${styles.profile_genres__container} swiper-wrapper`}>
-                    {genres.map((genre) => {
-                        return (
-                            <div key={genre._id} className={`${styles.profile_genres__genre} swiper-slide`}>
-                                {genre.name}
-                            </div>
-                        )
-                    })}
-                </div>
-
-                <div className={styles.profile_genres__navigation}>
-                    <div className={`${styles.profile_genres__navigation_prev} profile_genres__navigation_prev`}>
-                        <ArrowLeft />
-                    </div>
-
-                    <div className={`${styles.profile_genres__navigation_next} profile_genres__navigation_next`}>
-                        <ArrowRight />
-                    </div>
-                </div>
+            <div className={styles.profile_genres__container}>
+                {genres.map((genre) => {
+                    return (
+                        <div key={genre._id} className={styles.profile_genres__genre}>
+                            {genre.name}
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );

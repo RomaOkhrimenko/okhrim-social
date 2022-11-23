@@ -120,10 +120,10 @@
     color: #fff;
     font-size: 1.6rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: box-shadow 0.3s;
 
     &:hover {
-      background-color: var(--color-purple-hover);
+      box-shadow: 0 0 5px #4461F2;
     }
   }
 }

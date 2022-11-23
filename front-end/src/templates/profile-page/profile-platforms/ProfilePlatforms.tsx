@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {FC, useEffect, useState} from 'react';
 
 import styles from './ProfilePlatforms.module.scss'
@@ -6,6 +7,11 @@ import Swiper, {Navigation} from "swiper";
 import {AiOutlineEdit} from 'react-icons/ai'
 import {ReactComponent as ArrowLeft} from "../../../assets/images/svg/arrow-left.svg";
 import {ReactComponent as ArrowRight} from "../../../assets/images/svg/arrow-right.svg";
+=======
+import React, {FC} from 'react';
+
+import styles from './ProfilePlatforms.module.scss'
+>>>>>>> parent of 4e7e8e8 (Fix: auth, chat, token , change profile genre and platforms to slider)
 import {IPlatform} from "../../../models/IPlatform";
 import ModalLayout from "../../modals/modal-layout/ModalLayout";
 import EditPlatforms from "../../modals/edit-platforms/EditPlatforms";
@@ -17,6 +23,7 @@ interface IProps {
     setPlatforms?: (arg0: IPlatform[]) => void
 }
 
+<<<<<<< HEAD
 const ProfilePlatforms: FC<IProps> = ({platforms, isEdit, setPlatforms}) => {
     const [isEditPlatforms, setIsEditPlatforms] = useState(false)
     const [chosenPlatforms, setChosenPlatforms] = useState<IPlatform[]>([])
@@ -49,6 +56,9 @@ const ProfilePlatforms: FC<IProps> = ({platforms, isEdit, setPlatforms}) => {
 
 
 
+=======
+const ProfilePlatforms: FC<IProps> = ({platforms}) => {
+>>>>>>> parent of 4e7e8e8 (Fix: auth, chat, token , change profile genre and platforms to slider)
     return (
         <div className={styles.profile_platforms}>
             <div className={styles.profile_platforms__title}>
@@ -58,26 +68,14 @@ const ProfilePlatforms: FC<IProps> = ({platforms, isEdit, setPlatforms}) => {
 
             {isEdit && <ModalLayout active={isEditPlatforms} outsideClick={false} setActive={setIsEditPlatforms}><EditPlatforms savePlatforms={savePlatforms} platforms={data} handleEditStatus={setIsEditPlatforms} choosePlatforms={chosenPlatforms} /></ModalLayout>}
 
-            <div className={'profile-platforms-swiper'}>
-                <div className={`${styles.profile_platforms__container} swiper-wrapper`}>
-                    {platforms.map((platform) => {
-                        return (
-                            <div key={platform._id} className={`${styles.profile_platforms__platform} swiper-slide`}>
-                                {platform.name}
-                            </div>
-                        )
-                    })}
-                </div>
-
-                <div className={styles.profile_platforms__navigation}>
-                    <div className={`${styles.profile_platforms__navigation_prev} profile_platforms__navigation_prev`}>
-                        <ArrowLeft />
-                    </div>
-
-                    <div className={`${styles.profile_platforms__navigation_next} profile_platforms__navigation_next`}>
-                        <ArrowRight />
-                    </div>
-                </div>
+            <div className={styles.profile_platforms__container}>
+                {platforms.map((platform) => {
+                    return (
+                        <div key={platform.slug} className={styles.profile_platforms__genre}>
+                            {platform.name}
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );

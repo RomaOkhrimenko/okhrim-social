@@ -45,6 +45,10 @@ const SecondStep: FC<IProps> = ({handleStep, saveGames, chooseGames, genres}) =>
         handleStep(4)
     }
 
+    useEffect(() => {
+        console.log(genres)
+    }, [genres])
+
     return (
         <div className={styles.third_step}>
             <h2>Step 3</h2>

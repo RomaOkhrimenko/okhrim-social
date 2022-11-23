@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import React, {useEffect, lazy} from 'react';
 import {Route, Routes} from "react-router-dom";
 
+=======
+import React, {useEffect, useState} from 'react';
+import {Route, Routes} from "react-router-dom";
+>>>>>>> parent of 4e7e8e8 (Fix: auth, chat, token , change profile genre and platforms to slider)
 import Layout from "./templates/layout/Layout";
 import ProtectedRoutes from "./utils/protected-routes/ProtectedRoutes";
 import ContextProvider from "./store/context/context";
@@ -71,9 +76,9 @@ function App() {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme={'dark'}
             />
 
+            <FindUserBlock />
         </div>
       </ContextProvider>
   );

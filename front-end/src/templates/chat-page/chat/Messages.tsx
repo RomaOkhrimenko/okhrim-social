@@ -43,6 +43,7 @@ const Messages: FC<IProps> = ({currentChat, user, socket, resetCurrentChat}) => 
     useEffect(() => {
         if(socket.current) {
             socket.current.on('message-recieve', (message: any) => {
+                console.log(message)
                 setArrivalMessage({fromSelf: false, message})
             })
         }

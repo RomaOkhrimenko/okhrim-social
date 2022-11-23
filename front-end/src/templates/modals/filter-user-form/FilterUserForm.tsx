@@ -1,4 +1,4 @@
-import React, {FC, useContext, useEffect, useState} from 'react';
+import React, {FC, useContext, useState} from 'react';
 
 import styles from './FilterUserForm.module.scss'
 import Button from "../../../ui/Button";

@@ -44,7 +44,7 @@ export const deleteFriend = (userId: string, friendId: string) => async (dispatc
 export const acceptFriendRequest = (userId: string, friendId: string) => async (dispatch: AppDispatch) => {
     try {
         await instance.post('/accept-friend-request', {userId, friendId})
-        const user = await instance.get(`/user/${userId}`)
+        const user = await instance.post(`/user/${userId}`)
             .then(({data}) => data)
 
         dispatch(setUser(user))

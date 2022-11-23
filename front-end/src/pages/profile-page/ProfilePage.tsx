@@ -9,12 +9,15 @@ import ProfilePlatforms from "../../templates/profile-page/profile-platforms/Pro
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {useParams} from "react-router";
 import {useGetAnotherUserQuery} from "../../store/redux/api";
+<<<<<<< HEAD
 import FindUserBlock from "../../templates/blocks/find-user-block/FindUserBlock";
 import {IPlatform} from "../../models/IPlatform";
 import {IGame} from "../../models/IGame";
 import {IGenre} from "../../models/IGenre";
 import {IUser} from "../../models/IUser";
 import {updateUser} from "../../store/redux/actions/userAction";
+=======
+>>>>>>> parent of 4e7e8e8 (Fix: auth, chat, token , change profile genre and platforms to slider)
 
 const ProfilePage = () => {
     // PAGE STATUS
@@ -141,8 +144,6 @@ const ProfilePage = () => {
                     <ProfileGames games={friend.profile?.games!} />
                     <ProfileGenres genres={friend.profile?.genres!} />
                 </div>
-
-                <FindUserBlock />
             </div>
         );
     }

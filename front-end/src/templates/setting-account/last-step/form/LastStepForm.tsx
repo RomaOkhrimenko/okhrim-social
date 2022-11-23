@@ -71,7 +71,7 @@ const LastStepForm: FC<{setData: any}> = ({setData}) => {
             <ModalLayout active={modalActive} setActive={setModalActive}><Calendar value={date}  onChange={handleDate} /></ModalLayout>
 
             <div className={styles.last_step_form__col}>
-                <Input className={errors?.username?.message ? styles.error_input : ''} value={username} register={register} registerOptions={{required: 'Type your username', maxLength: {value: 15, message: 'Max length username 15'}}} type={'text'} setValue={setUsername} placeholder={'Username'} name={'username'} />
+                <Input className={errors?.username?.message ? styles.error_input : ''} value={username} register={register} registerOptions={{required: 'Type your username'}} type={'text'} setValue={setUsername} placeholder={'Username'} name={'username'} />
                 <span>This is how other users will see you</span>
                 {errors?.username?.message && <span className={styles.last_step_form__col_error}>{`${errors?.username?.message || 'Error'}`}</span>}
             </div>
