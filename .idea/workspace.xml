@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dba08ae9-1172-4671-90e8-be40d841b5b8" name="Changes" comment="try 4">
+    <list default="true" id="dba08ae9-1172-4671-90e8-be40d841b5b8" name="Changes" comment="try 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/api/settingsAccountApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/api/settingsAccountApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +110,7 @@
       <workItem from="1668958139319" duration="592000" />
       <workItem from="1669014250519" duration="10932000" />
       <workItem from="1669033654294" duration="1825000" />
-      <workItem from="1669055114447" duration="5559000" />
+      <workItem from="1669055114447" duration="6213000" />
     </task>
     <task id="LOCAL-00001" summary="fix: front-end, add: platforms route">
       <created>1666553147899</created>
@@ -204,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669060935914</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="try 5">
+      <created>1669061391823</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1669061391823</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +241,7 @@
     <MESSAGE value="try 2" />
     <MESSAGE value="try 3" />
     <MESSAGE value="try 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="try 4" />
+    <MESSAGE value="try 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="try 5" />
   </component>
 </project>
