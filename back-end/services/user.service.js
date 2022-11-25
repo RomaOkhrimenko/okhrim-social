@@ -64,7 +64,13 @@ class AuthenticationService {
         return {...tokens, user}
     }
 
-    async logout(refreshToken) {
+    async logout(body) {
+        console.log(body)
+        const {refreshToken, _id, newMessages} = body
+        const user = await UserModel.findById(_id)
+        user.status = 'offline'
+        user.newMessages = newMessages
+        await user.save()
         return await tokenService.removeToken(refreshToken)
     }
 

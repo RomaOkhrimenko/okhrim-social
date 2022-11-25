@@ -50,7 +50,7 @@ const Header = () => {
                 </div>
 
                 <div className={`${styles.header__content_menu} header_menu ${isShowMenu ? styles.active : ''}`}>
-                    <span onClick={() => dispatch(logout())}>Log out</span>
+                    <span onClick={() => dispatch(logout(user._id))}>Log out</span>
                 </div>
             </div>
         </div>

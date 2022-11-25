@@ -1,18 +1,12 @@
 const {Schema, model} = require('mongoose')
 
 const messageSchemas = new Schema({
-        message: {
-            text: { type: String, required: true },
-        },
-        users: Array,
-        sender: {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-            required: true,
-        },
-    },
-    {
-        timestamps: true,
+        content: String,
+        from: Object,
+        socketId: String,
+        time: String,
+        date: String,
+        to: String
     })
-
-module.exports = model('Message', messageSchemas)
+const Message = model('Message', messageSchemas)
+module.exports = Message

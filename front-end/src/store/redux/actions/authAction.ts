@@ -35,10 +35,10 @@ export const registration = (email: string, password: string) => async (dispatch
     }
 }
 
-export const logout = () => async (dispatch: AppDispatch) => {
+export const logout = (userId: string) => async (dispatch: AppDispatch) => {
     const loading = toast.loading("Loading...")
     try {
-        await AuthService.logout();
+        await AuthService.logout(userId);
         localStorage.removeItem('token')
 
         notifyUpdate(loading, 'Logout success', 'success')
@@ -52,7 +52,7 @@ export const logout = () => async (dispatch: AppDispatch) => {
 export const checkAuth = () => async (dispatch: AppDispatch) => {
     dispatch(setLoading(true))
     try {
-        const response = await axios.get<AuthResponse>(`https://okhrim-social.onrender.com/api/refresh`, {withCredentials: true})
+        const response = await axios.get<AuthResponse>(`http://localhost:4000/api/refresh`, {withCredentials: true})
         localStorage.setItem('token', response.data.accessToken)
         dispatch(setAuth(true))
         dispatch(setUser(response.data.user))

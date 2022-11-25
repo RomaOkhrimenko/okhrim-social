@@ -3,49 +3,58 @@ import React, {useEffect, useState, useRef, useContext} from 'react';
 import styles from './ChatPage.module.scss'
 import Messages from "../../templates/chat-page/chat/Messages";
 import Contacts from "../../templates/chat-page/contacts/Contacts";
-import {IFriends} from "../../models/IFriends";
-import {useAppSelector} from "../../hooks/redux";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {instance} from "../../http";
-import {io} from 'socket.io-client'
 import Welcome from "../../templates/chat-page/welcome/Welcome";
 import {Context} from "../../store/context/context";
 import {ICurrentChat} from "../../models/ICurrentChat";
+import {notify} from "../../utils/notification/alerts";
+import {addNotifications, resetNotifications} from "../../store/redux/slices/userSlice";
 
 const Chat = () => {
-    const socket = useRef(null)
     const user = useAppSelector(state => state.user.user)
-    const {currentChatDefault} = useContext(Context)
-    const [currentChat, setCurrentChat] = useState<ICurrentChat | null >(null)
-    const [contacts, setContacts] = useState<IFriends['friends']>([])
+    const {currentRoom, currentChatDefault, socket, members, setMembers, setCurrentRoom,} = useContext(Context)
+    const dispatch = useAppDispatch()
+    const joinRoom = (room: any, isPublic = false) => {
+        if(!user) {
+            return notify('error', 'Please login')
+        }
+        socket.emit('join-room', room)
 
-    const resetCurrentChat = () => {
-        setCurrentChat(null)
+        dispatch(resetNotifications(room))
     }
 
-    useEffect(() => {
-        if(user) {
-            // @ts-ignore
-            socket.current = io('https://okhrim-social.onrender.com/')
-            // @ts-ignore
-            socket.current.emit('add-user', user._id)
-        }
-    }, [user])
+    socket.off('notifications').on('notifications', (room: any) => {
+        if(currentRoom != room) dispatch(addNotifications(room))
+    })
 
-    useEffect(() => {
-        if(currentChatDefault.id) {
-            setCurrentChat(currentChatDefault)
+    const resetCurrentChat = () => {
+        setCurrentRoom(null)
+    }
+
+    const orderIds = (id1: string, id2: string) => {
+        if(id1 > id2) {
+            return id1 + '-' + id2
+        } else {
+            return id2 + '-' + id1
         }
-    }, [currentChatDefault])
+    }
+
+    const handleCurrentChat = (chat: ICurrentChat) => {
+        setCurrentRoom(chat)
+        const roomId = orderIds(user._id, chat._id)
+        joinRoom(roomId)
+    }
 
     useEffect(() => {
         const getFriends = async () => {
             if(user) {
                 await instance.get(`/friends/${user._id}`)
-                    .then(({data}) => setContacts(data))
+                    .then(({data}) => setMembers(data))
             }
         }
         getFriends()
-    }, [currentChat])
+    }, [currentRoom])
 
 
     return (
@@ -53,14 +62,14 @@ const Chat = () => {
 
             <div className={styles.chat_page__container}>
                 {
-                    currentChat
+                    currentRoom
                         ?
-                        <Messages currentChat={currentChat} user={user} socket={socket} resetCurrentChat={resetCurrentChat} />
+                        <Messages orderIds={orderIds} user={user} socket={socket} resetCurrentChat={resetCurrentChat} />
                         :
                         <Welcome username={user.profile?.username!} />
                 }
 
-                <Contacts contacts={contacts} setCurrentChat={setCurrentChat} username={user.profile?.username!} />
+                <Contacts members={members} setCurrentChat={handleCurrentChat} username={user.profile?.username!} />
 
             </div>
 

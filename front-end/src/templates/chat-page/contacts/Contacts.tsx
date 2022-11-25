@@ -7,14 +7,14 @@ import DefaultPhotoUser from '../../../assets/images/png/User.png'
 import {IFriends} from "../../../models/IFriends";
 
 interface IContacts {
-    contacts: IFriends['friends']
+    members: IFriends['friends']
     setCurrentChat: (arg0: any) => void
     username: string
 }
 
 // CONTACT BLOCK TO DO OTHER COMPONENT
 
-const Contacts: FC<IContacts> = ({contacts, setCurrentChat, username}) => {
+const Contacts: FC<IContacts> = ({members, setCurrentChat, username}) => {
     const [currentSelected, setCurrentSelected] = useState<number | null>(null)
     const [isActive, setIsActive] = useState(false)
 
@@ -30,23 +30,23 @@ const Contacts: FC<IContacts> = ({contacts, setCurrentChat, username}) => {
             </div>
 
             <div className={`${styles.contacts__list} ${isActive ? '' : styles.hidden}`}>
-                {contacts.length ? contacts.map((contact, index) => {
+                {members.length ? members.map((member, index) => {
                     return (
                         <div
-                            key={contact._id}
+                            key={member._id}
                             className={`${styles.contact_block} ${
                                 index === currentSelected ? styles.selected : ""
                             }`}
-                            onClick={() => changeCurrentChat(index, contact)}
+                            onClick={() => changeCurrentChat(index, member)}
                         >
                             <div className={styles.contact_block__avatar}>
                                 <img
-                                    src={contact.profile.image?.url ? contact.profile.image.url : DefaultPhotoUser}
-                                    alt={contact.profile.username}
+                                    src={member.profile.image?.url ? member.profile.image.url : DefaultPhotoUser}
+                                    alt={member.profile.username}
                                 />
                             </div>
                             <div className={styles.contact_block__username}>
-                                <h3>{contact.profile.username}</h3>
+                                <h3>{member.profile.username}</h3>
                             </div>
                         </div>
                     );

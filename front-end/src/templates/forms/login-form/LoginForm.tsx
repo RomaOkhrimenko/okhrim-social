@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useState, useContext} from 'react';
 import {useForm} from "react-hook-form";
 
 import styles from './loginFrom.module.scss'
@@ -11,6 +11,7 @@ import Button from "../../../ui/Button";
 import {useNavigate} from "react-router";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {login, registration} from "../../../store/redux/actions/authAction";
+import {Context} from "../../../store/context/context";
 
 interface IProps {
     isLogin: boolean
@@ -24,6 +25,7 @@ const LoginForm: FC<IProps> = ({isLogin}) => {
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
 
+    const {socket} = useContext(Context)
     const dispatch = useAppDispatch()
 
     const navigate = useNavigate()
@@ -33,6 +35,9 @@ const LoginForm: FC<IProps> = ({isLogin}) => {
     const onSubmit = (data: {email?: string, password?: string}) => {
             if(isLogin) {
                 dispatch(login(data.email!, data.password!))
+                    .then(() => {
+                        socket.emit('new-user')
+                    })
             } else {
                 dispatch(registration(data.email!, data.password!))
                     .then(() => navigate('/settings-account'))

@@ -5,4 +5,5 @@ export interface IUser {
     isActivated: boolean,
     _id: string,
     profile?: IProfile,
+    newMessages: any
 }

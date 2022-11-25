@@ -3,7 +3,7 @@ import {IUser} from "../../../models/IUser";
 
 export const userApi = createApi({
     reducerPath: 'userApi',
-    baseQuery: fetchBaseQuery({baseUrl: `https://okhrim-social.onrender.com/api/`}),
+    baseQuery: fetchBaseQuery({baseUrl: `http://localhost:4000/api/`}),
     endpoints: (build) => ({
         getAnotherUser: build.query<IUser, { id: string }>({
             query: ({id}) => `/user/${id}`
