@@ -65,7 +65,6 @@ class AuthenticationService {
     }
 
     async logout(body) {
-        console.log(body)
         const {refreshToken, _id, newMessages} = body
         const user = await UserModel.findById(_id)
         user.status = 'offline'

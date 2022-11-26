@@ -10,6 +10,7 @@ import MessageInput from "./message-input/MessageInput";
 import {ICurrentChat} from "../../../models/ICurrentChat";
 import {Context} from "../../../store/context/context";
 import {useAppSelector} from "../../../hooks/redux";
+import {IMessages} from "../../../models/IMessages";
 
 interface IProps {
     user: IUser
@@ -61,21 +62,28 @@ const Messages: FC<IProps> = ({user, resetCurrentChat, orderIds}) => {
             <MessagesHeader username={currentRoom?.profile?.username!} image={currentRoom?.profile?.image.url} resetCurrentChat={resetCurrentChat} />
 
             <div className={`${styles.messages__list}`}>
-                {messages[0]?.messagesByDate.map((message : any) => {
-                    return (
-                        <div ref={scrollRef} key={uuidv4()}>
-                            <div
-                                className={`${styles.messages__list_message} ${
-                                    message.from === user._id ? styles.sended : styles.recieved
-                                }`}
-                            >
-                                <div className={styles.messages__list_message_content}>
-                                    <p>{message.content}</p>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                })}
+                {
+                    messages && messages.map((messages: IMessages) => {
+                        return <>
+                            <p>{messages._id}</p>
+                            {messages.messagesByDate.map((message) => {
+                                return (
+                                    <div ref={scrollRef} key={uuidv4()}>
+                                        <div
+                                            className={`${styles.messages__list_message} ${
+                                                message.from === user._id ? styles.sended : styles.recieved
+                                            }`}
+                                        >
+                                            <div className={styles.messages__list_message_content}>
+                                                <p>{message.content}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </>
+                    })
+                }
             </div>
 
             <MessageInput handleSendMessage={handleSendMessage} />

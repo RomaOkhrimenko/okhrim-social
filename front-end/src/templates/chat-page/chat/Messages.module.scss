@@ -29,6 +29,12 @@
       }
     }
 
+    & > p {
+      color: #fff;
+      font-size: 1.7rem;
+      margin: 1.5rem auto;
+    }
+
     &_message {
       display: flex;
       align-items: center;

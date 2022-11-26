@@ -4,14 +4,12 @@ import {RootState} from "../index";
 
 interface IInitialState {
     user: IUser,
-    newMessages: any
     isAuth: boolean,
     isLoading: boolean
 }
 
 const initialState: IInitialState = {
     user: {} as IUser,
-    newMessages: {},
     isAuth: false,
     isLoading: false
 }
@@ -33,14 +31,14 @@ const userSlice = createSlice({
         },
 
         addNotifications: (state, {payload}) => {
-            if (state.newMessages[payload]) {
-                state.newMessages[payload] = state.newMessages[payload] + 1;
+            if (state.user.newMessages[payload]) {
+                state.user.newMessages[payload] = state.user.newMessages[payload] + 1;
             } else {
-                state.newMessages[payload] = 1;
+                state.user.newMessages[payload] = 1;
             }
         },
         resetNotifications: (state, {payload}) => {
-            delete state.newMessages[payload]
+            delete state.user.newMessages[payload]
         }
     }
 })

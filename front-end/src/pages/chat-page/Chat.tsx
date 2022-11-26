@@ -25,7 +25,7 @@ const Chat = () => {
     }
 
     socket.off('notifications').on('notifications', (room: any) => {
-        if(currentRoom != room) dispatch(addNotifications(room))
+        if(orderIds(user._id, currentRoom?._id!) != room) dispatch(addNotifications(room))
     })
 
     const resetCurrentChat = () => {
@@ -69,7 +69,7 @@ const Chat = () => {
                         <Welcome username={user.profile?.username!} />
                 }
 
-                <Contacts members={members} setCurrentChat={handleCurrentChat} username={user.profile?.username!} />
+                <Contacts members={members} orderIds={orderIds} setCurrentChat={handleCurrentChat} username={user.profile?.username!} />
 
             </div>
 

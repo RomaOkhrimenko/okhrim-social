@@ -1,4 +1,4 @@
-import {AppDispatch} from "../index";
+import {AppDispatch, RootState} from "../index";
 import AuthService from "../../../services/AuthService";
 import {setAuth, setLoading, setUser} from "../slices/userSlice";
 import {IUser} from "../../../models/IUser";
@@ -35,10 +35,10 @@ export const registration = (email: string, password: string) => async (dispatch
     }
 }
 
-export const logout = (userId: string) => async (dispatch: AppDispatch) => {
+export const logout = (userId: string, newMessages: any) => async (dispatch: AppDispatch) => {
     const loading = toast.loading("Loading...")
     try {
-        await AuthService.logout(userId);
+        await AuthService.logout(userId, newMessages);
         localStorage.removeItem('token')
 
         notifyUpdate(loading, 'Logout success', 'success')
