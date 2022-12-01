@@ -3,7 +3,7 @@ import {IGenre} from "../../../models/IGenre";
 
 export const platformsApi = createApi({
     reducerPath: 'platforms',
-    baseQuery: fetchBaseQuery({baseUrl: `http://localhost:4000/api/`}),
+    baseQuery: fetchBaseQuery({baseUrl: `https://okhrim-social.onrender.com/api/`}),
     endpoints: (build) => ({
         getPlatforms: build.query<IGenre[], {}>({
             query: () => `platforms`
