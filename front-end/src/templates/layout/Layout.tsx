@@ -10,9 +10,10 @@ import Loader from "../loader/Loader";
 interface IProps {
     children: ReactNode
     isContainer?: boolean
+    isPaddingBottom?: boolean
 }
 
-const Layout: FC<IProps> = ({children, isContainer = true}) => {
+const Layout: FC<IProps> = ({children, isContainer = true, isPaddingBottom = true}) => {
     const user = useAppSelector(state => state.user.user)
     const navigate = useNavigate()
 
@@ -36,7 +37,7 @@ const Layout: FC<IProps> = ({children, isContainer = true}) => {
             <Navbar />
             <Header />
             <Suspense fallback={<Loader />}>
-                <div className={`${styles.main_content} ${isContainer ? 'container' : ''}`}>
+                <div className={`${styles.main_content} ${isContainer ? 'container' : ''} ${isPaddingBottom ? styles._padding : ''}`}>
                         {children}
                 </div>
             </Suspense>

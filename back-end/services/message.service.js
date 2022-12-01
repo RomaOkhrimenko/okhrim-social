@@ -1,4 +1,5 @@
 const MessageModel = require('../models/message.model')
+const UserModel = require('../models/user.model')
 const ApiError = require('../exception/api.error')
 
 class MessageService {
@@ -23,6 +24,14 @@ class MessageService {
                 message: message.message.text
             }
         })
+    }
+
+    async resetMessages(_id, roomId) {
+        const x = await UserModel.findById(_id)
+
+        delete x.newMessages[roomId]
+
+        return UserModel.findOneAndUpdate({_id}, {newMessages: x.newMessages});
     }
 }
 

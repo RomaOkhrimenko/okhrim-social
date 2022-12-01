@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import styles from './Navbar.module.scss'
 import {NavLink} from "react-router-dom";
@@ -9,11 +9,11 @@ import {FaUserFriends} from "react-icons/fa";
 import {IoGameControllerOutline} from "react-icons/io5";
 
 import {useAppSelector} from "../../hooks/redux";
-import {Context} from "../../store/context/context";
 
 const Navbar = () => {
     // @ts-ignore
     const userId = useAppSelector(state => state.user.user._id)
+    const incomeRequests = useAppSelector(state => state.user.user.profile?.friends.incomeRequests)
     return (
         <div className={styles.navbar}>
             <div className={styles.navbar__title}>OKHRIM SOCIAL</div>
@@ -27,6 +27,7 @@ const Navbar = () => {
                 </NavLink>
                 <NavLink to={'/friends'} className={({isActive}) => isActive ? styles.active : ''}>
                     <FaUserFriends />
+                    {incomeRequests?.length && <span>+{incomeRequests?.length! > 9 ? '+9' : incomeRequests?.length!}</span>}
                 </NavLink>
                 <NavLink to={'/games'} className={({isActive}) => isActive ? styles.active : ''}>
                     <IoGameControllerOutline />

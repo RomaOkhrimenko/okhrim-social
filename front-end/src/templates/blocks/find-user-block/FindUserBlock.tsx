@@ -12,7 +12,6 @@ const FindUserBlock = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const filteredData = useAppSelector(state => state.game.filterData)
-   // @ts-ignore
     const {isFindUsers, setIsFindUsers} = useContext(Context)
 
     const onNextUser = () => {

@@ -1,13 +1,13 @@
-import React, {useEffect, lazy} from 'react';
+import React, {useEffect, lazy, useContext} from 'react';
 import {Route, Routes} from "react-router-dom";
 
 import Layout from "./templates/layout/Layout";
 import ProtectedRoutes from "./utils/protected-routes/ProtectedRoutes";
-import ContextProvider from "./store/context/context";
+import ContextProvider, {Context} from "./store/context/context";
 
 import { ToastContainer } from 'react-toastify';
 
-import {useAppDispatch, useAppSelector} from "./hooks/redux";
+import {useAppDispatch} from "./hooks/redux";
 import {checkAuth} from "./store/redux/actions/authAction";
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,20 +21,18 @@ const FriendsPage = lazy(() => import("./pages/friends-page/FriendsPage"));
 const GamesPage = lazy(() => import("./pages/games-page/GamesPage"));
 
 function App() {
-    const data = useAppSelector(state => state.user)
+    const {isFindUsers} = useContext(Context)
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        console.log(process.env)
         if (localStorage.getItem('token')) {
             dispatch(checkAuth())
         }
     }, [])
 
-
-    if(data.isLoading) {
-        return <Loader />
-    }
+    useEffect(() => {
+        console.log(isFindUsers)
+    }, [isFindUsers])
 
   return (
       <ContextProvider>
@@ -52,7 +50,7 @@ function App() {
                             <Layout><FriendsPage /></Layout>
                         } />
                         <Route path={'/messages'} element={
-                            <Layout isContainer={false}><Chat /></Layout>
+                            <Layout isContainer={false} isPaddingBottom={false}><Chat /></Layout>
                         } />
                         <Route path={'/profile/:id'} element={
                             <Layout><ProfilePage /></Layout>

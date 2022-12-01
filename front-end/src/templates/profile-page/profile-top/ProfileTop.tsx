@@ -1,4 +1,4 @@
-import React, {FC, useContext, useEffect, useRef, useState} from 'react';
+import React, {FC, useContext, useRef, useState} from 'react';
 
 import styles from './ProfileTop.module.scss'
 
@@ -35,7 +35,7 @@ const ProfileTop: FC<IProfileTop> = ({image, setImage, handleEditStatus, onCance
     const [isEdit, setIsEdit] = useState(false)
     const [isEditUsername, setIsEditUsername] = useState(false)
     const inputUploadRef = useRef()
-    const {setCurrentChatDefault} = useContext(Context)
+    const {setCurrentRoom} = useContext(Context)
     const navigate = useNavigate()
 
     const handleEdit = (status: boolean) => {
@@ -90,7 +90,7 @@ const ProfileTop: FC<IProfileTop> = ({image, setImage, handleEditStatus, onCance
     }
 
     const onSendMessage = () => {
-        setCurrentChatDefault({id: friendId, username: name, _id: friendId, image})
+        setCurrentRoom({_id: friendId, profile: {image: {url: image}, username: name}})
         navigate('/messages')
     }
 

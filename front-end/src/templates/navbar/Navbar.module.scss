@@ -48,6 +48,7 @@
       padding: 1rem 0;
       border-radius: 10px;
       transition: background-color 0.3s;
+      position: relative;
 
       @media (max-width: 768px) {
         margin-bottom: 0;
@@ -61,12 +62,32 @@
         svg {
           color: #fff;
         }
+
+        span {
+          color: #fff;
+        }
       }
 
       svg {
         font-size: 3rem;
         color: var(--color-accent);
         transition: color 0.5s;
+      }
+
+      span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.3rem;
+        color: #fff;
+        transition: color 0.5s;
+        background-color: var(--color-accent);
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
     }

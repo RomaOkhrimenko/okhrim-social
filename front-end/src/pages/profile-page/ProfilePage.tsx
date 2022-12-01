@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 
 import styles from './ProfilePage.module.scss';
 import ProfileTop from "../../templates/profile-page/profile-top/ProfileTop";
@@ -15,8 +15,10 @@ import {IGame} from "../../models/IGame";
 import {IGenre} from "../../models/IGenre";
 import {IUser} from "../../models/IUser";
 import {updateUser} from "../../store/redux/actions/userAction";
+import {Context} from "../../store/context/context";
 
 const ProfilePage = () => {
+
     // PAGE STATUS
     const [isMe, setIsMe] = useState(false)
     const [isFriend, setIsFriend] = useState(false)

@@ -13,8 +13,6 @@ export const socket = io(SOCKET_URL)
 
 const ContextProvider: FC<IProps>= ({children}) => {
     const [isFindUsers, setIsFindUsers] = useState<boolean>(false)
-    const [currentChatDefault, setCurrentChatDefault] = useState<ICurrentChat>({} as ICurrentChat)
-
     const [rooms, setRooms] = useState([])
     const [currentRoom, setCurrentRoom] = useState<ICurrentRoom | null>(null)
     const [members, setMembers] = useState([])
@@ -24,8 +22,7 @@ const ContextProvider: FC<IProps>= ({children}) => {
 
     return (
         <Context.Provider value={{
-            isFindUsers, setIsFindUsers, currentChatDefault,
-            setCurrentChatDefault, socket, rooms, setRooms,
+            isFindUsers, setIsFindUsers, socket, rooms, setRooms,
             currentRoom, setCurrentRoom, members, setMembers, messages, setMessages,
             privateMemberMsg, setPrivateMemberMsg,
             newMessages, setNewMessages

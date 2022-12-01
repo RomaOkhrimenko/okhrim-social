@@ -20,6 +20,16 @@ class MessageController {
             next(e)
         }
     }
+
+    async resetMessages(req, res, next) {
+        try {
+            const data = await MessageService.resetMessages(req.params.id, req.body.roomId)
+
+            return res.json(data)
+        } catch (e) {
+            next(e)
+        }
+    }
 }
 
 module.exports = new MessageController()

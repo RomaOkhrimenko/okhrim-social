@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef, useContext} from 'react';
+import React, {useEffect, useContext} from 'react';
 
 import styles from './ChatPage.module.scss'
 import Messages from "../../templates/chat-page/chat/Messages";
@@ -9,11 +9,12 @@ import Welcome from "../../templates/chat-page/welcome/Welcome";
 import {Context} from "../../store/context/context";
 import {ICurrentChat} from "../../models/ICurrentChat";
 import {notify} from "../../utils/notification/alerts";
-import {addNotifications, resetNotifications} from "../../store/redux/slices/userSlice";
+import {addNotifications} from "../../store/redux/slices/userSlice";
+import {resetNotificationAction} from "../../store/redux/actions/userAction";
 
 const Chat = () => {
     const user = useAppSelector(state => state.user.user)
-    const {currentRoom, currentChatDefault, socket, members, setMembers, setCurrentRoom,} = useContext(Context)
+    const {currentRoom, socket, members, setMembers, setCurrentRoom,} = useContext(Context)
     const dispatch = useAppDispatch()
     const joinRoom = (room: any, isPublic = false) => {
         if(!user) {
@@ -21,7 +22,7 @@ const Chat = () => {
         }
         socket.emit('join-room', room)
 
-        dispatch(resetNotifications(room))
+        dispatch(resetNotificationAction(user._id, room))
     }
 
     socket.off('notifications').on('notifications', (room: any) => {
@@ -55,6 +56,13 @@ const Chat = () => {
         }
         getFriends()
     }, [currentRoom])
+
+    useEffect(() => {
+        if(currentRoom?._id) {
+            const roomId = orderIds(user._id, currentRoom._id)
+            joinRoom(roomId)
+        }
+    }, [])
 
 
     return (

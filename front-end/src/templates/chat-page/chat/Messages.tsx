@@ -49,12 +49,12 @@ const Messages: FC<IProps> = ({user, resetCurrentChat, orderIds}) => {
         const minutes = today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes()
         const time = today.getHours() + ':' + minutes
         const roomId = orderIds(user._id, currentRoom?._id!)
-        socket.emit('message-room', roomId, message, user._id, time, todayDate)
+        socket.emit('message-room', roomId, message, user._id, time, todayDate, currentRoom?._id)
     }
 
 
     useEffect(() => {
-        scrollRef.current?.scrollIntoView({behavior: 'smooth'})
+        scrollRef.current?.scrollIntoView()
     }, [messages])
 
     return (
@@ -65,7 +65,7 @@ const Messages: FC<IProps> = ({user, resetCurrentChat, orderIds}) => {
                 {
                     messages && messages.map((messages: IMessages) => {
                         return <>
-                            <p>{messages._id}</p>
+                            <p key={messages._id}>{messages._id}</p>
                             {messages.messagesByDate.map((message) => {
                                 return (
                                     <div ref={scrollRef} key={uuidv4()}>

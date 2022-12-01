@@ -277,8 +277,8 @@ class AuthenticationService {
     }
 
     async deleteFriendRequest(userId, friendId) {
-        const userUpdate = await UserModel.updateOne({_id: userId}, {$pull: {'profile.friends.outcomeRequests': friendId}})
-        await UserModel.updateOne({_id: friendId}, {$pull: {'profile.friends.incomeRequests': userId}});
+        const userUpdate = await UserModel.updateOne({_id: friendId}, {$pull: {'profile.friends.outcomeRequests': userId}})
+        await UserModel.updateOne({_id: userId}, {$pull: {'profile.friends.incomeRequests': friendId}});
 
         return userUpdate;
     }

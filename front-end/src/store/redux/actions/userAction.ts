@@ -1,6 +1,6 @@
 import {AppDispatch} from "../index";
 import {instance} from "../../../http";
-import {setUser} from "../slices/userSlice";
+import {resetNotifications, setUser} from "../slices/userSlice";
 import {notify, notifyUpdate} from "../../../utils/notification/alerts";
 import {IUser} from "../../../models/IUser";
 import {toast} from "react-toastify";
@@ -79,5 +79,14 @@ export const updateUser = (userId: string, data: IUser) => async (dispatch: AppD
         dispatch(setUser(response))
     } catch (e: any) {
         notifyUpdate(loading, e?.response?.data?.message, 'error')
+    }
+}
+
+export const resetNotificationAction = (userId: string, roomId: string) => async (dispatch: AppDispatch) => {
+    try {
+        await instance.post(`/reset-messages/${userId}`, {roomId})
+        dispatch(resetNotifications(roomId))
+    } catch (e) {
+        console.log(e)
     }
 }

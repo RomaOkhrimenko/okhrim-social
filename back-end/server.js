@@ -59,9 +59,16 @@ io.on('connection', (socket) => {
         socket.emit('room-messages', roomMessages)
     })
 
-    socket.on('message-room', async(room, content, sender, time, date) => {
+    socket.on('message-room', async(room, content, sender, time, date, friendId) => {
         await Message.create({content, from: sender, time, date, to: room});
+        const friend = await User.findById(friendId)
         let roomMessages = await getLastMessagesFromRoom(room);
+        if(friend?.status === 'offline') {
+            friend.newMessages[room] = friend.newMessages[room] + 1;
+            const newMessages = friend.newMessages
+            await User.updateOne({_id: friendId}, {$set: {newMessages}})
+        }
+
         roomMessages = sortRoomMessagesByDate(roomMessages);
         // sending message to room
         io.to(room).emit('room-messages', roomMessages);

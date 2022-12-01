@@ -17,15 +17,15 @@ interface IProps {
 }
 
 const FriendBlock: FC<IProps> = ({isFriend, username, image, id}) => {
-    const {setCurrentChatDefault} = useContext(Context)
+    const {setCurrentRoom} = useContext(Context)
     const userId = useAppSelector(state => state.user.user._id)
     const dispatch = useAppDispatch()
     const [isMenuActive, setIsMenuActive] = useState(false)
     const navigate = useNavigate()
 
     const onSendMessage = () => {
-        setCurrentChatDefault({id, username, _id: id, image})
-        navigate('/messages')
+        setCurrentRoom({profile: {username, image: {url: image}}, _id: id})
+        navigate(`/messages`)
     }
 
     return (

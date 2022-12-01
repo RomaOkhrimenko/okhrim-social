@@ -2,20 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dba08ae9-1172-4671-90e8-be40d841b5b8" name="Changes" comment="fix chat">
-      <change afterPath="$PROJECT_DIR$/front-end/src/models/IMessages.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/controllers/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/controllers/message.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/controllers/message.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/routes/message.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/message.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/services/message.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/services/message.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/services/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/models/IContext.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/models/IContext.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/pages/chat-page/Chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/chat-page/Chat.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/services/AuthService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/services/AuthService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/actions/authAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/actions/authAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/slices/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/slices/userSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/pages/friends-page/FriendsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/friends-page/FriendsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/pages/profile-page/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/pages/profile-page/ProfilePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/store/context/context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/context/context.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/store/redux/actions/userAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/store/redux/actions/userAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/blocks/find-user-block/FindUserBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/find-user-block/FindUserBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/blocks/friend-block/FriendBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/blocks/friend-block/FriendBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/Messages.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/message-input/MessageInput.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/chat/message-input/MessageInput.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/contacts/Contacts.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/contacts/Contacts.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/chat-page/contacts/Contacts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/chat-page/contacts/Contacts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/templates/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/forms/filter-user-form/FilterUserForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/forms/filter-user-form/FilterUserForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/layout/Layout.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/layout/Layout.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/layout/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/navbar/Navbar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/navbar/Navbar.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/profile-page/profile-top/ProfileTop.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/profile-page/profile-top/ProfileTop.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/templates/profile-page/profile-top/ProfileTop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/templates/profile-page/profile-top/ProfileTop.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +144,15 @@
       <workItem from="1669193145449" duration="8970000" />
       <workItem from="1669384923394" duration="3847000" />
       <workItem from="1669399433541" duration="5418000" />
-      <workItem from="1669435413837" duration="3151000" />
+      <workItem from="1669435413837" duration="3336000" />
+      <workItem from="1669468694948" duration="2000" />
+      <workItem from="1669618051950" duration="383000" />
+      <workItem from="1669618450124" duration="4447000" />
+      <workItem from="1669713464402" duration="2989000" />
+      <workItem from="1669727614318" duration="591000" />
+      <workItem from="1669799783190" duration="1577000" />
+      <workItem from="1669877332247" duration="279000" />
+      <workItem from="1669901115995" duration="4182000" />
     </task>
     <task id="LOCAL-00001" summary="fix: front-end, add: platforms route">
       <created>1666553147899</created>
@@ -232,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669404293414</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix chat">
+      <created>1669438693018</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1669438693018</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

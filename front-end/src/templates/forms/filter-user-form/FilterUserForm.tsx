@@ -16,7 +16,7 @@ interface IProps {
 
 const FilterUserForm: FC<IProps> = ({gameName, gameId, userId}) => {
     const dispatch = useAppDispatch()
-    const {setIsFindUsers} = useContext(Context)
+    const {setIsFindUsers, isFindUsers} = useContext(Context)
     const [gender, setGender] = useState('male')
     const navigate = useNavigate()
     const onFindUser = () => {
