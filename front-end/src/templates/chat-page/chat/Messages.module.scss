@@ -6,7 +6,7 @@
   margin-right: 10rem;
 
   @media (max-width: 768px) {
-    height: 82vh;
+    height: calc(100vh - 9.2rem - 7.2rem);
     display: flex;
     flex-direction: column;
   }

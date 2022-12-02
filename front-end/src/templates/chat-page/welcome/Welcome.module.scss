@@ -5,12 +5,25 @@
   color: white;
   flex-direction: column;
   padding-bottom: 6rem;
+
+  @media (max-width: 768px) {
+    margin-right: 6rem;
+    padding-bottom: 10rem;
+  }
   img {
     height: 30rem;
+
+    @media (max-width: 768px) {
+      height: 20rem;
+    }
   }
 
   h1 {
     font-size: 3rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
   }
   span {
     color: #4e0eff;
