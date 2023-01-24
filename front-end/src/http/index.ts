@@ -1,7 +1,8 @@
 import axios from 'axios'
 import {AuthResponse} from "../models/response/AuthResponse";
 
-export const API_URL = `https://okhrim.site/api`
+export const BASE_URL = `https://okhrim.site`
+export const API_URL = `${BASE_URL}/api`
 
 const $api = axios.create({
     withCredentials: true,
