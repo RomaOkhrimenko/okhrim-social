@@ -1,9 +1,10 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {IUser} from "../../../models/IUser";
+import {API_URL} from "../../../http";
 
 export const userApi = createApi({
     reducerPath: 'userApi',
-    baseQuery: fetchBaseQuery({baseUrl: `https://okhrim-social.onrender.com/api/`}),
+    baseQuery: fetchBaseQuery({baseUrl: `${API_URL}/`}),
     endpoints: (build) => ({
         getAnotherUser: build.query<IUser, { id: string }>({
             query: ({id}) => `/user/${id}`

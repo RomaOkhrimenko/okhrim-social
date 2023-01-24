@@ -21,8 +21,6 @@ const emailPattern = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`
 
 const LoginForm: FC<IProps> = ({isLogin}) => {
     const user = useAppSelector(state => state.user.user)
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
 
     const {socket} = useContext(Context)
@@ -34,12 +32,12 @@ const LoginForm: FC<IProps> = ({isLogin}) => {
 
     const onSubmit = (data: {email?: string, password?: string}) => {
             if(isLogin) {
-                dispatch(login(data.email!, data.password!))
+                dispatch(login(data.email?.trim()!, data.password?.trim()!))
                     .then(() => {
                         socket.emit('new-user')
                     })
             } else {
-                dispatch(registration(data.email!, data.password!))
+                dispatch(registration(data.email?.trim()!, data.password?.trim()!))
                     .then(() => navigate('/settings-account'))
             }
             reset()
@@ -56,13 +54,12 @@ const LoginForm: FC<IProps> = ({isLogin}) => {
     return (
         <form className={styles.login_form} onSubmit={handleSubmit(onSubmit)}>
             <div className={`${styles.login_form__input} ${errors?.email?.message ? styles.error : ''}`}>
-                <Input value={email} register={register} name={'email'} registerOptions={{required: 'Type your email', pattern: {value: emailPattern, message: 'Email is wrong'}}} setValue={setEmail} placeholder={'Enter Email'} />
+                <input type="text" {...register('email', {required: 'Type your email', pattern: {value: emailPattern, message: 'Email is wrong'}})} placeholder={'Enter Email'}/>
                 {errors?.email && <span className={styles.login_form__input_error}>{`${errors?.email?.message}` || 'Error'}</span>}
             </div>
 
             <div className={`${styles.login_form__input} ${errors?.password?.message ? styles.error : ''}`}>
-                <Input value={password} name={'password'} register={register} registerOptions={{required: 'Type your password', minLength: {value: 4, message: 'Min length 4 Symbols'}, maxLength: {value: 20, message: 'Max length 20 Symbols'}}}
-                       setValue={setPassword} placeholder={'Enter Password'} type={showPassword ? 'text' : 'password'} />
+                <input type={showPassword ? 'text' : 'password'} {...register('password', {minLength: {value: 4, message: 'Min length 4 Symbols'}, maxLength: {value: 20, message: 'Max length 20 Symbols'}})} placeholder={'Enter Password'} />
                 {!showPassword ? <AiOutlineEyeInvisible onClick={() => setShowPassword(true)} /> : <AiOutlineEye onClick={() => setShowPassword(false)} />}
                 {errors?.password && <span className={styles.login_form__input_error}>{`${errors?.password?.message}` || 'Error'}</span>}
             </div>
@@ -77,6 +74,24 @@ const LoginForm: FC<IProps> = ({isLogin}) => {
             {/*<div className={styles.login_form__google}>*/}
             {/*    <Button className={styles.login_form__google_btn}><GoogleIco /></Button>*/}
             {/*</div>*/}
+
+            <div className={styles.test_accounts}>
+                <div className={styles.test_accounts__account}>
+                    <h3>First test account</h3>
+                    <div>
+                        <span>Email: roma.okhrimenko@gmail.com</span>
+                        <span>Password: tgrf7531</span>
+                    </div>
+                </div>
+
+                <div className={styles.test_accounts__account}>
+                    <h3>Second test account</h3>
+                    <div>
+                        <span>Email: roma.okhrim16@gmail.com</span>
+                        <span>Password: tgrf7531</span>
+                    </div>
+                </div>
+            </div>
         </form>
     );
 };

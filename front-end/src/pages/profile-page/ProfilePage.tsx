@@ -25,13 +25,15 @@ const ProfilePage = () => {
     const [isCandidate, setIsCandidate] = useState(false)
     const [isOutComeRequest, setIsOutComeRequest] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
-    //----------------
 
+    //----------------
     const [username, setUsername] = useState<string>('')
     const [platforms, setPlatforms] = useState<IPlatform[]>([])
     const [games, setGames] = useState<IGame[]>([])
     const [genres, setGenres] = useState<IGenre[]>([])
     const [image, setImage] = useState<string>('')
+
+    const {setIsFindUsers} = useContext(Context)
 
 
     const dispatch = useAppDispatch()
@@ -107,6 +109,10 @@ const ProfilePage = () => {
             setGenres(user.profile?.genres!)
             setUsername(user.profile?.username!)
             setImage(user.profile?.image?.url!)
+        }
+
+        if(isMe) {
+            setIsFindUsers(false)
         }
     }, [isMe])
 

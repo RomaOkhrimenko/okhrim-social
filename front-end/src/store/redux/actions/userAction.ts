@@ -87,6 +87,6 @@ export const resetNotificationAction = (userId: string, roomId: string) => async
         await instance.post(`/reset-messages/${userId}`, {roomId})
         dispatch(resetNotifications(roomId))
     } catch (e) {
-        console.log(e)
+        notify('error', 'Something went wrong!')
     }
 }

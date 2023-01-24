@@ -119,8 +119,6 @@ const ProfileTop: FC<IProfileTop> = ({image, setImage, handleEditStatus, onCance
                             {isEditUsername && <Input value={name} setValue={handleUsernameValue} name={'username'} />}
                             {isEdit && <AiOutlineEdit onClick={handleUsernameStatus} />}
                         </div>
-                        {/*<span>19 years</span>*/}
-                        {/*<p>{description}</p>*/}
                     </div>
                 </div>
                 {isMe ?

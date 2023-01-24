@@ -13,13 +13,13 @@ import {useGetGenresQuery} from "../../../store/redux/api/genresApi";
 import {IGenre} from "../../../models/IGenre";
 import EditGenres from "../../modals/edit-genres/EditGenres";
 
-interface IProps {
+type IProps = {
     genres: IGenre[],
     isEdit?: boolean,
     setGenres?: (arg0: IGenre[]) => void
 }
 
-const ProfileGenres: FC<IProps> = ({genres, isEdit, setGenres}) => {
+const ProfileGenres = ({genres, isEdit, setGenres}: IProps) => {
     const [isEditGenres, setIsEditGenres] = useState(false)
     const [chosenGenres, setChosenGenres] = useState<IGenre[]>([])
 
@@ -44,8 +44,8 @@ const ProfileGenres: FC<IProps> = ({genres, isEdit, setGenres}) => {
         })
 
         setChosenGenres([])
-        genres.map((platform) => {
-            setChosenGenres(prev => [...prev, platform])
+        genres.map((genre) => {
+            setChosenGenres(prev => [...prev, genre])
         })
     }, [genres])
 
@@ -61,7 +61,7 @@ const ProfileGenres: FC<IProps> = ({genres, isEdit, setGenres}) => {
 
             <div className={'profile-genres-swiper'}>
                 <div className={`${styles.profile_genres__container} swiper-wrapper`}>
-                    {genres.map((genre) => {
+                    {genres?.map((genre) => {
                         return (
                             <div key={genre._id} className={`${styles.profile_genres__genre} swiper-slide`}>
                                 {genre.name}

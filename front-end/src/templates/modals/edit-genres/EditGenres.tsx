@@ -52,7 +52,7 @@ const EditPlatforms: FC<IProps> = ({saveGenres, genres, chooseGenres, handleEdit
             <span>Choose your favorite genres</span>
 
             <div className={styles.edit_genres__platforms}>
-                {genres.map((item) => {
+                {genres?.map((item) => {
                     return <PlatformBlock key={item._id} onClick={handleGenres} data={item} isActive={isChoseGenre(item._id)} image={item.image} name={item.name} />
                 })}
             </div>

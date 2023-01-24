@@ -6,6 +6,7 @@ import axios from "axios";
 import {AuthResponse} from "../../../models/response/AuthResponse";
 import {notify, notifyUpdate} from "../../../utils/notification/alerts";
 import {toast} from "react-toastify";
+import {API_URL} from "../../../http";
 
 export const login = (email: string, password: string) => async (dispatch: AppDispatch) => {
     const loading = toast.loading("Loading...")
@@ -52,7 +53,7 @@ export const logout = (userId: string, newMessages: any) => async (dispatch: App
 export const checkAuth = () => async (dispatch: AppDispatch) => {
     dispatch(setLoading(true))
     try {
-        const response = await axios.get<AuthResponse>(`https://okhrim-social.onrender.com/api/refresh`, {withCredentials: true})
+        const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
         localStorage.setItem('token', response.data.accessToken)
         dispatch(setAuth(true))
         dispatch(setUser(response.data.user))

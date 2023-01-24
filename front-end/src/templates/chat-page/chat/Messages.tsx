@@ -39,7 +39,6 @@ const Messages: FC<IProps> = ({user, resetCurrentChat, orderIds}) => {
     const todayDate = getFormattedDate()
 
     socket.off('room-messages').on("room-messages", (roomMessages: any) => {
-        console.log('messages', roomMessages)
         setMessages(roomMessages)
     })
 
@@ -64,8 +63,8 @@ const Messages: FC<IProps> = ({user, resetCurrentChat, orderIds}) => {
             <div className={`${styles.messages__list}`}>
                 {
                     messages && messages.map((messages: IMessages) => {
-                        return <>
-                            <p key={messages._id}>{messages._id}</p>
+                        return <div key={messages._id} style={{width: '100%'}}>
+                            <p >{messages._id}</p>
                             {messages.messagesByDate.map((message) => {
                                 return (
                                     <div ref={scrollRef} key={uuidv4()}>
@@ -81,7 +80,7 @@ const Messages: FC<IProps> = ({user, resetCurrentChat, orderIds}) => {
                                     </div>
                                 );
                             })}
-                        </>
+                        </div>
                     })
                 }
             </div>

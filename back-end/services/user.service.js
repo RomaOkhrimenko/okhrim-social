@@ -171,7 +171,6 @@ class AuthenticationService {
             })
 
             user.profile.friends.friends.forEach((item) => {
-                console.log(filteredUsers)
                 const prevUserIndex = filteredUsers.findIndex((user) => user._id === item.toString())
                 array = filteredUsers.filter((copy) => copy._id !== item.toString())
                 filteredUsers.splice(prevUserIndex, 1)

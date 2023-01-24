@@ -8,7 +8,7 @@ interface IProps {
     children: ReactNode
 }
 
-const SOCKET_URL = 'https://okhrim-social.onrender.com'
+const SOCKET_URL = 'http://localhost:4000'
 export const socket = io(SOCKET_URL)
 
 const ContextProvider: FC<IProps>= ({children}) => {

@@ -192,3 +192,20 @@
     }
   }
 }
+
+.test_accounts {
+  &__account {
+    margin-bottom: 1rem;
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+    span {
+      font-size: 1.4rem;
+    }
+  }
+}

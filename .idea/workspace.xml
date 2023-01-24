@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="dba08ae9-1172-4671-90e8-be40d841b5b8" name="Changes" comment="&#10;fix api" />
+    <list default="true" id="7ba59da9-9202-43a4-a35e-7be7323466bd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/okrim-social.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/roma" />
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2GPKv1W6tqR5kseMiLEiBaODEm7" />
+  <component name="ProjectId" id="2JEAJXIDrZmGtdNdWt2ORCvm4UT" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,250 +31,31 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Рома/Desktop/okhrim-social/back-end/services&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/projects/main-projects/okhrim-social/back-end&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Рома\\Desktop\\okhrim-social\\front-end\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\projects\\main-projects\\okhrim-social\\front-end\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Рома\Desktop\okhrim-social\back-end\services" />
-      <recent name="C:\Users\Рома\Desktop\okhrim-social\back-end\controllers" />
-      <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\templates\modals\add-games" />
-      <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\templates\modals\edit-genres" />
-      <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\templates\chat-page\chat\friend-message" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\templates\forms" />
-      <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\templates\blocks" />
-      <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\assets\images\svg" />
-      <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\assets\images\png" />
-      <recent name="C:\Users\Рома\Desktop\okrim-social\front-end\src\templates\profile-page" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dba08ae9-1172-4671-90e8-be40d841b5b8" name="Changes" comment="" />
-      <created>1666285007660</created>
+      <changelist id="7ba59da9-9202-43a4-a35e-7be7323466bd" name="Changes" comment="" />
+      <created>1671632798184</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1666285007660</updated>
-      <workItem from="1666285009098" duration="246000" />
-      <workItem from="1666427329364" duration="5163000" />
-      <workItem from="1666439400321" duration="1196000" />
-      <workItem from="1666508342916" duration="4673000" />
-      <workItem from="1666547104419" duration="5022000" />
-      <workItem from="1666553102701" duration="185000" />
-      <workItem from="1666592338724" duration="7149000" />
-      <workItem from="1666610960364" duration="23000" />
-      <workItem from="1666628154010" duration="8495000" />
-      <workItem from="1666681923185" duration="4419000" />
-      <workItem from="1666855457608" duration="5666000" />
-      <workItem from="1666882376613" duration="5000" />
-      <workItem from="1666891028482" duration="2992000" />
-      <workItem from="1666938526400" duration="5247000" />
-      <workItem from="1666963712592" duration="590000" />
-      <workItem from="1666983966954" duration="2252000" />
-      <workItem from="1667027260505" duration="3810000" />
-      <workItem from="1667042197182" duration="6146000" />
-      <workItem from="1667122139304" duration="2991000" />
-      <workItem from="1667151169415" duration="740000" />
-      <workItem from="1667202518254" duration="3499000" />
-      <workItem from="1667230582559" duration="9033000" />
-      <workItem from="1667307074666" duration="3000" />
-      <workItem from="1667317061440" duration="5080000" />
-      <workItem from="1667373289725" duration="4638000" />
-      <workItem from="1667408335069" duration="4077000" />
-      <workItem from="1667457415695" duration="5812000" />
-      <workItem from="1667466666342" duration="1965000" />
-      <workItem from="1667485828053" duration="3799000" />
-      <workItem from="1667543864463" duration="22773000" />
-      <workItem from="1667752860570" duration="3627000" />
-      <workItem from="1667807509757" duration="4851000" />
-      <workItem from="1667852873140" duration="1305000" />
-      <workItem from="1667891239448" duration="3436000" />
-      <workItem from="1667921939181" duration="11430000" />
-      <workItem from="1667973715865" duration="5978000" />
-      <workItem from="1667990011473" duration="5912000" />
-      <workItem from="1668016592071" duration="4740000" />
-      <workItem from="1668068421534" duration="8234000" />
-      <workItem from="1668151434411" duration="6887000" />
-      <workItem from="1668245293220" duration="14758000" />
-      <workItem from="1668333189540" duration="265000" />
-      <workItem from="1668412692182" duration="6247000" />
-      <workItem from="1668431264564" duration="12403000" />
-      <workItem from="1668501517402" duration="10656000" />
-      <workItem from="1668583133835" duration="3151000" />
-      <workItem from="1668603223902" duration="8203000" />
-      <workItem from="1668671814404" duration="5390000" />
-      <workItem from="1668704658341" duration="1631000" />
-      <workItem from="1668754304316" duration="10121000" />
-      <workItem from="1668851061441" duration="2515000" />
-      <workItem from="1668958139319" duration="592000" />
-      <workItem from="1669014250519" duration="10932000" />
-      <workItem from="1669033654294" duration="1825000" />
-      <workItem from="1669055114447" duration="5559000" />
-      <workItem from="1669193145449" duration="8970000" />
-      <workItem from="1669384923394" duration="3847000" />
-      <workItem from="1669399433541" duration="5418000" />
-      <workItem from="1669435413837" duration="3336000" />
-      <workItem from="1669468694948" duration="2000" />
-      <workItem from="1669618051950" duration="383000" />
-      <workItem from="1669618450124" duration="4447000" />
-      <workItem from="1669713464402" duration="2989000" />
-      <workItem from="1669727614318" duration="591000" />
-      <workItem from="1669799783190" duration="1577000" />
-      <workItem from="1669877332247" duration="279000" />
-      <workItem from="1669901115995" duration="4182000" />
+      <updated>1671632798184</updated>
+      <workItem from="1671632799977" duration="254000" />
+      <workItem from="1674534130914" duration="4218000" />
+      <workItem from="1674540121681" duration="448000" />
     </task>
-    <task id="LOCAL-00001" summary="fix: front-end, add: platforms route">
-      <created>1666553147899</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1666553147899</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add filter games">
-      <created>1666943259233</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1666943259233</updated>
-    </task>
-    <task id="LOCAL-00003" summary="fix: friends request, chat page, friends page">
-      <created>1667244277265</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1667244277265</updated>
-    </task>
-    <task id="LOCAL-00004" summary="fix: routes &#10;add: real time chat app">
-      <created>1667995572890</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1667995572890</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Global redesign and complete chat">
-      <created>1668023579650</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1668023579650</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Fix: auth, chat, token , change profile genre and platforms to slider">
-      <created>1668158455361</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1668158455361</updated>
-    </task>
-    <task id="LOCAL-00007" summary=".">
-      <created>1668854882472</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1668854882472</updated>
-    </task>
-    <task id="LOCAL-00008" summary="add pending">
-      <created>1669032696094</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1669032696094</updated>
-    </task>
-    <task id="LOCAL-00009" summary="add .env variable">
-      <created>1669056416297</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1669056416297</updated>
-    </task>
-    <task id="LOCAL-00010" summary="try">
-      <created>1669058668095</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1669058668095</updated>
-    </task>
-    <task id="LOCAL-00011" summary="try 2">
-      <created>1669059667199</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1669059667199</updated>
-    </task>
-    <task id="LOCAL-00012" summary="try 3">
-      <created>1669060123889</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1669060123889</updated>
-    </task>
-    <task id="LOCAL-00013" summary="try 4">
-      <created>1669060935914</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1669060935914</updated>
-    </task>
-    <task id="LOCAL-00014" summary="fix chat">
-      <created>1669404293414</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1669404293414</updated>
-    </task>
-    <task id="LOCAL-00015" summary="fix chat">
-      <created>1669438693018</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1669438693018</updated>
-    </task>
-    <task id="LOCAL-00016" summary="&#10;fix api">
-      <created>1669905867886</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1669905867886</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: front-end, add: platforms route" />
-    <MESSAGE value="add filter games" />
-    <MESSAGE value="fix: friends request, chat page, friends page" />
-    <MESSAGE value="fix: routes &#10;add: real time chat app" />
-    <MESSAGE value="Global redesign and complete chat" />
-    <MESSAGE value="Fix: auth, chat, token , change profile genre and platforms to slider" />
-    <MESSAGE value="." />
-    <MESSAGE value="add pending" />
-    <MESSAGE value="add .env variable" />
-    <MESSAGE value="try" />
-    <MESSAGE value="try 2" />
-    <MESSAGE value="try 3" />
-    <MESSAGE value="try 4" />
-    <MESSAGE value="fix chat" />
-    <MESSAGE value="&#10;fix api" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;fix api" />
   </component>
 </project>
